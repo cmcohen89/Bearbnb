@@ -2,7 +2,7 @@
 
 ## Database Schema Design
 
-`<insert database schema design here>`
+<!-- ![alt text](https://github.com/cmcohen/[reponame]/blob/[branch]/image.jpg?raw=true) -->
 
 ## API Documentation
 
