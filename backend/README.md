@@ -2,7 +2,7 @@
 
 ## Database Schema Design
 
-![alt text](https://github.com/cmcohen89/API-project/blob/main/backend/airbnb-database-schema.png)
+![database schema](https://github.com/cmcohen89/API-project/blob/dev/backend/database-redux.png)
 
 ## API Documentation
 
