@@ -45,9 +45,13 @@ router.get(
   restoreUser,
   async (req, res, next) => {
     const { user } = req;
+    if (!user) {
+      res.status(401).json({message: 'Authentication required', statusCode: 401})
+    }
+
     const userSpots = await Spot.findAll({
       where: {
-        id: user.id
+        ownerId: user.id
       },
       include: [
         {
@@ -67,7 +71,8 @@ router.get(
           [Sequelize.fn("AVG", Sequelize.col("Reviews.stars")), "avgRating"],
           [Sequelize.col('url'), 'previewImage']
         ]
-      }
+      },
+      group: ["Spot.id"]
     });
 
     return res.json({'Spots': userSpots});
@@ -147,6 +152,138 @@ router.get(
     });
 
     return res.json({'Spots': allSpots});
+  }
+)
+
+// Add an image to a Spot based on the Spot's id
+router.post(
+  '/:spotId/images',
+  restoreUser,
+  async (req, res, next) => {
+    const { user } = req;
+    if (!user) {
+      res.status(401).json({message: 'Authentication required', statusCode: 401})
+    }
+
+    const spot = await Spot.findByPk(req.params.spotId);
+
+    if (!spot) {
+      res.status(404).json({message: "Spot couldn't be found", statusCode: 404})
+    }
+
+    if (spot.ownerId != user.id) {
+      res.status(403).json({message: "Forbidden", statusCode: 403});
+    }
+
+    const { url, preview } = req.body;
+
+    let newSpotImg = await SpotImage.create({
+      spotId: +req.params.spotId,
+      url,
+      preview
+    })
+
+    newSpotImg = newSpotImg.toJSON()
+    delete newSpotImg.spotId
+    delete newSpotImg.createdAt
+    delete newSpotImg.updatedAt
+
+    res.json(newSpotImg)
+  }
+)
+
+// Create a Spot
+router.post(
+  '/',
+  validateBody,
+  restoreUser,
+  async (req, res, next) => {
+    const { user } = req;
+    if (!user) {
+      res.status(401).json({message: 'Authentication required', statusCode: 401})
+    }
+
+    const {address, city, state, country, lat, lng, name, description, price} = req.body;
+
+    const newSpot = await Spot.create({
+      ownerId: user.id,
+      address,
+      city,
+      state,
+      country,
+      lat,
+      lng,
+      name,
+      description,
+      price
+    })
+
+    res.json(newSpot);
+  }
+)
+
+// Edit a Spot
+router.put(
+  '/:spotId',
+  validateBody,
+  restoreUser,
+  async (req, res, next) => {
+    const { user } = req;
+    if (!user) {
+      res.status(401).json({message: 'Authentication required', statusCode: 401})
+    }
+
+    const spot = await Spot.findByPk(req.params.spotId);
+    if (!spot) {
+      res.status(404).json({message: "Spot couldn't be found", statusCode: 404})
+    }
+
+    if (spot.ownerId != user.id) {
+      res.status(403).json({message: "Forbidden", statusCode: 403});
+    }
+
+    const {address, city, state, country, lat, lng, name, description, price} = req.body;
+
+    spot.set({
+      address,
+      city,
+      state,
+      country,
+      lat,
+      lng,
+      name,
+      description,
+      price
+    });
+
+    await spot.save();
+
+    res.json(spot)
+  }
+)
+
+// Delete a Spot
+router.delete(
+  '/:spotId',
+  restoreUser,
+  async (req, res, next) => {
+    const {user} = req;
+    if (!user) {
+      res.status(401).json({message: 'Authentication required', statusCode: 401})
+    }
+
+    const spot = await Spot.findByPk(req.params.spotId);
+    if (!spot) {
+      return res.status(404).json({message: "Spot couldn't be found", statusCode: 404})
+    }
+
+    if (spot.ownerId != user.id) {
+      return res.status(403).json({message: "Forbidden", statusCode: 403});
+    }
+
+    await spot.destroy()
+
+    return res.json({message: "Successfully deleted", statusCode: 200})
   }
 )
 
