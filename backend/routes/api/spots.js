@@ -186,10 +186,10 @@ router.get(
       attributes: {
         include: [
           [Sequelize.fn("AVG", Sequelize.col("Reviews.stars")), "avgRating"],
-          [Sequelize.col('url'), 'previewImage']
+          [Sequelize.col('SpotImages.url'), 'previewImage']
         ]
       },
-      group: ['Spot.id', 'SpotImages.url']
+      group: ['Spot.id']
     });
 
     return res.json({ 'Spots': allSpots });
