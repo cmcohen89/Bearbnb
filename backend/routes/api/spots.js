@@ -105,6 +105,10 @@ router.get(
       }
     });
 
+    if (!spot.id) {
+      return res.status(404).json({message: "Spot couldn't be found", statusCode: 404})
+    }
+
     spot = spot.toJSON()
     const ownerObj = spot.User
     delete spot.User
