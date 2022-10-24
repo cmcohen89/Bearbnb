@@ -1,7 +1,7 @@
 const express = require('express')
 
 const Sequelize = require('sequelize');
-const { Spot, User, SpotImage, Review, ReviewImage } = require('../../db/models');
+const { Spot, User, SpotImage, Review, ReviewImage, Booking } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
@@ -118,6 +118,51 @@ router.get(
     })
 
     res.json({ Reviews: reviews })
+  }
+)
+
+// Get all Bookings for a Spot based on the Spot's id
+router.get(
+  '/:spotId/bookings',
+  restoreUser,
+  async (req, res, next) => {
+    const { user } = req;
+
+    const spot = await Spot.findOne({
+      where: {
+        id: req.params.spotId
+      }
+    })
+
+    if (!spot) {
+      return res.status(404).json({ message: "Spot couldn't be found", statusCode: 404 })
+    }
+
+    if (spot.ownerId != user.id) {
+      const bookings = await Booking.findAll({
+        where: {
+          spotId: spot.id
+        },
+        attributes: ['spotId', 'startDate', 'endDate']
+      })
+
+      res.json({Bookings: bookings});
+
+    } else {
+      const bookings = await Booking.findAll({
+        where: {
+          spotId: spot.id
+        },
+        include: [
+          {
+            model: User,
+            attributes: ['id', 'firstName', 'lastName']
+          }
+        ]
+      })
+
+      res.json({Bookings: bookings});
+    }
   }
 )
 
@@ -286,6 +331,91 @@ router.post(
     delete newSpotImg.updatedAt
 
     res.json(newSpotImg)
+  }
+)
+
+// Create a Booking from a Spot based on the Spot's id
+router.post(
+  '/:spotId/bookings',
+  restoreUser,
+  async (req, res, next) => {
+    const { user } = req;
+    if (!user) {
+      return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
+    }
+
+    const { startDate, endDate } = req.body;
+    const startDateObj = new Date(startDate);
+    const endDateObj = new Date(endDate);
+
+    if (endDateObj <= startDateObj) {
+      return res.status(400).json({
+        message: 'Validation error',
+        statusCode: 400,
+        errors: {
+          endDate: 'endDate cannot be on or before startDate'
+        }
+      })
+    }
+
+    const spot = await Spot.findByPk(req.params.spotId);
+    if (!spot) {
+      return res.status(404).json({ message: "Spot couldn't be found", statusCode: 404 })
+    }
+
+    if (spot.ownerId == user.id) {
+      return res.status(400).json({
+        message: "You cannot book your own spot!",
+        statusCode: 400
+      })
+    }
+
+    const currentBookingDates = await Booking.findAll({
+      where: {
+        spotId: spot.id
+      },
+      attributes: ['startDate', 'endDate'],
+      raw: true
+    })
+
+    for (let obj of currentBookingDates) {
+      currentStartDateObj = new Date(obj.startDate);
+      currentEndDateObj = new Date(obj.endDate);
+      if (startDateObj >= currentStartDateObj && startDateObj <= currentEndDateObj) {
+        return res.status(403).json({
+          message: "Sorry, this spot is already booked for the specified dates",
+          statusCode: 403,
+          errors: {
+            startDate: "Start date conflicts with an existing booking"
+          }
+        })
+      } else if (endDateObj >= currentStartDateObj && endDateObj <= currentEndDateObj) {
+        return res.status(403).json({
+          message: "Sorry, this spot is already booked for the specified dates",
+          statusCode: 403,
+          errors: {
+            endDate: "End date conflicts with an existing booking"
+          }
+        })
+      } else if (startDateObj <= currentStartDateObj && endDateObj >= currentEndDateObj) {
+        return res.status(403).json({
+          message: "Sorry, this spot is already booked for the specified dates",
+          statusCode: 403,
+          errors: {
+            endDate: "Chosen dates conflict with an existing booking"
+          }
+        })
+      }
+    }
+
+    const newBooking = await Booking.create({
+      spotId: spot.id,
+      userId: user.id,
+      startDate: startDate,
+      endDate: endDate
+    })
+
+    res.json(newBooking)
   }
 )
 
