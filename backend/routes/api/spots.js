@@ -5,6 +5,7 @@ const { Spot, User, SpotImage, Review, ReviewImage } = require('../../db/models'
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
+const { validationResult } = require('express-validator');
 
 const router = express.Router();
 
@@ -36,7 +37,7 @@ const validateSpotBody = [
   check('price')
     .exists({ checkFalsy: true })
     .withMessage('Price per day is required'),
-  handleValidationErrors
+  // handleValidationErrors
 ];
 
 const validateReviewBody = [
@@ -281,6 +282,18 @@ router.post(
   validateSpotBody,
   restoreUser,
   async (req, res, next) => {
+    const errorFormatter = ({ location, msg, param, value, nestedErrors }) => {
+      return `${msg}`;
+    };
+    const result = validationResult(req).formatWith(errorFormatter);
+    if (!result.isEmpty()) {
+      return res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: result.mapped()
+      });
+    }
+
     const { user } = req;
     if (!user) {
       return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
@@ -311,6 +324,18 @@ router.put(
   validateSpotBody,
   restoreUser,
   async (req, res, next) => {
+    const errorFormatter = ({ location, msg, param, value, nestedErrors }) => {
+      return `${msg}`;
+    };
+    const result = validationResult(req).formatWith(errorFormatter);
+    if (!result.isEmpty()) {
+      return res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: result.mapped()
+      });
+    }
+
     const { user } = req;
     if (!user) {
       return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
