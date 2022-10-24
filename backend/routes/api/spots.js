@@ -47,7 +47,7 @@ const validateReviewBody = [
   check('stars')
     .exists({ checkFalsy: true })
     .withMessage('Stars must be an integer from 1 to 5'),
-  handleValidationErrors
+  // handleValidationErrors
 ];
 
 // Get spots owned by current user
@@ -130,7 +130,8 @@ router.get(
     let images = await SpotImage.findAll({
       where: {
         spotId
-      }
+      },
+      attributes: ['id', 'url', 'preview']
     })
 
     let spot = await Spot.findByPk(spotId, {
@@ -203,6 +204,18 @@ router.post(
   validateReviewBody,
   restoreUser,
   async (req, res, next) => {
+    const errorFormatter = ({ location, msg, param, value, nestedErrors }) => {
+      return `${msg}`;
+    };
+    const result = validationResult(req).formatWith(errorFormatter);
+    if (!result.isEmpty()) {
+      return res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: result.mapped()
+      });
+    }
+
     const { user } = req;
     if (!user) {
       return res.status(401).json({ message: 'Authentication required', statusCode: 401 })

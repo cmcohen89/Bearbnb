@@ -5,6 +5,7 @@ const { Spot, User, SpotImage, Review, ReviewImage, Booking } = require('../../d
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
+const { validationResult } = require('express-validator');
 
 const router = express.Router();
 
@@ -15,7 +16,7 @@ const validateReviewBody = [
   check('stars')
     .exists({ checkFalsy: true })
     .withMessage('Stars must be an integer from 1 to 5'),
-  handleValidationErrors
+  // handleValidationErrors
 ];
 
 // Get all Reviews of Current User
@@ -102,7 +103,6 @@ router.post(
       raw: true
     })
 
-    console.log(currImgNum)
     if (currImgNum.numImgs >= 10) {
       return res.status(403).json({message: "Maximum number of images for this resource was reached", statusCode: 403})
     }
@@ -129,6 +129,18 @@ router.put(
   restoreUser,
   validateReviewBody,
   async (req, res, next) => {
+    const errorFormatter = ({ location, msg, param, value, nestedErrors }) => {
+      return `${msg}`;
+    };
+    const result = validationResult(req).formatWith(errorFormatter);
+    if (!result.isEmpty()) {
+      return res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: result.mapped()
+      });
+    }
+
     const { user } = req;
     if (!user) {
       return res.status(401).json({message: 'Authentication required', statusCode: 401})
