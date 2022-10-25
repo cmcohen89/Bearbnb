@@ -64,30 +64,40 @@ router.get(
     const userSpots = await Spot.findAll({
       where: {
         ownerId: user.id
-      },
-      include: [
-        {
-          model: SpotImage,
-          where: {
-            preview: true
-          },
-          attributes: []
-        },
-        {
-          model: Review,
-          attributes: []
-        }
-      ],
-      attributes: {
-        include: [
-          [Sequelize.fn("AVG", Sequelize.col("Reviews.stars")), "avgRating"],
-          [Sequelize.col('url'), 'previewImage']
-        ]
-      },
-      group: ["Spot.id"]
+      }
     });
 
-    return res.json({ 'Spots': userSpots });
+    const result = [];
+
+      for (let spot of userSpots) {
+        spot = spot.toJSON()
+        const reviews = await Review.findAll({
+          where: {
+            spotId: spot.id
+          },
+          attributes: ['stars']
+        })
+
+        let sum = 0;
+        for (let obj of reviews) {
+          sum += obj.stars;
+        }
+
+        spot.avgRating = sum / reviews.length;
+
+        const img = await SpotImage.findOne({
+          where: {
+            spotId: spot.id,
+            preview: true
+          }
+        })
+
+        spot.previewImage = img.url;
+
+        result.push(spot);
+      }
+
+    return res.json({ 'Spots': result });
   }
 )
 
@@ -185,25 +195,36 @@ router.get(
         {
           model: User,
           attributes: ['id', 'firstName', 'lastName']
-        },
-        {
-          model: Review,
-          attributes: []
         }
-      ],
-      attributes: {
-        include: [
-          [Sequelize.fn("COUNT", Sequelize.col("Reviews.id")), "numReviews"],
-          [Sequelize.fn("AVG", Sequelize.col("Reviews.stars")), "avgStarRating"]
-        ]
-      }
+      ]
     });
 
     if (!spot.id) {
       return res.status(404).json({ message: "Spot couldn't be found", statusCode: 404 })
     }
 
+    const result = [];
+
+
     spot = spot.toJSON()
+    const reviews = await Review.findAll({
+      where: {
+        spotId: spot.id
+      },
+      attributes: ['stars']
+    })
+
+    spot.numReviews = reviews.length;
+
+    let sum = 0;
+    for (let obj of reviews) {
+      sum += obj.stars;
+    }
+
+    spot.avgStarRating = sum / reviews.length;
+
+    result.push(spot);
+
     const ownerObj = spot.User
     delete spot.User
     spot.SpotImages = images
@@ -219,33 +240,46 @@ router.get(
   async (req, res, next) => {
 
     if (!Object.keys(req.query).length) {
-      const allSpots = await Spot.findAll({
-        include: [
-          {
-            model: SpotImage,
-            where: {
-              preview: true
-            },
-            attributes: []
+      const allSpots = await Spot.findAll();
+
+      const result = [];
+
+      for (let spot of allSpots) {
+        spot = spot.toJSON()
+        const reviews = await Review.findAll({
+          where: {
+            spotId: spot.id
           },
-          {
-            model: Review,
-            attributes: []
+          attributes: ['stars']
+        })
+
+        let sum = 0;
+        for (let obj of reviews) {
+          sum += obj.stars;
+        }
+
+        spot.avgRating = sum / reviews.length;
+
+        const img = await SpotImage.findOne({
+          where: {
+            spotId: spot.id,
+            preview: true
           }
-        ],
-        attributes: {
-          include: [
-            [Sequelize.fn("AVG", Sequelize.col("Reviews.stars")), "avgRating"],
-            [Sequelize.col('SpotImages.url'), 'previewImage']
-          ]
-        },
-        group: ['Spot.id'],
-      });
+        })
+
+        spot.previewImage = img.url;
+
+        result.push(spot);
+      }
+
+
 
       return res.json({
-        'Spots': allSpots,
+        'Spots': result,
       });
+
     } else {
+
       let { page, size, maxLat, minLat, minLng, maxLng, minPrice, maxPrice } = req.query;
 
       const pagination = {};
