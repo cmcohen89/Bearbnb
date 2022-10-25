@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 const { Spot, User, SpotImage, Review, ReviewImage, Booking } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-const { setTokenCookie, restoreUser } = require('../../utils/auth');
+const { setTokenCookie, restoreUser, requireAuth } = require('../../utils/auth');
 const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
 
@@ -54,7 +54,6 @@ const validateReviewBody = [
 // Get spots owned by current user
 router.get(
   '/current',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
     if (!user) {
@@ -135,7 +134,6 @@ router.get(
 // Get all Bookings for a Spot based on the Spot's id
 router.get(
   '/:spotId/bookings',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
 
@@ -439,7 +437,6 @@ router.get(
 router.post(
   '/:spotId/reviews',
   validateReviewBody,
-  restoreUser,
   async (req, res, next) => {
     const errorFormatter = ({ location, msg, param, value, nestedErrors }) => {
       return `${msg}`;
@@ -493,7 +490,7 @@ router.post(
 // Add an image to a Spot based on the Spot's id
 router.post(
   '/:spotId/images',
-  restoreUser,
+  requireAuth,
   async (req, res, next) => {
     const { user } = req;
     if (!user) {
@@ -529,7 +526,6 @@ router.post(
 // Create a Booking from a Spot based on the Spot's id
 router.post(
   '/:spotId/bookings',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
     if (!user) {
@@ -615,7 +611,6 @@ router.post(
 router.post(
   '/',
   validateSpotBody,
-  restoreUser,
   async (req, res, next) => {
     const errorFormatter = ({ location, msg, param, value, nestedErrors }) => {
       return `${msg}`;
@@ -657,7 +652,6 @@ router.post(
 router.put(
   '/:spotId',
   validateSpotBody,
-  restoreUser,
   async (req, res, next) => {
     const errorFormatter = ({ location, msg, param, value, nestedErrors }) => {
       return `${msg}`;
@@ -708,7 +702,6 @@ router.put(
 // Delete a Spot
 router.delete(
   '/:spotId',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
     if (!user) {

@@ -11,7 +11,6 @@ const router = express.Router();
 
 router.delete(
   '/:imageId',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
     if (!user) {

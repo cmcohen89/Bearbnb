@@ -22,7 +22,6 @@ const validateReviewBody = [
 // Get all Reviews of Current User
 router.get(
   '/current',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
     if (!user) {
@@ -78,7 +77,6 @@ router.get(
 // Add an image to a Review based on the Review's id
 router.post(
   '/:reviewId/images',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
     if (!user) {
@@ -126,7 +124,6 @@ router.post(
 // Edit a Review
 router.put(
   '/:reviewId',
-  restoreUser,
   validateReviewBody,
   async (req, res, next) => {
     const errorFormatter = ({ location, msg, param, value, nestedErrors }) => {
@@ -168,7 +165,6 @@ router.put(
 // Delete a Review
 router.delete(
   '/:reviewId',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
     if (!user) {

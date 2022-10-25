@@ -12,7 +12,6 @@ const router = express.Router();
 // Get all of the Current User's Bookings
 router.get(
   '/current',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
     if (!user) {
@@ -29,7 +28,6 @@ router.get(
           attributes: ['id', 'ownerId', 'address', 'city', 'state', 'country', 'lat', 'lng', 'name', 'price']
         }
       ],
-      // group: ['Booking.id']
     })
 
     const result = [];
@@ -59,7 +57,6 @@ router.get(
 
 router.put(
   '/:bookingId',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
     if (!user) {
@@ -150,7 +147,6 @@ router.put(
 
 router.delete(
   '/:bookingId',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
     if (!user) {
