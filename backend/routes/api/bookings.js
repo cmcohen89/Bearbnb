@@ -29,7 +29,7 @@ router.get(
           attributes: ['id', 'ownerId', 'address', 'city', 'state', 'country', 'lat', 'lng', 'name', 'price']
         }
       ],
-      group: ['Booking.id']
+      // group: ['Booking.id']
     })
 
     const result = [];

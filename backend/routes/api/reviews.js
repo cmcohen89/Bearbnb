@@ -47,7 +47,7 @@ router.get(
           attributes: ['id', 'url']
         }
       ],
-      group: ['Review.id']
+      // group: ['Review.id']
     })
 
     const result = [];
