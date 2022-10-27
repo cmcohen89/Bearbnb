@@ -89,12 +89,12 @@ router.post(
     const { firstName, lastName, email, username, password } = req.body;
     let user = await User.signup({ firstName, lastName, email, username, password });
 
-    await setTokenCookie(res, user);
+    const token = await setTokenCookie(res, user);
 
     user = user.toJSON()
     delete user.createdAt;
     delete user.updatedAt;
-    user.token = ""
+    user.token = token;
 
     return res.json(user);
   }

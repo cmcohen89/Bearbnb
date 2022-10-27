@@ -48,12 +48,12 @@ router.post(
       return res.status(401).json({message: 'Invalid credentials', statusCode: 401})
     }
 
-    await setTokenCookie(res, user);
+    const token = await setTokenCookie(res, user);
 
     user = user.toJSON()
     delete user.createdAt;
     delete user.updatedAt;
-    user.token = ''
+    user.token = token
     console.log(user)
 
     return res.json(user);
