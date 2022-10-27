@@ -40,14 +40,18 @@ router.get(
         },
         {
           model: Spot,
-          attributes: ['id', 'ownerId', 'address', 'city', 'state', 'country', 'lat', 'lng', 'name', 'price']
+          attributes: ['id', 'ownerId', 'address', 'city', 'state', 'country', 'lat', 'lng', 'name', 'price'],
+          include: [
+            {
+              model: SpotImage
+            }
+          ]
         },
         {
           model: ReviewImage,
           attributes: ['id', 'url']
         }
       ],
-      // group: ['Review.id']
     })
 
     const result = [];
@@ -56,20 +60,33 @@ router.get(
       review = review.toJSON()
 
       let spotObj = review.Spot;
+      let spotImgObj = spotObj.SpotImages
+      let imgUrl = spotImgObj.url
+      spotObj.previewImg = imgUrl
 
-      const img = await SpotImage.findOne({
-        where: {
-          spotId: spotObj.id,
-          preview: true
-        }
-      });
-
-      spotObj.previewImage = img.url;
-
-      delete review.Spot;
+      delete review.Spot
       review.Spot = spotObj;
-      result.push(review);
+      result.push(review)
     }
+
+    // for (let review of reviews) {
+    //   review = review.toJSON()
+
+    //   let spotObj = review.Spot;
+
+    //   const img = await SpotImage.findOne({
+    //     where: {
+    //       spotId: spotObj.id,
+    //       preview: true
+    //     }
+    //   });
+
+    //   spotObj.previewImage = img.url;
+
+    //   delete review.Spot;
+    //   review.Spot = spotObj;
+    //   result.push(review);
+    // }
 
     res.json({'Reviews': result});
   }

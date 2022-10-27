@@ -1,7 +1,7 @@
 const express = require('express')
 
 const Sequelize = require('sequelize');
-const { Spot, User, SpotImage, Review, ReviewImage, Booking } = require('../../db/models');
+const { Spot, User, SpotImage, Review, ReviewImage, Booking, sequelize } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
@@ -64,44 +64,48 @@ router.get(
     const userSpots = await Spot.findAll({
       where: {
         ownerId: user.id
-      }
-    });
-
-    const result = [];
-
-      for (let spot of userSpots) {
-        spot = spot.toJSON()
-        const reviews = await Review.findAll({
+      },
+      include: [
+        {
+          model: Review,
+        },
+        {
+          model: SpotImage,
+          attributes: ['url'],
           where: {
-            spotId: spot.id
-          },
-          attributes: ['stars']
-        })
-
-        if (!reviews.length) {
-          spot.avgRating = 'No reviews for this spot!'
-        } else {
-          let sum = 0;
-          for (let obj of reviews) {
-            sum += obj.stars;
-          }
-
-          spot.avgRating = sum / reviews.length;
-        }
-
-        const img = await SpotImage.findOne({
-          where: {
-            spotId: spot.id,
             preview: true
           }
-        })
+        }
+      ],
+    });
 
-        spot.previewImage = img.url;
+    const result = []
 
-        result.push(spot);
+    for (let spot of userSpots) {
+
+      spot = spot.toJSON();
+      const imgUrl = spot.SpotImages[0].url;
+      delete spot.SpotImages
+      spot.previewImg = imgUrl;
+
+      if (!spot.Reviews.length) {
+        spot.avgRating = "No reviews for this spot!"
+      } else {
+        let sum = 0;
+        for (let review of spot.Reviews) {
+          sum += review.stars;
+        }
+
+        let avg = sum / spot.Reviews.length;
+
+        spot.avgRating = avg;
       }
 
-    return res.json({ 'Spots': result });
+      delete spot.Reviews;
+
+      result.push(spot);
+    }
+    return res.json({Spots: result})
   }
 )
 
@@ -247,39 +251,44 @@ router.get(
   async (req, res, next) => {
 
     if (!Object.keys(req.query).length) {
-      const allSpots = await Spot.findAll();
+      const allSpots = await Spot.findAll({
+        include: [
+          {
+            model: Review
+          },
+          {
+            model: SpotImage
+          }
+        ]
+      });
 
       const result = [];
 
       for (let spot of allSpots) {
-        spot = spot.toJSON()
-        const reviews = await Review.findAll({
-          where: {
-            spotId: spot.id
-          },
-          attributes: ['stars']
-        })
+        spot = spot.toJSON();
 
-        let sum = 0;
-        for (let obj of reviews) {
-          sum += obj.stars;
+        const img = spot.SpotImages[0].url
+        spot.previewImg = img;
+        delete spot.SpotImages;
+
+        if (!spot.Reviews.length) {
+          spot.avgRating = "No reviews for this spot!"
+        } else {
+          let sum = 0;
+          for (let review of spot.Reviews) {
+            sum += review.stars;
+          }
+
+          let avg = sum / spot.Reviews.length;
+
+          spot.avgRating = avg;
         }
 
-        spot.avgRating = sum / reviews.length;
+        delete spot.Reviews;
 
-        const img = await SpotImage.findOne({
-          where: {
-            spotId: spot.id,
-            preview: true
-          }
-        })
+        result.push(spot)
 
-        spot.previewImage = img.url;
-
-        result.push(spot);
       }
-
-
 
       return res.json({
         'Spots': result,
