@@ -408,7 +408,7 @@ router.get(
           })
         }
 
-        where.price = { [Op.gte]: maxPrice }
+        where.price = { [Op.lte]: maxPrice }
       }
 
       const allSpots = await Spot.findAll({
