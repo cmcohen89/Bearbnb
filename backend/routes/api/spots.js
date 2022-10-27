@@ -78,12 +78,16 @@ router.get(
           attributes: ['stars']
         })
 
-        let sum = 0;
-        for (let obj of reviews) {
-          sum += obj.stars;
-        }
+        if (!reviews.length) {
+          spot.avgRating = 'No reviews for this spot!'
+        } else {
+          let sum = 0;
+          for (let obj of reviews) {
+            sum += obj.stars;
+          }
 
-        spot.avgRating = sum / reviews.length;
+          spot.avgRating = sum / reviews.length;
+        }
 
         const img = await SpotImage.findOne({
           where: {
@@ -216,13 +220,16 @@ router.get(
 
     spot.numReviews = reviews.length;
 
-    let sum = 0;
-    for (let obj of reviews) {
-      sum += obj.stars;
+    if (!reviews.length) {
+      spot.avgStarRating = 'No reviews for this spot!'
+    } else {
+      let sum = 0;
+      for (let obj of reviews) {
+        sum += obj.stars;
+      }
+
+      spot.avgStarRating = sum / reviews.length;
     }
-
-    spot.avgStarRating = sum / reviews.length;
-
     result.push(spot);
 
     const ownerObj = spot.User
@@ -486,7 +493,7 @@ router.post(
       stars
     })
 
-    res.json(newReview)
+    res.status(201).json(newReview)
   }
 )
 
@@ -649,7 +656,7 @@ router.post(
       price
     })
 
-    res.json(newSpot);
+    res.status(201).json(newSpot);
   }
 )
 
