@@ -53,7 +53,7 @@ router.get(
       result.push(booking);
     }
 
-    res.json({'Bookings': result})
+    res.json({ 'Bookings': result })
   }
 )
 
@@ -68,7 +68,7 @@ router.put(
 
     const booking = await Booking.findByPk(req.params.bookingId)
     if (!booking) {
-      return res.status(404).json({message: "Booking couldn't be found", statusCode: 404})
+      return res.status(404).json({ message: "Booking couldn't be found", statusCode: 404 })
     }
     if (booking.userId != user.id) {
       return res.status(403).json({ message: "Forbidden", statusCode: 403 });
@@ -90,7 +90,7 @@ router.put(
 
     const today = Date.now();
     if (endDateObj < today) {
-      return res.status(403).json({message: "Past bookings can't be modified", statusCode: 403})
+      return res.status(403).json({ message: "Past bookings can't be modified", statusCode: 403 })
     }
 
     const spot = await Spot.findOne({
@@ -159,7 +159,7 @@ router.delete(
 
     const booking = await Booking.findByPk(req.params.bookingId)
     if (!booking) {
-      return res.status(404).json({message: "Booking couldn't be found", statusCode: 404})
+      return res.status(404).json({ message: "Booking couldn't be found", statusCode: 404 })
     }
 
     const spot = await Spot.findByPk(booking.spotId)

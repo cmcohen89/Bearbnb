@@ -20,7 +20,7 @@ router.delete(
 
     const img = await SpotImage.findByPk(req.params.imageId);
     if (!img) {
-      return res.status(404).json({message: "Spot Image couldn't be found", statusCode: 404})
+      return res.status(404).json({ message: "Spot Image couldn't be found", statusCode: 404 })
     }
 
     const spot = await Spot.findByPk(img.spotId)

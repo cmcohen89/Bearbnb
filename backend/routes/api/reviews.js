@@ -11,7 +11,7 @@ const router = express.Router();
 
 const validateReviewBody = [
   check('review')
-    .exists({ checkFalsy: true})
+    .exists({ checkFalsy: true })
     .withMessage('Review text is required'),
   check('stars')
     .exists({ checkFalsy: true })
@@ -26,7 +26,7 @@ router.get(
   async (req, res, next) => {
     const { user } = req;
     if (!user) {
-      return res.status(401).json({message: 'Authentication required', statusCode: 401})
+      return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
     }
 
     let reviews = await Review.findAll({
@@ -71,7 +71,7 @@ router.get(
       result.push(review);
     }
 
-    res.json({'Reviews': result});
+    res.json({ 'Reviews': result });
   }
 )
 
@@ -82,12 +82,12 @@ router.post(
   async (req, res, next) => {
     const { user } = req;
     if (!user) {
-      return res.status(401).json({message: 'Authentication required', statusCode: 401})
+      return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
     }
 
     const review = await Review.findByPk(req.params.reviewId);
     if (!review) {
-      return res.status(404).json({message: "Review couldn't be found", statusCode: 404})
+      return res.status(404).json({ message: "Review couldn't be found", statusCode: 404 })
     }
     if (user.id != review.userId) {
       return res.status(403).json({ message: "Forbidden", statusCode: 403 });
@@ -104,7 +104,7 @@ router.post(
     })
 
     if (currImgNum.numImgs >= 10) {
-      return res.status(403).json({message: "Maximum number of images for this resource was reached", statusCode: 403})
+      return res.status(403).json({ message: "Maximum number of images for this resource was reached", statusCode: 403 })
     }
 
     const { url } = req.body;
@@ -143,12 +143,12 @@ router.put(
 
     const { user } = req;
     if (!user) {
-      return res.status(401).json({message: 'Authentication required', statusCode: 401})
+      return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
     }
 
     const currReview = await Review.findByPk(req.params.reviewId);
     if (!currReview) {
-      return res.status(404).json({message: "Review couldn't be found", statusCode: 404})
+      return res.status(404).json({ message: "Review couldn't be found", statusCode: 404 })
     }
     if (user.id != currReview.userId) {
       return res.status(403).json({ message: "Forbidden", statusCode: 403 });
@@ -172,12 +172,12 @@ router.delete(
   async (req, res, next) => {
     const { user } = req;
     if (!user) {
-      return res.status(401).json({message: 'Authentication required', statusCode: 401})
+      return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
     }
 
     const currReview = await Review.findByPk(req.params.reviewId);
     if (!currReview) {
-      return res.status(404).json({message: "Review couldn't be found", statusCode: 404})
+      return res.status(404).json({ message: "Review couldn't be found", statusCode: 404 })
     }
     if (user.id != currReview.userId) {
       return res.status(403).json({ message: "Forbidden", statusCode: 403 });
@@ -185,7 +185,7 @@ router.delete(
 
     await currReview.destroy();
 
-    return res.json({ message: "Successfully deleted", statusCode: 200})
+    return res.json({ message: "Successfully deleted", statusCode: 200 })
   }
 )
 
