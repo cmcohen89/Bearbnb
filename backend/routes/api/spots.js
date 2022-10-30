@@ -83,7 +83,7 @@ router.get(
       let sum = 0;
       for (let review of spot.Reviews) sum += review.stars;
       const avg = sum / spot.Reviews.length;
-      spot.avgRating = avg;
+      avg ? spot.avgRating = avg : spot.avgRating = "No reviews for this spot!";
       delete spot.Reviews;
 
       const imgUrl = spot.SpotImages[0].url;
@@ -203,7 +203,7 @@ router.get(
     let sum = 0;
     for (let review of spot.Reviews) sum += review.stars;
     const avg = sum / spot.Reviews.length;
-    spot.avgStarRating = avg;
+    avg ? spot.avgStarRating = avg : spot.avgStarRating = "No reviews for this spot!"
     delete spot.Reviews;
 
     return res.json(spot);
@@ -218,45 +218,22 @@ router.get(
 
     const pagination = {};
     const errors = {};
+    const where = {};
 
     page = parseInt(page);
     size = parseInt(size);
 
-    if (page && (!Number.isInteger(page) || page < 1)) errors.page = "Page must be greater than or equal to 1";
-    if (size && (!Number.isInteger(size) || size < 1)) errors.size = "Size must be greater than or equal to 1";
-
-    if (minLat && !Number.isInteger(minLat)) {
-      if (!Number.isInteger(minLat)) errors.minLat = "Minimum latitude is invalid";
-      where.latitude = { [Op.gte]: minLat }
-    }
-
-    if (maxLat) {
-      if (!Number.isInteger(maxLat)) errors.maxLat = "Maximum latitude is invalid";
-      where.latitude = { [Op.lte]: maxLat }
-    }
-
-    if (minLng) {
-      if (!Number.isInteger(minLng)) errors.minLng = "Minimum longitude is invalid";
-      where.longitude = { [Op.gte]: minLng }
-    }
-
-    if (maxLng) {
-      if (!Number.isInteger(maxLng)) errors.maxLng = "Maximum longitude is invalid";
-      where.longitude = { [Op.gte]: maxLng }
-    }
-
-    if (minPrice) {
-      if (minPrice < 0) errors.minPrice = "Minimum price must be greater than or equal to 0"
-      where.price = { [Op.gte]: minPrice }
-    }
-
-    if (maxPrice) {
-      if (maxPrice < 0) errors.maxPrice = "Maximum price must be greater than or equal to 0"
-      where.price = { [Op.lte]: maxPrice }
-    }
+    if (req.query.page && (!Number.isInteger(page) || page < 1)) errors.page = "Page must be greater than or equal to 1";
+    if (req.query.size && (!Number.isInteger(size) || size < 1)) errors.size = "Size must be greater than or equal to 1";
+    if (minLat) !Number.isInteger(minLat) ? errors.minLat = "Minimum latitude is invalid" : where.latitude = { [Op.gte]: minLat };
+    if (maxLat) !Number.isInteger(maxLat) ? errors.maxLat = "Maximum latitude is invalid" : where.latitude = { [Op.lte]: maxLat };
+    if (minLng) !Number.isInteger(minLng) ? errors.minLng = "Minimum longitude is invalid" : where.longitude = { [Op.gte]: minLng };
+    if (maxLng) !Number.isInteger(maxLng) ? errors.maxLng = "Maximum longitude is invalid" : where.longitude = { [Op.gte]: maxLng };
+    if (minPrice) minPrice < 0 ? errors.minPrice = "Minimum price must be greater than or equal to 0" : where.price = { [Op.gte]: minPrice };
+    if (maxPrice) maxPrice < 0 ? errors.maxPrice = "Maximum price must be greater than or equal to 0" : where.price = { [Op.lte]: maxPrice };
 
     if (Object.keys(errors).length) {
-      res.status(400).json({
+      return res.status(400).json({
         message: "Validation Error",
         statusCode: 400,
         errors
@@ -268,8 +245,6 @@ router.get(
 
     if (page) pagination.limit = size;
     if (size) pagination.offset = size * (page - 1);
-
-    const where = {};
 
     const allSpots = await Spot.findAll({
       where,
