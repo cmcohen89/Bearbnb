@@ -53,8 +53,7 @@ router.post(
     user = user.toJSON()
     delete user.createdAt;
     delete user.updatedAt;
-    user.token = token
-    console.log(user)
+    user.token = token;
 
     return res.json(user);
   }

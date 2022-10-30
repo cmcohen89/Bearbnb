@@ -22,12 +22,9 @@ const validateReviewBody = [
 // Get all Reviews of Current User
 router.get(
   '/current',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
-    if (!user) {
-      return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
-    }
+    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
 
     let reviews = await Review.findAll({
       where: {
@@ -40,14 +37,22 @@ router.get(
         },
         {
           model: Spot,
-          attributes: ['id', 'ownerId', 'address', 'city', 'state', 'country', 'lat', 'lng', 'name', 'price']
+          attributes: ['id', 'ownerId', 'address', 'city', 'state', 'country', 'lat', 'lng', 'name', 'price'],
+          include: [
+            {
+              model: SpotImage,
+              where: {
+                preview: true
+              },
+              attributes: ['url']
+            }
+          ]
         },
         {
           model: ReviewImage,
           attributes: ['id', 'url']
-        }
-      ],
-      // group: ['Review.id']
+        },
+      ]
     })
 
     const result = [];
@@ -55,19 +60,9 @@ router.get(
     for (let review of reviews) {
       review = review.toJSON()
 
-      let spotObj = review.Spot;
+      review.Spot.previewImage = review.Spot.SpotImages[0].url;
+      delete review.Spot.SpotImages;
 
-      const img = await SpotImage.findOne({
-        where: {
-          spotId: spotObj.id,
-          preview: true
-        }
-      });
-
-      spotObj.previewImage = img.url;
-
-      delete review.Spot;
-      review.Spot = spotObj;
       result.push(review);
     }
 
@@ -78,20 +73,14 @@ router.get(
 // Add an image to a Review based on the Review's id
 router.post(
   '/:reviewId/images',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
-    if (!user) {
-      return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
-    }
+    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 });
 
     const review = await Review.findByPk(req.params.reviewId);
-    if (!review) {
-      return res.status(404).json({ message: "Review couldn't be found", statusCode: 404 })
-    }
-    if (user.id != review.userId) {
-      return res.status(403).json({ message: "Forbidden", statusCode: 403 });
-    }
+    if (!review) return res.status(404).json({ message: "Review couldn't be found", statusCode: 404 });
+
+    if (user.id != review.userId) return res.status(403).json({ message: "Forbidden", statusCode: 403 });
 
     const currImgNum = await ReviewImage.findOne({
       where: {
@@ -103,9 +92,7 @@ router.post(
       raw: true
     })
 
-    if (currImgNum.numImgs >= 10) {
-      return res.status(403).json({ message: "Maximum number of images for this resource was reached", statusCode: 403 })
-    }
+    if (currImgNum.numImgs >= 10) return res.status(403).json({ message: "Maximum number of images for this resource was reached", statusCode: 403 });
 
     const { url } = req.body;
 
@@ -126,7 +113,6 @@ router.post(
 // Edit a Review
 router.put(
   '/:reviewId',
-  restoreUser,
   validateReviewBody,
   async (req, res, next) => {
     const errorFormatter = ({ location, msg, param, value, nestedErrors }) => {
@@ -142,17 +128,12 @@ router.put(
     }
 
     const { user } = req;
-    if (!user) {
-      return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
-    }
+    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 });
 
     const currReview = await Review.findByPk(req.params.reviewId);
-    if (!currReview) {
-      return res.status(404).json({ message: "Review couldn't be found", statusCode: 404 })
-    }
-    if (user.id != currReview.userId) {
-      return res.status(403).json({ message: "Forbidden", statusCode: 403 });
-    }
+    if (!currReview) return res.status(404).json({ message: "Review couldn't be found", statusCode: 404 });
+
+    if (user.id != currReview.userId) return res.status(403).json({ message: "Forbidden", statusCode: 403 });
 
     const { review, stars } = req.body;
 
@@ -168,20 +149,14 @@ router.put(
 // Delete a Review
 router.delete(
   '/:reviewId',
-  restoreUser,
   async (req, res, next) => {
     const { user } = req;
-    if (!user) {
-      return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
-    }
+    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 });
 
     const currReview = await Review.findByPk(req.params.reviewId);
-    if (!currReview) {
-      return res.status(404).json({ message: "Review couldn't be found", statusCode: 404 })
-    }
-    if (user.id != currReview.userId) {
-      return res.status(403).json({ message: "Forbidden", statusCode: 403 });
-    }
+    if (!currReview) return res.status(404).json({ message: "Review couldn't be found", statusCode: 404 });
+
+    if (user.id != currReview.userId) return res.status(403).json({ message: "Forbidden", statusCode: 403 });
 
     await currReview.destroy();
 
