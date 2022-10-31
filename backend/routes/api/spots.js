@@ -256,6 +256,10 @@ router.get(
             preview: true
           },
           attributes: ['url']
+        },
+        {
+          model: Review,
+          attributes: ['stars']
         }
       ]
     });
@@ -267,6 +271,11 @@ router.get(
 
       spot.previewImage = spot.SpotImages[0].url;
       delete spot.SpotImages
+
+      let sum = 0;
+      for (let review of spot.Reviews) sum += review.stars;
+      spot.avgRating = sum / spot.Reviews.length;
+      delete spot.Reviews;
 
       result.push(spot);
     }
