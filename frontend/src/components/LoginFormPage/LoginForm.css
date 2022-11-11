@@ -30,7 +30,6 @@ button {
   font-weight: bold;
   border: 2px solid rgba(0, 0, 0, 0.535);
   border-radius: 5px;
-  margin-top: 20px;
 }
 
 button:hover {
