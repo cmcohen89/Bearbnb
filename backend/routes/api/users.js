@@ -96,7 +96,7 @@ router.post(
     delete user.updatedAt;
     user.token = token;
 
-    return res.json(user);
+    return res.json({ user });
   }
 );
 
