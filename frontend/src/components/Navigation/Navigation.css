@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: bisque;
+  background-color: rgb(101, 133, 165);
 }
 
 ul {
@@ -15,15 +15,16 @@ ul {
 li {
   display: inline-flex;
   align-items: center;
-  border: 4px solid rosybrown;
+  border: 4px solid rgba(255, 160, 122, 0.597);
   border-radius: 10px;
+  background-color: rgba(232, 255, 255, 0.612);
 }
 
 a {
   text-decoration: none;
   font-size: 16pt;
   font-weight: bold;
-  padding: 10px 30px;
+  margin: 10px 30px;
   color: white;
   text-shadow: 2px 2px 4px black;
 }
