@@ -1,4 +1,4 @@
-# AirBnB Clone
+# ChristoBearBnb
 
 ## Database Schema Design
 
