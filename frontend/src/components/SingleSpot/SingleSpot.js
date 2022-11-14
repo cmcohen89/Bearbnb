@@ -1,10 +1,8 @@
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { getSpotById } from '../../store/spots';
-import './SingleSpot.css';
-import { getSpots } from '../../store/spots';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getSpotById, getSpots } from '../../store/spots';
+import './SingleSpot.css';
 
 const SingleSpot = () => {
   const dispatch = useDispatch();

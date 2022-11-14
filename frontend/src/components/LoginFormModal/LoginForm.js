@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import '../LoginFormPage/LoginForm.css'
+import './LoginFormModal.css'
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function LoginForm() {
     <form onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
+          <li className='errors' key={idx}>{error}</li>
         ))}
       </ul>
       <label>
