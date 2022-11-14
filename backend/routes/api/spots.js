@@ -70,6 +70,7 @@ router.get(
         {
           model: SpotImage,
           where: { preview: true },
+          required: false,
           attributes: ['url']
         }
       ]
@@ -86,9 +87,11 @@ router.get(
       avg ? spot.avgRating = avg : spot.avgRating = "No reviews for this spot!";
       delete spot.Reviews;
 
-      const imgUrl = spot.SpotImages[0].url;
-      spot.previewImage = imgUrl;
-      delete spot.SpotImages;
+      if (spot.SpotImages.length) {
+        const imgUrl = spot.SpotImages[0].url;
+        spot.previewImage = imgUrl;
+        delete spot.SpotImages;
+      }
 
       result.push(spot);
     }
@@ -255,6 +258,7 @@ router.get(
           where: {
             preview: true
           },
+          required: false,
           attributes: ['url']
         },
         {
@@ -269,8 +273,10 @@ router.get(
     for (let spot of allSpots) {
       spot = spot.toJSON()
 
-      spot.previewImage = spot.SpotImages[0].url;
-      delete spot.SpotImages
+      if (spot.SpotImages.length) {
+        spot.previewImage = spot.SpotImages[0].url;
+        delete spot.SpotImages
+      }
 
       let sum = 0;
       for (let review of spot.Reviews) sum += review.stars;
