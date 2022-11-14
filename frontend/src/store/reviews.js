@@ -1,6 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD_REVIEWS = 'reviews/LOAD';
+// const LOAD_USER_REVIEWS = 'reviews/USER_LOAD'
 const ADD_REVIEW = 'reviews/ADD';
 const ADD_REVIEW_IMG = 'reviews/ADD_IMG';
 const UPDATE_REVIEW = 'reviews/UPDATE';
@@ -13,10 +14,19 @@ export const loadReviews = (reviews) => {
   };
 }
 
-export const addReview = (review) => {
+// export const loadUserReviews = (reviews) => {
+//   return {
+//     type: LOAD_USER_REVIEWS,
+//     reviews
+//   };
+// }
+
+export const addReview = (review, user, spot) => {
   return {
     type: ADD_REVIEW,
-    review
+    review,
+    user,
+    spot
   };
 };
 
@@ -28,11 +38,12 @@ export const addReviewImg = (img, review) => {
   };
 };
 
-export const updateReview = (review, img) => {
+export const updateReview = (review, user, spot) => {
   return {
     type: UPDATE_REVIEW,
     review,
-    img
+    user,
+    spot
   };
 };
 
@@ -53,6 +64,57 @@ export const getSpotReviews = (spotId) => async dispatch => {
   }
 }
 
+export const getUserReviews = () => async dispatch => {
+  const response = await csrfFetch(`api/reviews/current`);
+
+  if (response.ok) {
+    const reviews = await response.json();
+    dispatch(loadReviews(reviews));
+    return reviews;
+  }
+}
+
+export const createReview = (payload, spot, user) => async dispatch => {
+  const response = await csrfFetch(`/api/spots/${spot.id}/reviews`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+
+  if (response.ok) {
+    const newReview = await response.json();
+    dispatch(addReview(newReview, user, spot));
+    return newReview;
+  }
+}
+
+export const editReview = (payload, id, user, spot) => async dispatch => {
+  const response = await csrfFetch(`/api/reviews/${id}`, {
+    method: "PUT",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+
+  if (response.ok) {
+    const updatedReview = await response.json();
+    dispatch(updateReview(updatedReview, user, spot));
+    return updatedReview;
+  }
+}
+
+export const removeReview = (reviewId) => async dispatch => {
+  const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+    method: "DELETE",
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  if (response.ok) {
+    const deletedMessage = await response.json();
+    dispatch(deleteReview(reviewId));
+    return deletedMessage;
+  }
+}
+
 export const getAllReviews = (state) => Object.values(state.reviews);
 export const getReviewById = (id) => (state) => state.reviews[id];
 
@@ -69,6 +131,29 @@ const reviewsReducer = (state = initialState, action) => {
         ...allReviews,
         ...state,
       };
+    // case LOAD_USER_REVIEWS:
+    //   const userReviews = {};
+    //   action.reviews.Reviews.forEach(review => {
+    //     userReviews[review.id] = review;
+    //   });
+    //   return {
+    //     ...userReviews,
+    //     ...state
+    //   }
+    case ADD_REVIEW:
+      return {
+        ...state,
+        [action.review.id]: { ...action.review, User: action.user, Spot: action.spot }
+      }
+    case UPDATE_REVIEW:
+      return {
+        ...state,
+        [action.review.id]: { ...action.review, User: action.user, Spot: action.spot }
+      }
+    case DELETE_REVIEW:
+      const newState = { ...state };
+      delete newState[action.reviewId];
+      return newState;
     default:
       return state;
   }

@@ -15,6 +15,7 @@ function Navigation({ isLoaded }) {
         <ProfileButton user={sessionUser} />
         <NavLink to="/create">Create a Spot</NavLink>
         <NavLink to="/my_spots">My Spots</NavLink>
+        <NavLink to="/my_reviews">My Reviews</NavLink>
       </>
     );
   } else {

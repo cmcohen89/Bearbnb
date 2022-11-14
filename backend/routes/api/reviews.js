@@ -142,6 +142,8 @@ router.put(
       stars
     })
 
+    await currReview.save()
+
     res.json(currReview)
   }
 )

@@ -12,7 +12,7 @@ const SpotIndex = () => {
 
   useEffect(() => {
     dispatch(getSpots());
-  }, [dispatch])
+  }, [dispatch]);
 
   if (!spots) return null;
 

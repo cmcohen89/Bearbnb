@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getSpotById, getSpots } from '../../store/spots';
+import ReviewIndex from '../ReviewIndex/ReviewIndex';
 import './SingleSpot.css';
 
 const SingleSpot = () => {
@@ -23,10 +24,11 @@ const SingleSpot = () => {
         alt={singleSpot.name}
       />
       <h4>{singleSpot.address}, {singleSpot.city}, {singleSpot.state}, {singleSpot.country}</h4>
-      <h4>{singleSpot.avgRating ? singleSpot.avgRating : "No "} {singleSpot.avgRating !== 1 ? 'Stars' : 'Star'}, ${singleSpot.price}</h4>
+      <h4>${singleSpot.price}</h4>
       <p>
         {singleSpot.description}
       </p>
+      <ReviewIndex spot={singleSpot} />
     </div>
   );
 };

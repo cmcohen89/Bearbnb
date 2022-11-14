@@ -12,14 +12,14 @@ const MySpotsIndex = () => {
   spots = spots.filter((spot) => user.id === spot.ownerId)
 
   useEffect(() => {
-    dispatch(getSpots());
+    dispatch(getSpots()); // refactor into getUserSpots??
   }, [dispatch])
 
   if (!spots) return null;
 
   return (
     <div>
-      <h2>Spots</h2>
+      <h2>My Spots</h2>
       {spots.map((spot) => (
         <div>
           <h3>

@@ -75,21 +75,25 @@ const CreateSpotForm = () => {
         <input
           type="text"
           placeholder="Country"
+          required
           value={country}
           onChange={updateCountry} />
         <input
           type="text"
           placeholder="Spot Name"
+          required
           value={name}
           onChange={updateName} />
         <textarea
           type="text"
           placeholder="Description"
+          required
           value={description}
           onChange={updateDescription} />
         <input
           type="text"
           placeholder='Price'
+          required
           value={price}
           onChange={updatePrice} />
         <input
