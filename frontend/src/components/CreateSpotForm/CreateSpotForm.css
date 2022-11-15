@@ -1,0 +1,54 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 50px 50px 50px;
+  border: 3px solid rgba(0, 0, 0, 0.319);
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding-top: 30px;
+  background-color: rgba(255, 228, 196, 0.502);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  font-weight: bold;
+}
+
+form input[type='text'] {
+  border: 1px solid black;
+  margin: 10px;
+  text-align: center;
+  background-color: white;
+  margin: 15px 0;
+  height: 30px;
+}
+
+form textarea {
+  margin: 15px 0;
+  height: 150px;
+  resize: none;
+}
+
+button {
+  margin-top: 20px;
+  height: 40px;
+  width: 120px;
+  font-weight: bold;
+  border: 2px solid rgba(0, 0, 0, 0.535);
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.848);
+}
+
+a {
+  cursor: pointer;
+}

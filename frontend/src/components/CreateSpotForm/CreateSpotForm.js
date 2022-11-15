@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { addImage, createSpot } from '../../store/spots';
+import './CreateSpotForm.css'
 
 const CreateSpotForm = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const CreateSpotForm = () => {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [imgUrl, setImgUrl] = useState('');
+  const [errors, setErrors] = useState([]);
 
   const updateAddress = (e) => setAddress(e.target.value);
   const updateCity = (e) => setCity(e.target.value);

@@ -3,7 +3,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
-  padding-bottom: 18px;
+  padding-bottom: 10px;
   border-bottom: 1px solid rgba(213, 213, 213, 0.441);
 }
 
@@ -39,8 +39,7 @@ nav {
 }
 
 .bar {
-  margin-top: 8px;
-  margin-left: 80px;
+  margin-left: 32px;
   width: 350px;
   background: white;
   box-shadow: 0 0 7px hsl(0 0% 78%);
@@ -145,4 +144,29 @@ input[type="text"]:focus {
 
 .bar>div:nth-of-type(1)::before {
    background: transparent;
+}
+
+.profile-dropdown {
+  border: 3px solid rgba(0, 0, 0, 0.387);
+  position: absolute;
+  list-style: none;
+  height: 200px;
+  width: 130px;
+  padding: 40px;
+  background-color: white;
+}
+
+.profile-dropdown-li {
+  margin-bottom: 20px;
+  color: black;
+  font-weight: 600;
+}
+
+.profile-dropdown-li a {
+  color: black;
+}
+
+.profile {
+  width: 50px;
+  margin-left: 20px;
 }
