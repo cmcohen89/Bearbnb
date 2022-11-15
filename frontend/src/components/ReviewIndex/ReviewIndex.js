@@ -16,8 +16,7 @@ const ReviewIndex = ({ spot }) => {
 
   useEffect(() => {
     dispatch(getSpotReviews(spot.id));
-    reviews = reviews.filter((review) => review.spotId === spot.id);
-  }, [dispatch, spot.id, spot.avgRating]);
+  }, [dispatch, spot.id]);
 
   if (!reviews) return null;
 

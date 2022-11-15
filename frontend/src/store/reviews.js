@@ -12,14 +12,7 @@ export const loadReviews = (reviews) => {
     type: LOAD_REVIEWS,
     reviews
   };
-}
-
-// export const loadUserReviews = (reviews) => {
-//   return {
-//     type: LOAD_USER_REVIEWS,
-//     reviews
-//   };
-// }
+};
 
 export const addReview = (review, user, spot) => {
   return {
@@ -128,28 +121,18 @@ const reviewsReducer = (state = initialState, action) => {
         allReviews[review.id] = review;
       });
       return {
-        ...allReviews,
-        ...state,
+        ...allReviews
       };
-    // case LOAD_USER_REVIEWS:
-    //   const userReviews = {};
-    //   action.reviews.Reviews.forEach(review => {
-    //     userReviews[review.id] = review;
-    //   });
-    //   return {
-    //     ...userReviews,
-    //     ...state
-    //   }
     case ADD_REVIEW:
       return {
         ...state,
-        [action.review.id]: { ...action.review, User: action.user, Spot: action.spot }
-      }
+        [action.review.id]: { ...action.review, User: action.user }
+      };
     case UPDATE_REVIEW:
       return {
         ...state,
-        [action.review.id]: { ...action.review, User: action.user, Spot: action.spot }
-      }
+        [action.review.id]: { ...action.review, User: action.user }
+      };
     case DELETE_REVIEW:
       const newState = { ...state };
       delete newState[action.reviewId];

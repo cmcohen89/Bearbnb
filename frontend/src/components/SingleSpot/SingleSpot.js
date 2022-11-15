@@ -8,11 +8,14 @@ import './SingleSpot.css';
 const SingleSpot = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const singleSpot = useSelector(getSpotById(id))
+  const singleSpot = useSelector(getSpotById(id));
+  // const singleSpot = useSelector(state => state.spots)[id];
+  const blah = useSelector(state => state.reviews);
 
   useEffect(() => {
+    console.log('useEffect dispatch(getSpots) from SingleSpot')
     dispatch(getSpots());
-  }, [dispatch])
+  }, [dispatch, blah]);
 
   if (!singleSpot) return null;
 

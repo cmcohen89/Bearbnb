@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { createReview } from '../../store/reviews';
 import { addImage, createSpot, getSpotById } from '../../store/spots';
+import { getSpots } from '../../store/spots';
 
 const CreateReviewForm = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,8 @@ const CreateReviewForm = () => {
     };
 
     const newReview = await dispatch(createReview(payload, spot, user));
+    const spots = await dispatch(getSpots());
+    console.log(spots.Spots[id]);
     if (newReview) history.push(`/spots/${id}`);
   };
 

@@ -7,8 +7,7 @@ const MyReviewsIndex = () => {
   const dispatch = useDispatch();
 
   let reviews = useSelector(state => Object.values(state.reviews));
-  const user = useSelector(state => state.session.user);
-  reviews = reviews.filter(review => review.userId === user.id)
+  reviews = reviews.filter(review => review.Spot);
   for (let review of reviews) {
     review.createdAt = new Date(review.createdAt).toLocaleDateString();
   }
