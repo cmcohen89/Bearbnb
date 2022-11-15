@@ -59,7 +59,7 @@ const CreateReviewForm = () => {
             <option>5</option>
           </select>
         </label>
-        <button type="submit">Create Review</button>
+        <button className='submit' type="submit">Create Review</button>
       </form>
     </section>
   );

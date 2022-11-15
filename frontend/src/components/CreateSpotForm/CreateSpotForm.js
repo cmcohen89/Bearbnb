@@ -103,7 +103,7 @@ const CreateSpotForm = () => {
           placeholder="Preview Image URL"
           value={imgUrl}
           onChange={updateImgUrl} />
-        <button type="submit">Create Spot</button>
+        <button className='submit' type="submit">Create Spot</button>
       </form>
     </section>
   );

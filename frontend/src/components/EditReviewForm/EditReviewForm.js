@@ -55,7 +55,7 @@ const EditReviewForm = () => {
             <option>5</option>
           </select>
         </label>
-        <button type="submit">Edit Review</button>
+        <button className='submit' type="submit">Edit Review</button>
       </form>
     </section>
   );

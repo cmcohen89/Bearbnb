@@ -2,8 +2,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
-  padding-bottom: 10px;
+  margin-top: 18px;
+  padding-bottom: 18px;
   border-bottom: 1px solid rgba(213, 213, 213, 0.441);
 }
 
@@ -27,7 +27,7 @@ nav {
 }
 
 .nav-right {
-  margin-right: 30px;
+  margin-right: 60px;
   padding: 0 10px;
 }
 
@@ -36,10 +36,11 @@ nav {
   text-decoration: none;
   letter-spacing: -0.8px;
   font-size: 11pt;
+  margin-right: 20px;
 }
 
 .bar {
-  margin-left: 32px;
+  margin-left: 125px;
   width: 350px;
   background: white;
   box-shadow: 0 0 7px hsl(0 0% 78%);
@@ -89,12 +90,12 @@ nav {
   width: 22%;
 }
 
-input[type="text"] {
+nav input[type="text"] {
   background: none;
   border: none;
 }
 
-input[type="text"]:focus {
+nav input[type="text"]:focus {
   outline: none;
 }
 
@@ -147,26 +148,72 @@ input[type="text"]:focus {
 }
 
 .profile-dropdown {
-  border: 3px solid rgba(0, 0, 0, 0.387);
+  border-radius: 5%;
+  box-shadow: 0 0 7px hsl(0 0% 78%);
   position: absolute;
+  right: 50px;
   list-style: none;
-  height: 200px;
-  width: 130px;
-  padding: 40px;
+  width: 240px;
+  padding: 0;
+  margin: 0;
   background-color: white;
+  font-size: 10.5pt;
+  letter-spacing: -0.8px;
+  overflow: hidden;
 }
 
 .profile-dropdown-li {
-  margin-bottom: 20px;
-  color: black;
-  font-weight: 600;
+  margin: 0;
+  /* margin-bottom: 20px; */
+  font-weight: 500;
+  /* color: rgb(25, 25, 25); */
+  width: 100%;
 }
 
 .profile-dropdown-li a {
-  color: black;
+  display: block;
+  color: rgb(76, 76, 76);
+  padding: 12.5px 0;
+  padding-left: 20px;
+  width: 100%;
 }
 
+.profile-dropdown-li a:hover {
+  background-color: rgba(111, 128, 117, 0.059);
+}
+
+
 .profile {
-  width: 50px;
+  position: relative;
+  vertical-align: middle;
+  height: 42px;
+  width: 77px;
+  display: inline-flex;
+  align-items: center;
   margin-left: 20px;
+  border-radius: 21px;
+  background-color: white;
+  border: 1px solid rgba(128, 128, 128, 0.352);
+  padding: 5px 5px 5px 12px;
+}
+
+.profile-lines {
+  font-size: 15px;
+  padding-left: 5px;
+  color: rgb(101, 101, 101);
+}
+
+.profile-icon {
+  padding-left: 10px;
+  font-size: 28px;
+  color: rgb(101, 101, 101);
+}
+
+.dropdown-line {
+  border-top: 1px solid rgba(128, 128, 128, 0.419);
+}
+
+.dropdown {
+  padding: 10px 0;
+  width: 100%;
 }

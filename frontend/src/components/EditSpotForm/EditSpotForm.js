@@ -86,7 +86,7 @@ const EditSpotForm = () => {
           placeholder='Price'
           value={price}
           onChange={updatePrice} />
-        <button type="submit">Edit Spot</button>
+        <button className='submit' type="submit">Edit Spot</button>
       </form>
     </section>
   );

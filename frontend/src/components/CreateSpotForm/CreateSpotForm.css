@@ -1,54 +1,152 @@
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 50px 50px 50px;
-  border: 3px solid rgba(0, 0, 0, 0.319);
-  width: 200px;
-  margin: 0 auto;
-  margin-top: 40px;
-  padding-top: 30px;
-  background-color: rgba(255, 228, 196, 0.502);
+.modal {
+  height: 670px;
+  width: 570px;
 }
 
-label {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  font-weight: bold;
-}
-
-form input[type='text'] {
-  border: 1px solid black;
-  margin: 10px;
-  text-align: center;
+.x {
   background-color: white;
-  margin: 15px 0;
-  height: 30px;
+  border: none;
+  font-size: 14pt;
 }
 
-form textarea {
-  margin: 15px 0;
-  height: 150px;
-  resize: none;
+.top-bar {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.178);
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
-button {
-  margin-top: 20px;
-  height: 40px;
-  width: 120px;
-  font-weight: bold;
-  border: 2px solid rgba(0, 0, 0, 0.535);
+.welcome {
+  font-size: 16pt;
+  font-weight: 600;
+  letter-spacing: -1px;
+  padding: 20px 30px;
+  padding-top: 30px;
+  margin: 0;
+}
+
+.username {
+  border-top: 1px solid rgba(128, 128, 128, 0.542);
+  border-right: 1px solid rgba(128, 128, 128, 0.542);
+  border-left: 1px solid rgba(128, 128, 128, 0.542);
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.username:focus,
+.password:focus {
+  border: 1px solid black;
   border-radius: 5px;
 }
 
-button:hover {
-  background-color: rgba(255, 255, 255, 0.848);
+.password {
+  border: 1px solid rgba(128, 128, 128, 0.542);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
-a {
+.main-field {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form ::placeholder {
+  font-size: 12pt;
+  font-weight: 500;
+  color: rgba(74, 74, 74, 0.747);
+}
+
+.form input {
+  height: 50px;
+  width: 500px;
+  padding-left: 10px;
+}
+
+.continue {
+  margin-top: 40px;
+  height: 50px;
+  width: 514px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 12pt;
+  background: linear-gradient(to right, rgb(228,30,78), rgb(214,5,101));
+}
+
+.or {
+  padding: 25px 30px 10px 30px;
+  display: flex;
+  align-items: center;
+}
+
+.or_text {
+  margin: 0 15px;
+  font-size: 9pt;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.273);
+}
+
+.widgets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.widget {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 7px;
+  height: 50px;
+  width: 514px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.578);
+  background-color: white;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  font-size: 10.5pt;
   cursor: pointer;
+  padding: 0 20px;
+  color: rgb(34, 34, 34);
+}
+
+.widget:hover {
+  background-color: rgba(128, 128, 128, 0.107);
+}
+
+.errors {
+  color: red;
+  list-style: none;
+}
+
+.fb {
+  color: rgb(24,118,241);
+  font-size: 14pt;
+}
+
+.google {
+  height: 20px;
+}
+
+.apple {
+  font-size: 17pt;
+}
+
+.email {
+  font-size: 14pt;
 }
