@@ -1,3 +1,35 @@
-.spotName {
-  margin: 0
+.all-spots {
+  margin: 30px 30px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  justify-content: space-evenly;
+}
+
+.one-spot h3 {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  font-size: 16px;
+  letter-spacing: -1px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.one-spot h4 {
+  margin-top: 0;
+  color: black;
+  font-size: 16px;
+  letter-spacing: -1px;
+  font-weight: 600;
+}
+
+.spot-link {
+  text-decoration: none;
+}
+
+.spot-image {
+  object-fit: cover;
+  width: 270px;
+  height: 270px;
+  border-radius: 5%;
 }

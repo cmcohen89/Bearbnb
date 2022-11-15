@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { Switch, NavLink, Link, Route, useParams } from 'react-router-dom';
 import { getSpots } from '../../store/spots';
-import SingleSpot from '../SingleSpot/SingleSpot';
 import './SpotIndex.css';
+import SpotTypeBar from '../SpotTypeBar/SpotTypeBar';
 
 const SpotIndex = () => {
   const dispatch = useDispatch();
@@ -18,16 +18,18 @@ const SpotIndex = () => {
 
   return (
     <div>
-      <h2 class="title">Spots</h2>
-      {spots.map((spot) => (
-        <div class='spots'>
-          <h3><NavLink className='spotName' to={`/spots/${spot.id}`}>{spot.name}</NavLink></h3>
-          {spot.previewImage && <img style={{ width: 500 }} src={spot.previewImage} alt={spot.name}></img>}
-          <h4>{spot.address}, {spot.city}, {spot.state}, {spot.country}</h4>
-          <h4>{spot.avgRating ? spot.avgRating : "No "} {spot.avgRating !== 1 ? 'Stars' : 'Star'}, ${spot.price}</h4>
-          <p>{spot.description}</p>
-        </div>
-      ))}
+      <SpotTypeBar />
+      <div className='all-spots'>
+        {spots.map((spot) => (
+          <div className='one-spot'>
+            <NavLink className='spot-link' to={`/spots/${spot.id}`}>
+              {spot.previewImage && <img className='spot-image' src={spot.previewImage} alt={spot.name}></img>}
+              <h3>{spot.city}, {spot.state}<span className="spot-star">{spot.avgRating ? spot.avgRating : "No "} {spot.avgRating !== 1 ? 'Stars' : 'Star'}</span></h3>
+              <h4>${spot.price} night</h4>
+            </NavLink>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

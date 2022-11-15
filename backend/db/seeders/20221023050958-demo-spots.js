@@ -2,7 +2,7 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -12,7 +12,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-   await queryInterface.bulkInsert('Spots', [
+    await queryInterface.bulkInsert('Spots', [
       {
         ownerId: 1,
         address: '123 Nowhere Lane',
@@ -23,60 +23,144 @@ module.exports = {
         lng: 85.3447,
         name: "Nowhere's Lodge",
         description: "Come hang out at the only lodge in Nowhereville!",
-        price: 149.99
+        price: 150
       },
       {
         ownerId: 2,
-        address: '124 Nowhere Lane',
-        city: 'Nowhereville',
-        state: 'Nebraska',
+        address: '124 Forest Circle',
+        city: 'Woodland Forest',
+        state: 'Oregon',
         country: 'United States',
         lat: 23.4548,
         lng: 85.3448,
-        name: "Nowhere's Cabin",
-        description: "Come hang out at the only cabin in Nowhereville!",
-        price: 159.99
+        name: "Woodland Cabin",
+        description: "Get your cabin on in lovely Woodland Forest!",
+        price: 200
       },
       {
         ownerId: 3,
-        address: '125 Nowhere Lane',
-        city: 'Nowhereville',
-        state: 'Nebraska',
+        address: '125 Family Court',
+        city: 'Suburbia',
+        state: 'Missouri',
         country: 'United States',
         lat: 23.4549,
         lng: 85.3449,
-        name: "Nowhere's Home",
-        description: "Come hang out at the only home in Nowhereville!",
-        price: 169.99
+        name: "Urban Home",
+        description: "The perfect place to vacation with your shitty kids!",
+        price: 250
       },
       {
         ownerId: 4,
-        address: '126 Nowhere Lane',
-        city: 'Nowhereville',
-        state: 'Nebraska',
+        address: '126 Hoity Road',
+        city: 'Richlands',
+        state: 'Texas',
         country: 'United States',
         lat: 23.4550,
         lng: 85.3450,
-        name: "Nowhere's Estate",
-        description: "Come hang out at the only estate in Nowhereville!",
-        price: 179.99
+        name: "Richie Estate",
+        description: "Let's hoity our toities here in the Richlands!",
+        price: 300
       },
       {
         ownerId: 5,
-        address: '127 Nowhere Lane',
-        city: 'Nowhereville',
-        state: 'Nebraska',
+        address: '127 Fancy Drive',
+        city: 'Beverly Hills',
+        state: 'California',
         country: 'United States',
         lat: 23.4551,
         lng: 85.3451,
-        name: "Nowhere's Mansion",
-        description: "Come hang out at the only mansion in Nowhereville!",
-        price: 189.99
+        name: "The Fresh Mansion",
+        description: "Fresh Prince? Nah, more like Fresh King yo",
+        price: 350
+      },
+      {
+        ownerId: 1,
+        address: '128 Tiny Blvd',
+        city: 'Minitown',
+        state: 'Minnesota',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "The Mostest Adorable Tiny House",
+        description: "Get'cho tiny on!",
+        price: 100
+      },
+      {
+        ownerId: 2,
+        address: '129 Wacky Way',
+        city: 'Weirdville',
+        state: 'Oregon',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "The Cooky Club",
+        description: "#notliketheotherhouses",
+        price: 200
+      },
+      {
+        ownerId: 3,
+        address: '130 Mountain Road',
+        city: 'Hilly Fields',
+        state: 'Colorado',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "Mountain Retreat",
+        description: "Get away from it all at the mountain retreat!",
+        price: 350
+      },
+      {
+        ownerId: 4,
+        address: '4278 Lakefront Shore',
+        city: 'Ojai',
+        state: 'California',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "Lodge at the Lake",
+        description: "Do you even lake bro",
+        price: 400
+      },
+      {
+        ownerId: 5,
+        address: '847 Beachy Keen Court',
+        city: 'Silverstrand',
+        state: 'California',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "The Beach House",
+        description: "Chillax at the shore my dudes",
+        price: 420
+      },
+      {
+        ownerId: 1,
+        address: '42378 Crazy Court',
+        city: 'Strangelands',
+        state: 'Arizona',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "Crazy House",
+        description: "Let's do shots and get crazy",
+        price: 355
+      },
+      {
+        ownerId: 2,
+        address: '8424 Insanity Lane',
+        city: 'Wildplace',
+        state: 'Ohio',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "Insanity House",
+        description: "Breh so insane",
+        price: 540
       }
     ])
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *

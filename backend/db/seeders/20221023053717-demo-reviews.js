@@ -2,7 +2,7 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -43,10 +43,40 @@ module.exports = {
         review: 'This place was excellent!!!',
         stars: 5
       },
+      {
+        spotId: 6,
+        userId: 5,
+        review: 'This place was bad.',
+        stars: 1
+      },
+      {
+        spotId: 7,
+        userId: 4,
+        review: 'This place was OK.',
+        stars: 2
+      },
+      {
+        spotId: 8,
+        userId: 5,
+        review: 'This place was good!',
+        stars: 3
+      },
+      {
+        spotId: 9,
+        userId: 2,
+        review: 'This place was great!!',
+        stars: 4
+      },
+      {
+        spotId: 10,
+        userId: 1,
+        review: 'This place was excellent!!!',
+        stars: 5
+      },
     ])
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *

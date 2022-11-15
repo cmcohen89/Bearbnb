@@ -12,15 +12,14 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
+        <NavLink className='host' to="/create">Become A Host</NavLink>
         <ProfileButton user={sessionUser} />
-        <NavLink to="/create">Create a Spot</NavLink>
-        <NavLink to="/my_spots">My Spots</NavLink>
-        <NavLink to="/my_reviews">My Reviews</NavLink>
       </>
     );
   } else {
     sessionLinks = (
       <>
+        <NavLink className='host' to="/create">Become A Host</NavLink>
         <LoginFormModal />
         <NavLink to="/signup">Sign Up</NavLink>
       </>
@@ -28,12 +27,28 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <ul>
-      <li className="nav">
-        <NavLink exact to="/">Home</NavLink>
+    <nav>
+      <div className='nav-left'>
+        <NavLink className='logo-link' exact to="/"><img className='logo-img' src='/images/logos/bearbnb_logo_2_bold.png' alt='bearbnb logo'></img><span className='logo-text'>bearbnb</span></NavLink>
+      </div>
+      <div className='nav-center'>
+        <div className="bar">
+          <div className="location">
+            <input className='anywhere' type="text" placeholder="Anywhere" />
+          </div>
+          <div className="check-in">
+            <input className='any-week' type="text" placeholder="Any week" />
+          </div>
+          <div className="guests">
+            <input className='add-guests' type="text" placeholder="Add guests" />
+            <span><i class="fa-solid fa-magnifying-glass"></i></span>
+          </div>
+        </div>
+      </div>
+      <div className='nav-right'>
         {isLoaded && sessionLinks}
-      </li>
-    </ul>
+      </div>
+    </nav>
   );
 }
 

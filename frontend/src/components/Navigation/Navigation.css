@@ -1,66 +1,148 @@
-* {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-#root {
+nav {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  margin-top: 10px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(213, 213, 213, 0.441);
 }
 
-.spots {
-  text-align: center;
-  margin: 50px;
+.logo-img {
+  height: 45px;
+  margin-left: 60px;
 }
 
-.title {
-  text-align: center;
-  font-size: 34pt;
-  text-decoration: underline;
-  color: burlywood;
-  text-shadow: 2px 2px 4px black;
-}
-
-body {
-  background-color: rgb(82, 110, 153);
-}
-
-ul {
-  list-style: none;
-  padding-top: 20px;
-  padding-left: 10px;
-}
-
-.nav {
-  display: inline-flex;
+.logo-link {
+  display: flex;
   align-items: center;
-  border: 4px solid rgba(255, 160, 122, 0.597);
-  border-radius: 10px;
-  background-color: rgba(232, 255, 255, 0.612);
-}
-
-a {
   text-decoration: none;
+}
+
+.logo-text {
+  color: rgb(255,56,92);
   font-size: 16pt;
-  font-weight: bold;
-  margin: 10px 30px;
-  color: white;
-  text-shadow: 2px 2px 4px black;
+  letter-spacing: -1.5px;
+  margin-top: 12px;
+  font-weight: 700;
 }
 
-.profile {
-  height: 40px;
-  width: 40px;
-  margin: 10px;
+.nav-right {
+  margin-right: 30px;
+  padding: 0 10px;
 }
 
-.profile-dropdown {
-  border: none;
+.host {
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: -0.8px;
+  font-size: 11pt;
+}
+
+.bar {
+  margin-top: 8px;
+  margin-left: 80px;
+  width: 350px;
+  background: white;
+  box-shadow: 0 0 7px hsl(0 0% 78%);
+  transition: box-shadow 0.5s;
+  height: 44px;
+  border-radius: 100vw;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 5px 20px;
-  font-weight: bold;
+  justify-content: center;
+  font-size: 0.6rem;
+}
+
+.bar div {
+  border-radius: inherit;
+  padding: 0.8rem 1.5rem;
+  transition: background 250ms ease;
+}
+
+.bar:hover {
+  box-shadow: 0 0 10px rgb(173, 173, 173);
+}
+
+.location {
+  width: 20%;
+}
+
+.check-in {
+  width: 15%;
+}
+
+.anywhere {
+  position: relative;
+  right: 5px;
+}
+
+.any-week {
+  position: relative;
+  right: 22px;
+}
+
+.add-guests {
+  position: relative;
+  right: 24px;
+}
+
+.check-out, .guests {
+  width: 22%;
+}
+
+input[type="text"] {
+  background: none;
+  border: none;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+::placeholder {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.add-guests::placeholder {
+  font-weight: 400;
+}
+
+.guests {
+  position: relative;
+}
+
+.guests span {
+  position: absolute;
+  top: 50%;
+  right: 3px;
+  transform: translateY(-50%);
+  background: #FF385C;
   color: white;
-  text-shadow: 2px 2px 4px black;
+  font-size: 0.7rem;
+  padding: 0.6rem;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.bar>div {
+  position: relative;
+  cursor: text;
+}
+
+
+.bar>div::before {
+  position: absolute;
+  content: "";
+  left: -13px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 55%;
+  background: hsl(0 0% 90%);
+}
+
+.bar>div:nth-of-type(1)::before {
+   background: transparent;
 }

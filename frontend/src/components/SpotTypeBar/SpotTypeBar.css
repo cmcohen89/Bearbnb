@@ -1,0 +1,31 @@
+.icons-div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 95vw;
+  margin-left: 30px;
+}
+
+.icon {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: border-bottom 0.5s;
+}
+
+.icon:hover {
+  border-bottom: 3px solid rgba(201, 201, 201, 0.738);
+}
+
+.icon-label {
+  padding: 10px 0;
+  font-size: 9pt;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+}
+
+.location-icon {
+  height: 25px;
+}
