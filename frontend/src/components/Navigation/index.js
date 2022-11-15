@@ -13,24 +13,6 @@ function Navigation({ isLoaded }) {
   const [showModal, setShowModal] = useState(false);
   const [login, setLogin] = useState(true);
 
-  // let sessionLinks;
-  // if (sessionUser) {
-  //   sessionLinks = (
-  //     <>
-  //       <NavLink className='host' to="/create">Become A Host</NavLink>
-  //       <ProfileButton user={sessionUser} />
-  //     </>
-  //   );
-  // } else {
-  //   sessionLinks = (
-  //     <>
-  //       <NavLink className='host' to="/create">Become A Host</NavLink>
-  //       <LoginFormModal />
-  //       <NavLink to="/signup">Sign Up</NavLink>
-  //     </>
-  //   );
-  // }
-
   return (
     <nav>
       <div className='nav-left'>
@@ -51,8 +33,8 @@ function Navigation({ isLoaded }) {
         </div>
       </div>
       <div className='nav-right'>
-        <span className='host'>Become a Host</span>
-        <i class="fa-solid fa-globe"></i>
+        <span><NavLink className='host' to='/create'>Become a Host</NavLink></span>
+        <i class="fa-solid fa-globe globe"></i>
         {isLoaded && <ProfileButton user={sessionUser} setLogin={setLogin} setShowModal={setShowModal} />}
         {showModal && <Modal onClose={() => setShowModal(false)}>
           {login ? <LoginForm setShowModal={setShowModal} /> : <SignupFormPage setShowModal={setShowModal} />}

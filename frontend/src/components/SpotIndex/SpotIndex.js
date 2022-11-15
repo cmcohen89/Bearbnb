@@ -17,7 +17,7 @@ const SpotIndex = () => {
   if (!spots) return null;
 
   return (
-    <div>
+    <div className='spot-index'>
       <SpotTypeBar />
       <div className='all-spots'>
         {spots.map((spot) => (

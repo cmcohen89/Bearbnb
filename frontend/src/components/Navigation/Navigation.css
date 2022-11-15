@@ -1,10 +1,16 @@
 nav {
+  /* position: fixed; */
+  /* top: 0; */
+  /* width: 100%; */
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 18px;
+  margin: 0;
+  padding-top: 18px;
   padding-bottom: 18px;
   border-bottom: 1px solid rgba(213, 213, 213, 0.441);
+  z-index: 1;
 }
 
 .logo-img {
@@ -37,6 +43,8 @@ nav {
   letter-spacing: -0.8px;
   font-size: 11pt;
   margin-right: 20px;
+  text-decoration: none;
+  color: #333
 }
 
 .bar {
@@ -164,9 +172,7 @@ nav input[type="text"]:focus {
 
 .profile-dropdown-li {
   margin: 0;
-  /* margin-bottom: 20px; */
   font-weight: 500;
-  /* color: rgb(25, 25, 25); */
   width: 100%;
 }
 
@@ -216,4 +222,29 @@ nav input[type="text"]:focus {
 .dropdown {
   padding: 10px 0;
   width: 100%;
+}
+
+.dropdown-user {
+  display: block;
+  color: rgb(76, 76, 76);
+  padding: 12.5px 0;
+  padding-left: 20px;
+  width: 100%;
+  font-weight: 600;
+}
+
+.dropdown-user:hover {
+  background-color: rgba(111, 128, 117, 0.059);
+}
+
+.dropdown-link {
+  cursor: pointer;
+}
+
+.dropdown-link a {
+  text-decoration: none;
+}
+
+.globe {
+  cursor: pointer;
 }

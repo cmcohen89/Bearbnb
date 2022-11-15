@@ -1,4 +1,7 @@
 .icons-div {
+  /* position: sticky; */
+  /* background-color: white; */
+  /* top: 60px; */
   display: flex;
   justify-content: space-evenly;
   width: 95vw;

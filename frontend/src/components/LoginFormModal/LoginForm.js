@@ -27,7 +27,7 @@ function LoginForm({ setShowModal }) {
     <div className='modal'>
       <div className='top-bar'>
         <button className="x" onClick={() => setShowModal(false)}><i class="fa-solid fa-xmark"></i></button>
-        <span>Log in or sign up</span>
+        <span>Log in</span>
         <span></span>
       </div>
       <h3 className='welcome'>Welcome to Bearbnb</h3>
