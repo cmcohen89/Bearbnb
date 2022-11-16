@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { createReview } from '../../store/reviews';
 import { addImage, createSpot, getSpotById } from '../../store/spots';
 import { getSpots } from '../../store/spots';
+import './CreateReviewForm.css'
 
 const CreateReviewForm = () => {
   const dispatch = useDispatch();
@@ -35,34 +36,78 @@ const CreateReviewForm = () => {
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Review
+    <div className='review-form'>
+      <div className='top-bar'>
+        {/* <button className="x" onClick={() => setShowModal(false)}><i class="fa-solid fa-xmark"></i></button> */}
+        <span></span>
+        <span className='review-title'>Write a review</span>
+        <span></span>
+      </div>
+      <div className='main-field'>
+        <form className='form' onSubmit={handleSubmit}>
+          {/* {!!errors.length && <ul>
+            {errors.map((error, idx) => (
+              <li className='errors' key={idx}>{error}</li>
+            ))}
+          </ul>} */}
           <textarea
+            className='review-body'
             type="text"
-            placeholder="Tell us about your experience!"
-            required
+            placeholder="Share your thoughts about this spot!"
             value={review}
-            onChange={updateReview} />
-        </label>
-        <label>
-          Stars
-          <select
-            value={stars}
-            onChange={updateStars}
-          >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </label>
-        <button className='submit' type="submit">Create Review</button>
-      </form>
-    </section>
+            onChange={updateReview}
+            required
+          />
+          <label className='stars'>
+            Stars:
+            <select
+              value={stars}
+              onChange={updateStars}
+            >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </label>
+          <button className='continue' type="submit">Submit review</button>
+        </form>
+      </div>
+    </div>
   );
 };
 
 export default CreateReviewForm;
+
+
+
+// return (
+//   <section>
+//     <form onSubmit={handleSubmit}>
+//       <label>
+//         Review
+//         <textarea
+//           type="text"
+//           placeholder="Tell us about your experience!"
+//           required
+//           value={review}
+//           onChange={updateReview} />
+//       </label>
+//       <label>
+//         Stars
+//         <select
+//           value={stars}
+//           onChange={updateStars}
+//         >
+//           <option>1</option>
+//           <option>2</option>
+//           <option>3</option>
+//           <option>4</option>
+//           <option>5</option>
+//         </select>
+//       </label>
+//       <button className='submit' type="submit">Create Review</button>
+//     </form>
+//   </section>
+// );

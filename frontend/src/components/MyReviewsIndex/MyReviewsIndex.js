@@ -21,27 +21,27 @@ const MyReviewsIndex = () => {
 
   return (
     <>
-      <h2>My Reviews</h2>
+      <h2 class='review-title'>My Reviews</h2>
       <div className='my-reviews'>
         {reviews.map((review) => (
-          <div>
+          <div className='one-review'>
             <h3>
-              <NavLink className='spotName' to={`/spots/${review.Spot.id}`}>{review.Spot.name}</NavLink>
+              <NavLink className='review-link' to={`/spots/${review.Spot.id}`}>{review.Spot.name}</NavLink>
             </h3>
-            {review.Spot.previewImage && <img style={{ width: 500 }} src={review.Spot.previewImage} alt={review.Spot.name}></img>}
-            <h4>{review.Spot.address}, {review.Spot.city}, {review.Spot.state}, {review.Spot.country}</h4>
+            {review.Spot.previewImage && <img className='review-image' src={review.Spot.previewImage} alt={review.Spot.name}></img>}
+            <h4>{review.Spot.address}, {review.Spot.city}, <br></br>{review.Spot.state}, {review.Spot.country}</h4>
             <h4>Reviewed on: {review.createdAt}</h4>
-            <span>{review.stars} {review.stars !== 1 ? 'Stars' : 'Star'}</span>
-            <p>
-              {review.review}
-              <NavLink to={`reviews/${review.id}/edit`}><button>Edit Review</button></NavLink>
-              <button onClick={
+            <span className='spot-star'><i class="fa-solid fa-star star"></i>{review.stars}</span>
+            <p className='review-description'>{review.review}</p>
+            <div className='review-buttons'>
+              <NavLink to={`reviews/${review.id}/edit`}><button className='review-button'>Edit Review</button></NavLink>
+              <button className='review-button' onClick={
                 (e) => {
                   e.preventDefault();
                   dispatch(removeReview(review.id))
                 }
               }>Delete Review</button>
-            </p>
+            </div>
           </div>
         ))}
       </div>

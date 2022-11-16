@@ -17,6 +17,7 @@ const EditSpotForm = () => {
   const [name, setName] = useState(spot.name);
   const [description, setDescription] = useState(spot.description);
   const [price, setPrice] = useState(spot.price);
+  const [errors, setErrors] = useState([]);
 
   const updateAddress = (e) => setAddress(e.target.value);
   const updateCity = (e) => setCity(e.target.value);
@@ -46,49 +47,78 @@ const EditSpotForm = () => {
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Address"
-          required
-          value={address}
-          onChange={updateAddress} />
-        <input
-          type="text"
-          placeholder="City"
-          required
-          value={city}
-          onChange={updateCity} />
-        <input
-          type="text"
-          placeholder="State"
-          required
-          value={state}
-          onChange={updateState} />
-        <input
-          type="text"
-          placeholder="Country"
-          value={country}
-          onChange={updateCountry} />
-        <input
-          type="text"
-          placeholder="Spot Name"
-          value={name}
-          onChange={updateName} />
-        <textarea
-          type="text"
-          placeholder="Description"
-          value={description}
-          onChange={updateDescription} />
-        <input
-          type="text"
-          placeholder='Price'
-          value={price}
-          onChange={updatePrice} />
-        <button className='submit' type="submit">Edit Spot</button>
-      </form>
-    </section>
+    <div className='create-form'>
+      <div className='top-bar'>
+        <span></span>
+        <span className='create-title'>Edit spot</span>
+        <span></span>
+      </div>
+      <div className='main-field'>
+        <form className='form2' onSubmit={handleSubmit}>
+          {!!errors.length && <ul>
+            {errors.map((error, idx) => (
+              <li className='errors' key={idx}>{error}</li>
+            ))}
+          </ul>}
+          <input
+            className='address'
+            type="text"
+            placeholder="Address"
+            value={address}
+            onChange={updateAddress}
+            required
+          />
+          <input
+            className='city'
+            type="text"
+            placeholder="City"
+            value={city}
+            onChange={updateCity}
+            required
+          />
+          <input
+            className="state"
+            type="text"
+            placeholder="State"
+            value={state}
+            onChange={updateState}
+            required
+          />
+          <input
+            className="country"
+            placeholder="Country"
+            type="text"
+            value={country}
+            onChange={updateCountry}
+            required
+          />
+          <input
+            className="spot_name"
+            placeholder="Spot name"
+            type="text"
+            value={name}
+            onChange={updateName}
+            required
+          />
+          <textarea
+            className="description"
+            placeholder="Description"
+            type="text"
+            value={description}
+            onChange={updateDescription}
+            required
+          />
+          <input
+            type="text"
+            className="price2"
+            placeholder='Price'
+            required
+            value={price}
+            onChange={updatePrice} />
+          <button className='continue' type="submit">Update Spot</button>
+        </form>
+      </div>
+    </div>
   );
 };
 

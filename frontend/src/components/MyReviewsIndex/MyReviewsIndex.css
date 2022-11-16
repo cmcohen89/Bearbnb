@@ -1,4 +1,88 @@
 .my-reviews {
+  margin: 30px 30px;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
+}
+
+.review-title {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(213, 213, 213, 0.441);
+}
+
+.one-review {
+  margin: 25px 50px;
+  text-align: center;
+}
+
+.one-review h3 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+  color: black;
+  font-size: 16px;
+  letter-spacing: -1px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.one-review h4 {
+  margin-top: 0;
+  color: black;
+  font-size: 16px;
+  letter-spacing: -1px;
+  font-weight: 600;
+  padding-top: 7px;
+}
+
+.review-link {
+  text-decoration: none;
+}
+
+.review-image {
+  object-fit: cover;
+  width: 270px;
+  height: 270px;
+  border-radius: 5%;
+}
+
+.star {
+  font-size: 8pt;
+  padding: 0 5px;
+}
+
+.review-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.review-button {
+  padding: 10px;
+  margin: 20px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.347);
+  cursor: pointer;
+}
+
+.review-button:hover {
+  background-color: antiquewhite;
+}
+
+.spot-star {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.review-description {
+  background-color: antiquewhite;
+  height: 80px;
+  width: 250px;
+  overflow:auto;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.347);
 }

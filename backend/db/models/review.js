@@ -31,11 +31,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     stars: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.REAL,
       allowNull: false,
       validate: {
-        min: 1,
-        max: 5
+        min: 1.00,
+        max: 5.00
       }
     }
   }, {

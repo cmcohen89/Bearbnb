@@ -1,0 +1,30 @@
+.review-body {
+  height: 120px;
+  resize: none;
+  border-top: 1px solid rgba(128, 128, 128, 0.542);
+  border-right: 1px solid rgba(128, 128, 128, 0.542);
+  border-left: 1px solid rgba(128, 128, 128, 0.542);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.542);
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-top: 40px;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 12pt;
+  font-weight: 500;
+  color: rgba(74, 74, 74, 0.747);
+}
+
+.stars select {
+  margin: 10px;
+}
+
+.review-title {
+  font-size: 18pt;
+}

@@ -5,6 +5,10 @@
   justify-content: space-evenly;
 }
 
+.one-spot {
+  margin-bottom: 25px;
+}
+
 .one-spot h3 {
   display: flex;
   justify-content: space-between;
@@ -21,6 +25,7 @@
   font-size: 16px;
   letter-spacing: -1px;
   font-weight: 600;
+  padding-top: 7px;
 }
 
 .spot-link {
@@ -32,4 +37,28 @@
   width: 270px;
   height: 270px;
   border-radius: 5%;
+}
+
+.star {
+  font-size: 8pt;
+  padding: 0 5px;
+}
+
+.spot-star {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.night {
+  font-weight: 400;
+  padding-top: 5px;
+}
+
+.miles {
+  color: gray;
+}
+
+.spot-location {
+  padding-bottom: 3px;
 }

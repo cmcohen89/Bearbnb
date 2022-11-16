@@ -83,7 +83,7 @@ router.get(
 
       let sum = 0;
       for (let review of spot.Reviews) sum += review.stars;
-      const avg = sum / spot.Reviews.length;
+      const avg = (sum / spot.Reviews.length).toFixed(2);
       avg ? spot.avgRating = avg : spot.avgRating = "No reviews for this spot!";
       delete spot.Reviews;
 
@@ -205,7 +205,7 @@ router.get(
 
     let sum = 0;
     for (let review of spot.Reviews) sum += review.stars;
-    const avg = sum / spot.Reviews.length;
+    const avg = (sum / spot.Reviews.length).toFixed(2);
     avg ? spot.avgStarRating = avg : spot.avgStarRating = "No reviews for this spot!"
     delete spot.Reviews;
 
@@ -280,7 +280,7 @@ router.get(
 
       let sum = 0;
       for (let review of spot.Reviews) sum += review.stars;
-      spot.avgRating = sum / spot.Reviews.length;
+      spot.Reviews.length ? spot.avgRating = (sum / spot.Reviews.length).toFixed(2) : spot.avgRating = 'New';
       delete spot.Reviews;
 
       result.push(spot);

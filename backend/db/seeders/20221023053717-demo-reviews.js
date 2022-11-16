@@ -17,61 +17,61 @@ module.exports = {
         spotId: 1,
         userId: 5,
         review: 'This place was bad.',
-        stars: 1
+        stars: 1.00
       },
       {
         spotId: 2,
         userId: 4,
         review: 'This place was OK.',
-        stars: 2
+        stars: 2.00
       },
       {
         spotId: 3,
         userId: 5,
         review: 'This place was good!',
-        stars: 3
+        stars: 3.00
       },
       {
         spotId: 4,
         userId: 2,
         review: 'This place was great!!',
-        stars: 4
+        stars: 4.00
       },
       {
         spotId: 5,
         userId: 1,
         review: 'This place was excellent!!!',
-        stars: 5
+        stars: 5.00
       },
       {
         spotId: 6,
         userId: 5,
         review: 'This place was bad.',
-        stars: 1
+        stars: 1.00
       },
       {
         spotId: 7,
         userId: 4,
         review: 'This place was OK.',
-        stars: 2
+        stars: 2.00
       },
       {
         spotId: 8,
         userId: 5,
         review: 'This place was good!',
-        stars: 3
+        stars: 3.00
       },
       {
         spotId: 9,
         userId: 2,
         review: 'This place was great!!',
-        stars: 4
+        stars: 4.00
       },
       {
         spotId: 10,
         userId: 1,
         review: 'This place was excellent!!!',
-        stars: 5
+        stars: 5.00
       },
     ])
   },
