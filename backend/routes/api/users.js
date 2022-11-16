@@ -31,14 +31,14 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
     .withMessage('Password must be 6 characters or more.'),
-  // handleValidationErrors
+  handleValidationErrors
 ];
 
 // Sign up
 router.post(
   '/',
   validateSignup,
-  async (req, res) => {
+  async (req, res, next) => {
     const errorFormatter = ({ location, msg, param, value, nestedErrors }) => {
       return `${msg}`;
     };
@@ -63,25 +63,21 @@ router.post(
 
     for (let obj of usernames) {
       if (req.body.username == obj.username) {
-        return res.status(403).json({
-          message: "User already exists",
-          statusCode: 403,
-          errors: {
-            username: "User with that username already exists"
-          }
-        })
+        const err = new Error('Signup failed');
+        err.status = 403;
+        err.title = 'Signup failed';
+        err.errors = ["Username already exists"];
+        return next(err);
       }
     }
 
     for (let obj of emails) {
       if (req.body.email == obj.email) {
-        return res.status(403).json({
-          message: "User already exists",
-          statusCode: 403,
-          errors: {
-            email: "User with that email already exists"
-          }
-        })
+        const err = new Error('Signup failed');
+        err.status = 403;
+        err.title = 'Signup failed';
+        err.errors = ["That email address is already in use"];
+        return next(err);
       }
     }
 

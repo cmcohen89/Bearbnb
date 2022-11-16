@@ -41,7 +41,12 @@ const EditSpotForm = () => {
       description,
       price
     };
-    let updatedSpot = await dispatch(editSpot(payload, spot));
+    let updatedSpot = await dispatch(editSpot(payload, spot))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
+
 
     if (updatedSpot) history.push(`/my_spots`);
   };
@@ -55,11 +60,11 @@ const EditSpotForm = () => {
       </div>
       <div className='main-field'>
         <form className='form2' onSubmit={handleSubmit}>
-          {!!errors.length && <ul>
+          <ul className='errors-ul'>
             {errors.map((error, idx) => (
               <li className='errors' key={idx}>{error}</li>
             ))}
-          </ul>}
+          </ul>
           <input
             className='address input'
             type="text"
@@ -109,8 +114,8 @@ const EditSpotForm = () => {
             required
           />
           <input
-            type="text input"
-            className="price2"
+            type="number"
+            className="price2 input"
             placeholder='Price'
             required
             value={price}

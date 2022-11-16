@@ -16,7 +16,7 @@ const validateLogin = [
   check('password')
     .exists({ checkFalsy: true })
     .withMessage('Password is required'),
-  // handleValidationErrors
+  handleValidationErrors
 ];
 
 // Log in

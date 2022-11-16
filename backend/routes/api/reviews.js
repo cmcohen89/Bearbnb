@@ -16,7 +16,7 @@ const validateReviewBody = [
   check('stars')
     .exists({ checkFalsy: true })
     .withMessage('Stars must be an integer from 1 to 5'),
-  // handleValidationErrors
+  handleValidationErrors
 ];
 
 // Get all Reviews of Current User
@@ -75,12 +75,30 @@ router.post(
   '/:reviewId/images',
   async (req, res, next) => {
     const { user } = req;
-    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 });
+    if (!user) {
+      const err = new Error('Must be logged in');
+      err.status = 401;
+      err.title = 'Must be logged in';
+      err.errors = ["Must be logged in to add an image!"];
+      return next(err);
+    }
 
     const review = await Review.findByPk(req.params.reviewId);
-    if (!review) return res.status(404).json({ message: "Review couldn't be found", statusCode: 404 });
+    if (!review) {
+      const err = new Error('Review could not be found');
+      err.status = 404;
+      err.title = 'Review could not be found';
+      err.errors = ["Review couldn't be found"];
+      return next(err);
+    }
 
-    if (user.id != review.userId) return res.status(403).json({ message: "Forbidden", statusCode: 403 });
+    if (user.id != review.userId) {
+      const err = new Error('Forbidden');
+      err.status = 403;
+      err.title = 'Forbidden';
+      err.errors = ["You are not the owner of this review!"];
+      return next(err);
+    }
 
     const currImgNum = await ReviewImage.findOne({
       where: {
@@ -128,12 +146,30 @@ router.put(
     }
 
     const { user } = req;
-    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 });
+    if (!user) {
+      const err = new Error('Must be logged in');
+      err.status = 401;
+      err.title = 'Must be logged in';
+      err.errors = ["Must be logged in to edit a review!"];
+      return next(err);
+    }
 
     const currReview = await Review.findByPk(req.params.reviewId);
-    if (!currReview) return res.status(404).json({ message: "Review couldn't be found", statusCode: 404 });
+    if (!currReview) {
+      const err = new Error('Review could not be found');
+      err.status = 404;
+      err.title = 'Review could not be found';
+      err.errors = ["Review couldn't be found"];
+      return next(err);
+    }
 
-    if (user.id != currReview.userId) return res.status(403).json({ message: "Forbidden", statusCode: 403 });
+    if (user.id != currReview.userId) {
+      const err = new Error('Forbidden');
+      err.status = 403;
+      err.title = 'Forbidden';
+      err.errors = ["You are not the owner of this review!"];
+      return next(err);
+    }
 
     const { review, stars } = req.body;
 
@@ -153,12 +189,30 @@ router.delete(
   '/:reviewId',
   async (req, res, next) => {
     const { user } = req;
-    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 });
+    if (!user) {
+      const err = new Error('Must be logged in');
+      err.status = 401;
+      err.title = 'Must be logged in';
+      err.errors = ["Must be logged in to delete a review!"];
+      return next(err);
+    }
 
     const currReview = await Review.findByPk(req.params.reviewId);
-    if (!currReview) return res.status(404).json({ message: "Review couldn't be found", statusCode: 404 });
+    if (!currReview) {
+      const err = new Error('Review could not be found');
+      err.status = 404;
+      err.title = 'Review could not be found';
+      err.errors = ["Review couldn't be found"];
+      return next(err);
+    }
 
-    if (user.id != currReview.userId) return res.status(403).json({ message: "Forbidden", statusCode: 403 });
+    if (user.id != currReview.userId) {
+      const err = new Error('Forbidden');
+      err.status = 403;
+      err.title = 'Forbidden';
+      err.errors = ["You are not the owner of this review!"];
+      return next(err);
+    }
 
     await currReview.destroy();
 

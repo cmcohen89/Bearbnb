@@ -38,7 +38,7 @@ const validateSpotBody = [
   check('price')
     .exists({ checkFalsy: true })
     .withMessage('Price per day is required'),
-  // handleValidationErrors
+  handleValidationErrors
 ];
 
 const validateReviewBody = [
@@ -48,7 +48,7 @@ const validateReviewBody = [
   check('stars')
     .exists({ checkFalsy: true })
     .withMessage('Stars must be an integer from 1 to 5'),
-  // handleValidationErrors
+  handleValidationErrors
 ];
 
 // Get spots owned by current user
@@ -313,10 +313,22 @@ router.post(
     }
 
     const { user } = req;
-    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
+    if (!user) {
+      const err = new Error('Must be logged in');
+      err.status = 401;
+      err.title = 'Must be logged in';
+      err.errors = ["Must be logged in to leave a review!"];
+      return next(err);
+    }
 
     const spot = await Spot.findByPk(req.params.spotId);
-    if (!spot) return res.status(404).json({ message: "Spot couldn't be found", statusCode: 404 })
+    if (!spot) {
+      const err = new Error('Spot could not be found');
+      err.status = 404;
+      err.title = 'Spot could not be found';
+      err.errors = ["Spot couldn't be found"];
+      return next(err);
+    }
 
     const spotReviews = await Review.findAll({
       where: {
@@ -327,7 +339,13 @@ router.post(
     })
 
     for (let review of spotReviews) {
-      if (review.userId == user.id) return res.status(403).json({ message: 'User already has a review for this spot', statusCode: 403 })
+      if (review.userId == user.id) {
+        const err = new Error('Duplicate review');
+        err.status = 403;
+        err.title = 'Duplicate review';
+        err.errors = ["You've already left a review for this spot!"];
+        return next(err);
+      }
     }
 
     const { review, stars } = req.body;
@@ -348,12 +366,30 @@ router.post(
   '/:spotId/images',
   async (req, res, next) => {
     const { user } = req;
-    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
+    if (!user) {
+      const err = new Error('Must be logged in');
+      err.status = 401;
+      err.title = 'Must be logged in';
+      err.errors = ["Must be logged in to add an image!"];
+      return next(err);
+    }
 
     const spot = await Spot.findByPk(req.params.spotId);
-    if (!spot) return res.status(404).json({ message: "Spot couldn't be found", statusCode: 404 })
+    if (!spot) {
+      const err = new Error('Spot could not be found');
+      err.status = 404;
+      err.title = 'Spot could not be found';
+      err.errors = ["Spot couldn't be found"];
+      return next(err);
+    }
 
-    if (spot.ownerId != user.id) return res.status(403).json({ message: "Forbidden", statusCode: 403 });
+    if (spot.ownerId != user.id) {
+      const err = new Error('Forbidden');
+      err.status = 403;
+      err.title = 'Forbidden';
+      err.errors = ["You are not the owner of this spot!"];
+      return next(err);
+    }
 
     const { url, preview } = req.body;
 
@@ -377,30 +413,52 @@ router.post(
   '/:spotId/bookings',
   async (req, res, next) => {
     const { user } = req;
-    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
+    if (!user) {
+      const err = new Error('Must be logged in');
+      err.status = 401;
+      err.title = 'Must be logged in';
+      err.errors = ["Must be logged in to create a booking!"];
+      return next(err);
+    }
 
     const { startDate, endDate } = req.body;
     const startDateObj = new Date(startDate);
     const endDateObj = new Date(endDate);
 
     if (endDateObj <= startDateObj) {
-      return res.status(400).json({
-        message: 'Validation error',
-        statusCode: 400,
-        errors: {
-          endDate: 'endDate cannot be on or before startDate'
-        }
-      })
+      const err = new Error('Validation error');
+      err.status = 400;
+      err.title = 'Validation error';
+      err.errors = ["endDate cannot be on or before startDate"];
+      return next(err);
+      // return res.status(400).json({
+      //   message: 'Validation error',
+      //   statusCode: 400,
+      //   errors: {
+      //     endDate: 'endDate cannot be on or before startDate'
+      //   }
+      // })
     }
 
     const spot = await Spot.findByPk(req.params.spotId);
-    if (!spot) return res.status(404).json({ message: "Spot couldn't be found", statusCode: 404 })
+    if (!spot) {
+      const err = new Error('Spot could not be found');
+      err.status = 404;
+      err.title = 'Spot could not be found';
+      err.errors = ["Spot couldn't be found"];
+      return next(err);
+    }
 
     if (spot.ownerId == user.id) {
-      return res.status(400).json({
-        message: "You cannot book your own spot!",
-        statusCode: 400
-      })
+      const err = new Error('Cannot book own spot');
+      err.status = 400;
+      err.title = 'Cannot book own spot';
+      err.errors = ["You cannot book your own spot!"];
+      return next(err);
+      // return res.status(400).json({
+      //   message: "You cannot book your own spot!",
+      //   statusCode: 400
+      // })
     }
 
     const currentBookingDates = await Booking.findAll({
@@ -422,11 +480,16 @@ router.post(
     }
 
     if (Object.keys(errors).length) {
-      return res.status(403).json({
-        message: "Sorry, this spot is already booked for the specified dates",
-        statusCode: 403,
-        errors
-      })
+      const err = new Error('Spot booked');
+      err.status = 403;
+      err.title = 'Spot booked';
+      err.errors = ["Sorry, this spot is already booked for the specified dates"];
+      return next(err);
+      // return res.status(403).json({
+      //   message: "Sorry, this spot is already booked for the specified dates",
+      //   statusCode: 403,
+      //   errors
+      // })
     }
 
     const newBooking = await Booking.create({
@@ -458,7 +521,13 @@ router.post(
     }
 
     const { user } = req;
-    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
+    if (!user) {
+      const err = new Error('Must be logged in');
+      err.status = 401;
+      err.title = 'Must be logged in';
+      err.errors = ["You must be logged in to create a spot!"];
+      return next(err);
+    }
 
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
@@ -497,12 +566,30 @@ router.put(
     }
 
     const { user } = req;
-    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
+    if (!user) {
+      const err = new Error('Must be logged in');
+      err.status = 401;
+      err.title = 'Must be logged in';
+      err.errors = ["You must be logged in to update a spot!"];
+      return next(err);
+    }
 
     const spot = await Spot.findByPk(req.params.spotId);
-    if (!spot) return res.status(404).json({ message: "Spot couldn't be found", statusCode: 404 })
+    if (!spot) {
+      const err = new Error('Spot could not be found');
+      err.status = 404;
+      err.title = 'Spot could not be found';
+      err.errors = ["Spot couldn't be found"];
+      return next(err);
+    }
 
-    if (spot.ownerId != user.id) return res.status(403).json({ message: "Forbidden", statusCode: 403 });
+    if (spot.ownerId != user.id) {
+      const err = new Error('Forbidden');
+      err.status = 403;
+      err.title = 'Forbidden';
+      err.errors = ["You do not own this spot!"];
+      return next(err);
+    }
 
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
@@ -529,12 +616,30 @@ router.delete(
   '/:spotId',
   async (req, res, next) => {
     const { user } = req;
-    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
+    if (!user) {
+      const err = new Error('Must be logged in');
+      err.status = 401;
+      err.title = 'Must be logged in';
+      err.errors = ["You must be logged in to delete a spot!"];
+      return next(err);
+    }
 
     const spot = await Spot.findByPk(req.params.spotId);
-    if (!spot) return res.status(404).json({ message: "Spot couldn't be found", statusCode: 404 })
+    if (!spot) {
+      const err = new Error('Spot could not be found');
+      err.status = 404;
+      err.title = 'Spot could not be found';
+      err.errors = ["Spot couldn't be found"];
+      return next(err);
+    }
 
-    if (spot.ownerId != user.id) return res.status(403).json({ message: "Forbidden", statusCode: 403 });
+    if (spot.ownerId != user.id) {
+      const err = new Error('Forbidden');
+      err.status = 403;
+      err.title = 'Forbidden';
+      err.errors = ["You do not own this spot!"];
+      return next(err);
+    }
 
     await spot.destroy()
 

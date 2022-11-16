@@ -17,39 +17,43 @@ const CreateReviewForm = () => {
 
   const [review, setReview] = useState('');
   const [stars, setStars] = useState(1);
+  const [errors, setErrors] = useState([]);
 
   const updateReview = (e) => setReview(e.target.value);
   const updateStars = (e) => setStars(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors([]);
 
     const payload = {
       review,
       stars
     };
 
-    const newReview = await dispatch(createReview(payload, spot, user));
-    const spots = await dispatch(getSpots());
-    console.log(spots.Spots[id]);
+    const newReview = await dispatch(createReview(payload, spot, user))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
+
     if (newReview) history.push(`/spots/${id}`);
   };
 
   return (
     <div className='review-form'>
       <div className='top-bar'>
-        {/* <button className="x" onClick={() => setShowModal(false)}><i class="fa-solid fa-xmark"></i></button> */}
         <span></span>
-        <span className='review-title'>Write a review</span>
+        <span className='review-title2'>Write a review</span>
         <span></span>
       </div>
       <div className='main-field'>
         <form className='form' onSubmit={handleSubmit}>
-          {/* {!!errors.length && <ul>
+          <ul className='errors-ul'>
             {errors.map((error, idx) => (
               <li className='errors' key={idx}>{error}</li>
             ))}
-          </ul>} */}
+          </ul>
           <textarea
             className='review-body'
             type="text"
@@ -79,35 +83,3 @@ const CreateReviewForm = () => {
 };
 
 export default CreateReviewForm;
-
-
-
-// return (
-//   <section>
-//     <form onSubmit={handleSubmit}>
-//       <label>
-//         Review
-//         <textarea
-//           type="text"
-//           placeholder="Tell us about your experience!"
-//           required
-//           value={review}
-//           onChange={updateReview} />
-//       </label>
-//       <label>
-//         Stars
-//         <select
-//           value={stars}
-//           onChange={updateStars}
-//         >
-//           <option>1</option>
-//           <option>2</option>
-//           <option>3</option>
-//           <option>4</option>
-//           <option>5</option>
-//         </select>
-//       </label>
-//       <button className='submit' type="submit">Create Review</button>
-//     </form>
-//   </section>
-// );

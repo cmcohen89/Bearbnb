@@ -1,9 +1,17 @@
 .modal {
-  height: 670px;
+  height: 720px;
   width: 570px;
 }
 
-/* .x {
+.errors-ul {
+  padding: 0;
+}
+
+.errors {
+  text-align: center;
+}
+
+.x {
   background-color: white;
   border: none;
   font-size: 14pt;
@@ -23,10 +31,10 @@
   font-size: 16pt;
   font-weight: 600;
   letter-spacing: -1px;
-  padding: 20px 30px;
+  padding: 0px 30px;
   padding-top: 30px;
   margin: 0;
-} */
+}
 
 .username {
   border-top: 1px solid rgba(128, 128, 128, 0.542);
@@ -150,8 +158,4 @@
 
 .apple {
   font-size: 17pt;
-}
-
-.email {
-  font-size: 14pt;
 }

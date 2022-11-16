@@ -14,13 +14,31 @@ router.delete(
   restoreUser,
   async (req, res, next) => {
     const { user } = req;
-    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 });
+    if (!user) {
+      const err = new Error('Must be logged in');
+      err.status = 401;
+      err.title = 'Must be logged in';
+      err.errors = ["You must be logged in to delete an image!"];
+      return next(err);
+    }
 
     const img = await SpotImage.findByPk(req.params.imageId);
-    if (!img) return res.status(404).json({ message: "Spot Image couldn't be found", statusCode: 404 });
+    if (!img) {
+      const err = new Error('Spot image could not be found');
+      err.status = 404;
+      err.title = 'Spot image could not be found';
+      err.errors = ["Spot image couldn't be found"];
+      return next(err);
+    }
 
     const spot = await Spot.findByPk(img.spotId)
-    if (spot.ownerId != user.id) return res.status(403).json({ message: "Forbidden", statusCode: 403 });
+    if (spot.ownerId != user.id) {
+      const err = new Error('Forbidden');
+      err.status = 403;
+      err.title = 'Forbidden';
+      err.errors = ["You are not the owner of this spot!"];
+      return next(err);
+    }
 
     await img.destroy()
 

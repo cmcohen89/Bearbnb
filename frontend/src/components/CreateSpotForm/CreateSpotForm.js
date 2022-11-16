@@ -40,7 +40,11 @@ const CreateSpotForm = () => {
       description,
       price
     };
-    let newSpot = await dispatch(createSpot(payload));
+    let newSpot = await dispatch(createSpot(payload))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
 
     if (newSpot && imgUrl) {
       const imgPayload = {
@@ -62,11 +66,11 @@ const CreateSpotForm = () => {
       </div>
       <div className='main-field'>
         <form className='form2' onSubmit={handleSubmit}>
-          {!!errors.length && <ul>
+          <ul className='errors-ul'>
             {errors.map((error, idx) => (
               <li className='errors' key={idx}>{error}</li>
             ))}
-          </ul>}
+          </ul>
           <input
             className='address input'
             type="text"
@@ -116,7 +120,7 @@ const CreateSpotForm = () => {
             required
           />
           <input
-            type="text"
+            type="number"
             className="price input"
             placeholder='Price'
             required
@@ -127,6 +131,7 @@ const CreateSpotForm = () => {
             className='previewImg'
             placeholder="Preview Image URL"
             value={imgUrl}
+            required
             onChange={updateImgUrl} />
           <button className='continue' type="submit">Create Spot</button>
         </form>

@@ -41,11 +41,11 @@ function SignupFormPage({ setShowModal }) {
       <h3 className='welcome'>Welcome to Bearbnb</h3>
       <div className='main-field'>
         <form className='form' onSubmit={handleSubmit}>
-          {!!errors.length && <ul>
+          <ul className='errors-ul'>
             {errors.map((error, idx) => (
               <li className='errors' key={idx}>{error}</li>
             ))}
-          </ul>}
+          </ul>
           <input
             className='email input'
             type="text"
