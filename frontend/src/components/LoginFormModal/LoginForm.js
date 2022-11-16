@@ -79,7 +79,7 @@ function LoginForm({ setShowModal }) {
           <span></span>
         </button>
         <button className='widget'>
-          <i class="fa-regular fa-envelope email"></i>
+          <i class="fa-solid fa-mobile-retro phone"></i>
           <span>Continue with phone number</span>
           <span></span>
         </button>
