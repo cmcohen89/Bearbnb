@@ -61,7 +61,7 @@ const EditSpotForm = () => {
             ))}
           </ul>}
           <input
-            className='address'
+            className='address input'
             type="text"
             placeholder="Address"
             value={address}
@@ -69,7 +69,7 @@ const EditSpotForm = () => {
             required
           />
           <input
-            className='city'
+            className='city input'
             type="text"
             placeholder="City"
             value={city}
@@ -77,7 +77,7 @@ const EditSpotForm = () => {
             required
           />
           <input
-            className="state"
+            className="state input"
             type="text"
             placeholder="State"
             value={state}
@@ -85,7 +85,7 @@ const EditSpotForm = () => {
             required
           />
           <input
-            className="country"
+            className="country input"
             placeholder="Country"
             type="text"
             value={country}
@@ -93,7 +93,7 @@ const EditSpotForm = () => {
             required
           />
           <input
-            className="spot_name"
+            className="spot_name input"
             placeholder="Spot name"
             type="text"
             value={name}
@@ -109,7 +109,7 @@ const EditSpotForm = () => {
             required
           />
           <input
-            type="text"
+            type="text input"
             className="price2"
             placeholder='Price'
             required

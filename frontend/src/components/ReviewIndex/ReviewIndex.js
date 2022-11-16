@@ -21,17 +21,20 @@ const ReviewIndex = ({ spot }) => {
   if (!reviews) return null;
 
   return (
-    <div>
-      <h2 class="title">Reviews</h2>
-      <NavLink to={`${spot.id}/create_review`}><button>Add a Review</button></NavLink>
-      <h3>{spot.avgRating} {spot.avgRating !== 1 ? 'Stars' : 'Star'} - {reviews.length} {reviews.length !== 1 ? 'Reviews' : 'Review'}</h3>
-      {reviews.map((review) => (
-        <div class='review'>
-          <h4>{review.User.firstName}</h4>
-          <h5>{review.createdAt}</h5>
-          <p>{review.review}</p>
-        </div>
-      ))}
+    <div className='reviews-section'>
+      <div className='reviews-header'>
+        <h2 className="reviews-title"><i class="fa-solid fa-star"></i> {spot.avgStarRating} · {spot.numReviews} {spot.numReviews === 1 ? 'review' : 'reviews'}</h2>
+        <NavLink to={`${spot.id}/create_review`}><button className='add-review'>Add a Review</button></NavLink>
+      </div>
+      <div className='reviews-div'>
+        {reviews.map((review) => (
+          <div className='review'>
+            <span className='reviewer'>{review.User.firstName}</span><br />
+            <span className='review-date'>{review.createdAt}</span>
+            <p>{review.review}</p>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

@@ -67,7 +67,7 @@
 }
 
 .review-button:hover {
-  background-color: antiquewhite;
+  background-color: white;
 }
 
 .spot-star {
@@ -77,7 +77,7 @@
 }
 
 .review-description {
-  background-color: antiquewhite;
+  background-color: white;
   height: 80px;
   width: 250px;
   overflow:auto;

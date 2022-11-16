@@ -1,6 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD_SPOTS = 'spots/LOAD';
+const LOAD_SINGLE_SPOT = 'spots/LOAD_SINGLE'
 const ADD_SPOT = 'spots/ADD';
 const ADD_SPOT_IMG = 'spots/ADD_IMG';
 const UPDATE_SPOT = 'spots/UPDATE';
@@ -10,6 +11,13 @@ export const loadSpots = (spots) => {
   return {
     type: LOAD_SPOTS,
     spots
+  };
+};
+
+export const loadSingleSpot = (spot) => {
+  return {
+    type: LOAD_SINGLE_SPOT,
+    spot
   };
 };
 
@@ -50,6 +58,16 @@ export const getSpots = () => async dispatch => {
     const spots = await response.json();
     dispatch(loadSpots(spots));
     return spots;
+  };
+};
+
+export const getSingleSpot = (spotId) => async dispatch => {
+  const response = await csrfFetch(`/api/spots/${spotId}`);
+
+  if (response.ok) {
+    const spot = await response.json();
+    dispatch(loadSingleSpot(spot));
+    return spot;
   };
 };
 
@@ -125,6 +143,10 @@ const spotsReducer = (state = initialState, action) => {
         spots[spot.id] = spot;
         return spots;
       }, {});
+    case LOAD_SINGLE_SPOT:
+      return {
+        [action.spot.id]: { ...action.spot }
+      }
     case ADD_SPOT:
       return {
         ...state,

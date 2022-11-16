@@ -12,6 +12,7 @@ import EditSpotForm from "./components/EditSpotForm/EditSpotForm";
 import CreateReviewForm from "./components/CreateReviewForm/CreateReviewForm";
 import MyReviewsIndex from "./components/MyReviewsIndex/MyReviewsIndex";
 import EditReviewForm from "./components/EditReviewForm/EditReviewForm";
+import ComingSoon from "./components/ComingSoon/ComingSoon";
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route exact path="/reviews/:id/edit">
             <EditReviewForm />
+          </Route>
+          <Route path='/coming-soon'>
+            <ComingSoon />
           </Route>
         </Switch>
       )}

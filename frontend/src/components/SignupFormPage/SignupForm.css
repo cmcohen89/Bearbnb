@@ -127,7 +127,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(to right, rgb(228,30,78), rgb(214, 78, 5), rgb(214,5,101));
+  background-image: linear-gradient(to right, rgb(228,30,78), rgba(214, 78, 5, 0.74), rgb(214,5,101));
   z-index: -1;
   transition: opacity 0.5s linear;
   opacity: 0;

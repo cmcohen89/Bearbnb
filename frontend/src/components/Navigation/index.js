@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import { Modal } from '../../context/Modal';
 import LoginForm from '../LoginFormModal/LoginForm';
@@ -28,13 +27,13 @@ function Navigation({ isLoaded }) {
           </div>
           <div className="guests">
             <input className='add-guests' type="text" placeholder="Add guests" />
-            <span><i class="fa-solid fa-magnifying-glass"></i></span>
+            <span><NavLink to='coming-soon'><i class="fa-solid fa-magnifying-glass glass"></i></NavLink></span>
           </div>
         </div>
       </div>
       <div className='nav-right'>
         <span><NavLink className='host' to='/create'>Become a Host</NavLink></span>
-        <i class="fa-solid fa-globe globe"></i>
+        <NavLink to='coming-soon'><i class="fa-solid fa-globe globe"></i></NavLink>
         {isLoaded && <ProfileButton user={sessionUser} setLogin={setLogin} setShowModal={setShowModal} />}
         {showModal && <Modal onClose={() => setShowModal(false)}>
           {login ? <LoginForm setShowModal={setShowModal} /> : <SignupFormPage setShowModal={setShowModal} />}

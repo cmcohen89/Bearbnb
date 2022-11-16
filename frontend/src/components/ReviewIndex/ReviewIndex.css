@@ -1,0 +1,46 @@
+.reviews-section {
+  border-top: 1px solid rgba(128, 128, 128, 0.273);
+  height: 500px;
+}
+
+.reviews-div {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.review {
+  width: 450px;
+  height: 100px;
+}
+
+.reviews-header {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.add-review {
+  padding: 10px;
+  margin-left: 20px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.347);
+  cursor: pointer;
+}
+
+.add-review:hover {
+  background-color: rgba(128, 128, 128, 0.091);
+}
+
+.reviews-title {
+  font-size: 16pt;
+  font-weight: 600;
+}
+
+.reviewer {
+  font-weight: 600;
+}
+
+.review-date {
+  color: rgba(128, 128, 128, 0.482);
+}

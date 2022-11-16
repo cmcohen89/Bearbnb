@@ -1,11 +1,13 @@
 .icons-div {
-  /* position: sticky; */
-  /* background-color: white; */
-  /* top: 60px; */
   display: flex;
   justify-content: space-evenly;
   width: 95vw;
   margin-left: 30px;
+}
+
+.icons-div a {
+  text-decoration: none;
+  color: #333;
 }
 
 .icon {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 
@@ -47,7 +47,7 @@ function SignupFormPage({ setShowModal }) {
             ))}
           </ul>}
           <input
-            className='email'
+            className='email input'
             type="text"
             placeholder="Email address"
             value={email}
@@ -55,7 +55,7 @@ function SignupFormPage({ setShowModal }) {
             required
           />
           <input
-            className='username2'
+            className='username2 input'
             type="text"
             placeholder="Username"
             value={username}
@@ -63,7 +63,7 @@ function SignupFormPage({ setShowModal }) {
             required
           />
           <input
-            className="password2"
+            className="password2 input"
             type="password"
             placeholder="Password"
             value={password}
@@ -71,7 +71,7 @@ function SignupFormPage({ setShowModal }) {
             required
           />
           <input
-            className="confirm_password"
+            className="confirm_password input"
             placeholder="Confirm password"
             type="password"
             value={confirmPassword}
@@ -79,7 +79,7 @@ function SignupFormPage({ setShowModal }) {
             required
           />
           <input
-            className="firstName"
+            className="firstName input"
             placeholder="First name"
             type="text"
             value={firstName}
@@ -87,7 +87,7 @@ function SignupFormPage({ setShowModal }) {
             required
           />
           <input
-            className="lastName"
+            className="lastName input"
             placeholder="Last name"
             type="text"
             value={lastName}
@@ -103,26 +103,26 @@ function SignupFormPage({ setShowModal }) {
         <div className="line"></div>
       </div>
       <div className='widgets'>
-        <button className='widget'>
+        <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
           <i class="fa-brands fa-facebook fb"></i>
           <span>Continue with Facebook</span>
           <span></span>
-        </button>
-        <button className='widget'>
+        </button></NavLink>
+        <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
           <img className='google' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" />
           <span>Continue with Google</span>
           <span></span>
-        </button>
-        <button className='widget'>
+        </button></NavLink>
+        <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
           <i class="fa-brands fa-apple apple"></i>
           <span>Continue with Apple</span>
           <span></span>
-        </button>
-        <button className='widget'>
+        </button></NavLink>
+        <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
           <i class="fa-solid fa-mobile-retro phone"></i>
           <span>Continue with phone number</span>
           <span></span>
-        </button>
+        </button></NavLink>
       </div>
     </div>
   );

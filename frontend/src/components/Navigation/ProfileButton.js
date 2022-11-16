@@ -68,8 +68,8 @@ function ProfileButton({ user, setLogin, setShowModal }) {
             <li className="profile-dropdown-li dropdown-link">
               <NavLink to='/create'>Host your home</NavLink>
             </li>
-            <li className="profile-dropdown-li"><a>Host an experience</a></li>
-            <li className="profile-dropdown-li"><a>Help</a></li>
+            <li className="profile-dropdown-li dropdown-link"><NavLink to='/coming-soon'>Host an experience</NavLink></li>
+            <li className="profile-dropdown-li dropdown-link"><NavLink to='/coming-soon'>Help</NavLink></li>
           </div>
         </ul>)
       )}

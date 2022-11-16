@@ -34,6 +34,8 @@ nav {
 }
 
 .host {
+  padding: 12px;
+  border-radius: 21px;
   font-weight: 500;
   text-decoration: none;
   letter-spacing: -0.8px;
@@ -43,8 +45,12 @@ nav {
   color: #333
 }
 
+.host:hover {
+  background-color: rgba(128, 128, 128, 0.064);
+}
+
 .bar {
-  margin-left: 125px;
+  margin-left: 170px;
   width: 350px;
   background: white;
   box-shadow: 0 0 7px hsl(0 0% 78%);
@@ -94,12 +100,16 @@ nav {
   width: 22%;
 }
 
-nav input[type="text"] {
+.anywhere,
+.any-week,
+.add-guests {
   background: none;
   border: none;
 }
 
-nav input[type="text"]:focus {
+.anywhere:focus,
+.any-week:focus,
+.add-guests:focus {
   outline: none;
 }
 
@@ -197,6 +207,11 @@ nav input[type="text"]:focus {
   background-color: white;
   border: 1px solid rgba(128, 128, 128, 0.352);
   padding: 5px 5px 5px 12px;
+  transition: box-shadow 250ms ease;
+}
+
+.profile:hover {
+  box-shadow: 0 0 10px rgb(173, 173, 173);
 }
 
 .profile-lines {
@@ -243,4 +258,22 @@ nav input[type="text"]:focus {
 
 .globe {
   cursor: pointer;
+  padding: 12px;
+  border-radius: 21px;
+}
+
+.globe:hover {
+  background-color: rgba(128, 128, 128, 0.064);
+}
+
+.glass {
+  color: white;
+}
+
+.globe:active {
+  color:rgba(128, 128, 128, 0.244);
+}
+
+.host:active {
+  color: rgba(128, 128, 128, 0.244)
 }

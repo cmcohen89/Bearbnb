@@ -1,0 +1,154 @@
+.single-spot {
+  margin: 0 391px;
+}
+
+.single-spot-title {
+  font-weight: 500;
+  font-size: 20pt;
+  margin: 20px 0 4px 0;
+}
+
+.single-spot-subtitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  font-size: 11pt;
+  margin: 0px 0 17px 0;
+  letter-spacing: -0.3px;
+}
+
+.single-spot-subtitle a {
+  text-decoration: underline;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.single-spot-subtitle-right span {
+  padding: 6px;
+  border-radius: 10px;
+  letter-spacing: -0.5px;
+}
+
+.single-spot-subtitle-right span:hover {
+  background-color: rgba(111, 128, 117, 0.059);
+}
+
+.single-spot-subtitle-right a,
+.single-spot-subtitle-right i {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+}
+
+.single-spot-avgRating {
+  font-weight: 500;
+}
+
+.single-spot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-div {
+  display: grid;
+  width: 100%;
+  height: 518px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: dense;
+  gap: 8px;
+}
+
+.img-div > :first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.img-div > :nth-child(3) {
+  border-top-right-radius: 10px;
+}
+
+.img-div > :nth-child(5) {
+  border-bottom-right-radius: 10px;
+}
+
+.single-spot-lower {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.single-spot-lower-right {
+  margin-left: 90px;
+}
+
+.single-spot-lower-left-section {
+  padding-top: 20px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.273);
+  padding-bottom: 20px;
+}
+
+.single-spot-lower-left-section-final {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.entire {
+  margin-bottom: 0;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -.75px;
+}
+
+.stats {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
+.stat-li {
+  padding: 7px;
+  display: flex;
+}
+
+.medal,
+.key,
+.calendar {
+  padding-top: 20px;
+}
+
+.medal2 {
+  font-size: 8pt;
+  padding-right: 3px;
+}
+
+.stat-header-item {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.stat-item {
+  letter-spacing: -0.5px;
+  font-size: 11pt;
+  color:gray;
+}
+
+.inner-li {
+  padding-left: 20px;
+}
+
+.aircover {
+  padding-top: 10px;
+  height: 26px;
+}
+
+.learn {
+  text-decoration: underline;
+  font-weight: 600;
+}

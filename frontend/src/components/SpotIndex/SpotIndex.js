@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { Switch, NavLink, Link, Route, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getSpots } from '../../store/spots';
 import './SpotIndex.css';
 import SpotTypeBar from '../SpotTypeBar/SpotTypeBar';
@@ -9,7 +9,6 @@ const SpotIndex = () => {
   const dispatch = useDispatch();
 
   let spots = useSelector(state => Object.values(state.spots));
-  console.log(spots)
 
   useEffect(() => {
     dispatch(getSpots());
@@ -32,7 +31,8 @@ const SpotIndex = () => {
                   {spot.avgRating ? spot.avgRating : "New"}
                 </span>
               </h3>
-              <span className='miles'>{Math.ceil(Math.random() * 100)} miles away</span>
+              <span className='miles'>{Math.ceil(Math.random() * 100) + 1} miles away</span><br></br>
+              <span className='miles'>Added {Math.ceil(Math.random() * 10) + 1} weeks ago</span>
               <h4>${spot.price} <span className='night'>night</span></h4>
             </NavLink>
           </div>

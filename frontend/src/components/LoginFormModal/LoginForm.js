@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import '../LoginFormPage/LoginForm.css'
 import './LoginFormModal.css'
+import { NavLink } from "react-router-dom";
 
 function LoginForm({ setShowModal }) {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ function LoginForm({ setShowModal }) {
             ))}
           </ul>}
           <input
-            className='username'
+            className='username input'
             type="text"
             placeholder="Email address or username"
             value={credential}
@@ -47,7 +48,7 @@ function LoginForm({ setShowModal }) {
             required
           />
           <input
-            className="password"
+            className="password input"
             type="password"
             placeholder="Password"
             value={password}
@@ -63,28 +64,28 @@ function LoginForm({ setShowModal }) {
         <div className="line"></div>
       </div>
       <div className='widgets'>
-        <button className='widget'>
+        <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
           <i class="fa-brands fa-facebook fb"></i>
           <span>Continue with Facebook</span>
           <span></span>
-        </button>
-        <button className='widget'>
+        </button></NavLink>
+        <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
           <img className='google' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" />
           <span>Continue with Google</span>
           <span></span>
-        </button>
-        <button className='widget'>
+        </button></NavLink>
+        <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
           <i class="fa-brands fa-apple apple"></i>
           <span>Continue with Apple</span>
           <span></span>
-        </button>
-        <button className='widget'>
+        </button></NavLink>
+        <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
           <i class="fa-solid fa-mobile-retro phone"></i>
           <span>Continue with phone number</span>
           <span></span>
-        </button>
+        </button></NavLink>
       </div>
-    </div >
+    </div>
   );
 }
 
