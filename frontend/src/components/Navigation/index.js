@@ -15,7 +15,7 @@ function Navigation({ isLoaded }) {
   return (
     <nav>
       <div className='nav-left'>
-        <NavLink className='logo-link' exact to="/"><img className='logo-img' src='/images/logos/bearbnb_logo_2_bold.png' alt='bearbnb logo'></img><span className='logo-text'>bearbnb</span></NavLink>
+        <NavLink className='logo-link' exact to="/"><img className='logo-img' src='/images/logos/logo_5.png' alt='bearbnb logo'></img><span className='logo-text'>bearbnb</span></NavLink>
       </div>
       <div className='nav-center'>
         <div className="bar">

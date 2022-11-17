@@ -22,7 +22,7 @@ module.exports = {
         lat: 23.4547,
         lng: 85.3447,
         name: "Nowhere's Lodge",
-        description: "Come hang out at the only lodge in Nowhereville!",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
         price: 150
       },
       {
@@ -34,7 +34,7 @@ module.exports = {
         lat: 23.4548,
         lng: 85.3448,
         name: "Woodland Cabin",
-        description: "Get your cabin on in lovely Woodland Forest!",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
         price: 200
       },
       {
@@ -46,7 +46,7 @@ module.exports = {
         lat: 23.4549,
         lng: 85.3449,
         name: "Urban Home",
-        description: "The perfect place to vacation with your shitty kids!",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
         price: 250
       },
       {
@@ -58,7 +58,7 @@ module.exports = {
         lat: 23.4550,
         lng: 85.3450,
         name: "Richie Estate",
-        description: "Let's hoity our toities here in the Richlands!",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
         price: 300
       },
       {
@@ -70,7 +70,7 @@ module.exports = {
         lat: 23.4551,
         lng: 85.3451,
         name: "The Fresh Mansion",
-        description: "Fresh Prince? Nah, more like Fresh King yo",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
         price: 350
       },
       {
@@ -82,7 +82,7 @@ module.exports = {
         lat: 23.4551,
         lng: 85.3451,
         name: "The Mostest Adorable Tiny House",
-        description: "Get'cho tiny on!",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
         price: 100
       },
       {
@@ -94,7 +94,7 @@ module.exports = {
         lat: 23.4551,
         lng: 85.3451,
         name: "The Cooky Club",
-        description: "#notliketheotherhouses",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
         price: 200
       },
       {
@@ -106,7 +106,7 @@ module.exports = {
         lat: 23.4551,
         lng: 85.3451,
         name: "Mountain Retreat",
-        description: "Get away from it all at the mountain retreat!",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
         price: 350
       },
       {
@@ -118,7 +118,7 @@ module.exports = {
         lat: 23.4551,
         lng: 85.3451,
         name: "Lodge at the Lake",
-        description: "Do you even lake bro",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
         price: 400
       },
       {
@@ -130,7 +130,7 @@ module.exports = {
         lat: 23.4551,
         lng: 85.3451,
         name: "The Beach House",
-        description: "Chillax at the shore my dudes",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
         price: 420
       },
       {
@@ -142,7 +142,7 @@ module.exports = {
         lat: 23.4551,
         lng: 85.3451,
         name: "Crazy House",
-        description: "Let's do shots and get crazy",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
         price: 355
       },
       {
@@ -154,7 +154,151 @@ module.exports = {
         lat: 23.4551,
         lng: 85.3451,
         name: "Insanity House",
-        description: "Breh so insane",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+        price: 540
+      },
+      {
+        ownerId: 1,
+        address: '37216 Wilford Ridges',
+        city: 'Schimmelfort',
+        state: 'Oregon',
+        country: 'United States',
+        lat: 23.4547,
+        lng: 85.3447,
+        name: "Woodlands View",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+        price: 150
+      },
+      {
+        ownerId: 2,
+        address: '57473 Corkery Mountain',
+        city: 'Dejuanmouth',
+        state: 'Vermont',
+        country: 'United States',
+        lat: 23.4548,
+        lng: 85.3448,
+        name: "The Pears",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+        price: 200
+      },
+      {
+        ownerId: 3,
+        address: '986 Orlo Port',
+        city: 'Wizaton',
+        state: 'Montana',
+        country: 'United States',
+        lat: 23.4549,
+        lng: 85.3449,
+        name: "The Old Post Office",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+        price: 250
+      },
+      {
+        ownerId: 4,
+        address: '66749 Gaylord Oval Suite 164',
+        city: 'West Amber',
+        state: 'New Mexico',
+        country: 'United States',
+        lat: 23.4550,
+        lng: 85.3450,
+        name: "River View",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+        price: 300
+      },
+      {
+        ownerId: 5,
+        address: '860 Eden Mill',
+        city: 'Port Terryville',
+        state: 'South Dakota',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "Woodside Grove",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+        price: 350
+      },
+      {
+        ownerId: 1,
+        address: '81415 Emil Landing Suite 719',
+        city: 'Ulicesfort',
+        state: 'Tennessee',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "Windy House",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+        price: 100
+      },
+      {
+        ownerId: 2,
+        address: '16303 Pouros Branch Suite 889',
+        city: 'Zackshire',
+        state: 'Pennsylvania',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "Doddington End",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+        price: 200
+      },
+      {
+        ownerId: 3,
+        address: '46969 Karen Trail',
+        city: 'North Hector',
+        state: 'Ohio',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "Ginger Lodge",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+        price: 350
+      },
+      {
+        ownerId: 4,
+        address: '6855 Amy Radial',
+        city: 'East Haileychester',
+        state: 'Wisconsin',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "Park House",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+        price: 400
+      },
+      {
+        ownerId: 5,
+        address: '34946 Schulist Court',
+        city: 'Gloverhaven',
+        state: 'Tennessee',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "Ivylands Manor",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+        price: 420
+      },
+      {
+        ownerId: 1,
+        address: '88271 Oscar Mission',
+        city: 'East Ryderchester',
+        state: 'Oregon',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "Picklepear Lodgings",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+        price: 355
+      },
+      {
+        ownerId: 2,
+        address: '42564 Fritsch View Apt. 716',
+        city: 'East Gia',
+        state: 'Pennsylvania',
+        country: 'United States',
+        lat: 23.4551,
+        lng: 85.3451,
+        name: "Riverside Estate",
+        description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
         price: 540
       }
     ])

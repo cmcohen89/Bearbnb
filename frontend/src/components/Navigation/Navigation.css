@@ -9,6 +9,11 @@ nav {
   z-index: 1;
 }
 
+/* .nav-left {
+  display: flex;
+  align-items: center;
+} */
+
 .logo-img {
   height: 45px;
   margin-left: 60px;
@@ -24,7 +29,6 @@ nav {
   color: rgb(255,56,92);
   font-size: 16pt;
   letter-spacing: -1.5px;
-  margin-top: 12px;
   font-weight: 700;
 }
 

@@ -22,6 +22,7 @@ const SingleSpot = () => {
 
   const previewImg = singleSpot.SpotImages.find(img => img.preview === true);
   const otherImgs = singleSpot.SpotImages.filter(img => img.preview === false).slice(0, 4);
+  console.log(singleSpot.avgStarRating)
 
   return (
     <div className='single-spot'>
@@ -29,7 +30,7 @@ const SingleSpot = () => {
       <h3 className='single-spot-subtitle'>
         <div className='single-spot-subtitle-left'>
           <i class="fa-solid fa-star"></i>{" "}
-          <span className='single-spot-avgRating'>{singleSpot.avgStarRating}</span> · <a>{singleSpot.numReviews} {singleSpot.numReviews === 1 ? 'Review' : 'Reviews'}</a> · <i class="fa-solid fa-medal medal2"></i> Superhost · <a>{singleSpot.city}</a>,<a>{singleSpot.state}</a>,<a>{singleSpot.country}</a>
+          <span className='single-spot-avgRating'>{singleSpot.avgStarRating !== 'NaN' ? singleSpot.avgStarRating : "New"}</span> · <a>{singleSpot.numReviews} {singleSpot.numReviews === 1 ? 'Review' : 'Reviews'}</a> · <i class="fa-solid fa-medal medal2"></i> Superhost · <a>{singleSpot.city}</a>,<a>{singleSpot.state}</a>,<a>{singleSpot.country}</a>
         </div>
         <div className='single-spot-subtitle-right'>
           <span><i class="fa-solid fa-arrow-up-from-bracket arrow"></i><a>Share</a></span>

@@ -29,9 +29,6 @@ function App() {
           <Route exact path='/'>
             <SpotIndex />
           </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
           <Route path="/create">
             <CreateSpotForm />
           </Route>
@@ -55,6 +52,9 @@ function App() {
           </Route>
           <Route path='/coming-soon'>
             <ComingSoon />
+          </Route>
+          <Route>
+            <h1 style={{ textAlign: 'center' }}>404 Not Found!</h1>
           </Route>
         </Switch>
       )}
