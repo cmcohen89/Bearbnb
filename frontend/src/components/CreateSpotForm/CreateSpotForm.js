@@ -123,6 +123,8 @@ const CreateSpotForm = () => {
             type="number"
             className="price input"
             placeholder='Price'
+            max='999999'
+            min='0'
             required
             value={price}
             onChange={updatePrice} />
