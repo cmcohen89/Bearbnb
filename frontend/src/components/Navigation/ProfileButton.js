@@ -57,7 +57,7 @@ function ProfileButton({ user, setLogin, setShowModal }) {
         </ul>) :
         (<ul className="profile-dropdown">
           <div className='dropdown'>
-            <li className="profile-dropdown-li">
+            <li className="profile-dropdown-li profile-dropdown-login">
               <a onClick={() => {
                 setLogin(true)
                 setShowModal(true)

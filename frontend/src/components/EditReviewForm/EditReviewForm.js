@@ -12,8 +12,8 @@ const EditReviewForm = () => {
   const { id } = useParams();
   const currReview = useSelector(getReviewById(id))
 
-  const [review, setReview] = useState(currReview.review);
-  const [stars, setStars] = useState(currReview.stars);
+  const [review, setReview] = useState(currReview ? currReview.review : '');
+  const [stars, setStars] = useState(currReview ? currReview.stars : 0);
 
   const updateReview = (e) => setReview(e.target.value);
   const updateStars = (e) => setStars(e.target.value);

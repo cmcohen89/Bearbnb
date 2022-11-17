@@ -185,6 +185,11 @@ nav {
   margin: 0;
   font-weight: 500;
   width: 100%;
+  cursor: pointer;
+}
+
+.profile-dropdown-login {
+  font-weight: 600;
 }
 
 .profile-dropdown-li a {
@@ -213,6 +218,7 @@ nav {
   border: 1px solid rgba(128, 128, 128, 0.352);
   padding: 5px 5px 5px 12px;
   transition: box-shadow 250ms ease;
+  cursor: pointer;
 }
 
 .no-profile {
@@ -228,6 +234,7 @@ nav {
   border: 1px solid rgba(128, 128, 128, 0.352);
   padding: 5px 5px 5px 12px;
   transition: box-shadow 250ms ease;
+  cursor: pointer;
 }
 
 .profile:hover {
@@ -268,6 +275,7 @@ nav {
   padding-left: 20px;
   width: 100%;
   font-weight: 600;
+  cursor: default;
 }
 
 .dropdown-user:hover {

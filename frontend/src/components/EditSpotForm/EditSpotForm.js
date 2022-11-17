@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { editSpot } from '../../store/spots';
+import { editSpot, getSingleSpot } from '../../store/spots';
 import { getSpotById } from '../../store/spots';
 
 const EditSpotForm = () => {
@@ -10,13 +10,13 @@ const EditSpotForm = () => {
   const spot = useSelector(getSpotById(id))
   const history = useHistory();
 
-  const [address, setAddress] = useState(spot.address);
-  const [city, setCity] = useState(spot.city);
-  const [state, setState] = useState(spot.state);
-  const [country, setCountry] = useState(spot.country);
-  const [name, setName] = useState(spot.name);
-  const [description, setDescription] = useState(spot.description);
-  const [price, setPrice] = useState(spot.price);
+  const [address, setAddress] = useState(spot ? spot.address : '');
+  const [city, setCity] = useState(spot ? spot.city : '');
+  const [state, setState] = useState(spot ? spot.state : '');
+  const [country, setCountry] = useState(spot ? spot.country : '');
+  const [name, setName] = useState(spot ? spot.name : '');
+  const [description, setDescription] = useState(spot ? spot.description : '');
+  const [price, setPrice] = useState(spot ? spot.price : 0);
   const [errors, setErrors] = useState([]);
 
   const updateAddress = (e) => setAddress(e.target.value);
@@ -26,6 +26,10 @@ const EditSpotForm = () => {
   const updateName = (e) => setName(e.target.value);
   const updateDescription = (e) => setDescription(e.target.value);
   const updatePrice = (e) => setPrice(e.target.value);
+
+  useEffect(() => {
+    dispatch(getSingleSpot(id));
+  }, [dispatch, id])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,6 +54,8 @@ const EditSpotForm = () => {
 
     if (updatedSpot) history.push(`/my_spots`);
   };
+
+  if (!spot) return null;
 
   return (
     <div className='create-form'>
