@@ -171,3 +171,24 @@
 .demo-button:hover {
   color: rgba(128, 128, 128, 0.395);
 }
+
+@media (max-width: 600px) {
+  .modal {
+    width: 90vw;
+    height: 60vh;
+  }
+
+  .continue {
+    width: 60vw;
+  }
+
+  .form .input {
+    height: 50px;
+    width: 60vw;
+    padding-left: 10px;
+  }
+
+  .widget {
+    width: 60vw;
+  }
+}

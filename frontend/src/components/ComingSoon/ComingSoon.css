@@ -2,3 +2,9 @@
   text-align: center;
   margin: 200px;
 }
+
+@media (max-width: 600px) {
+  .coming-soon {
+    margin: 30vh 0 0 0;
+  }
+}

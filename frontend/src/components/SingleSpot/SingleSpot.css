@@ -170,6 +170,11 @@
   font-weight: 600;
 }
 
+.plain-link {
+  color: black;
+}
+
+
 @media (max-width: 1300px) {
   .single-spot-lower {
     display: block;
@@ -212,6 +217,8 @@
   }
 }
 
-.plain-link {
-  color: black;
+@media (max-width: 600px) {
+  .single-spot {
+    text-align: center;
+  }
 }
