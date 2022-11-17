@@ -27,13 +27,13 @@ function Navigation({ isLoaded }) {
           </div>
           <div className="guests">
             <input className='add-guests' type="text" placeholder="Add guests" />
-            <NavLink to='coming-soon'><span><i class="fa-solid fa-magnifying-glass glass"></i></span></NavLink>
+            <NavLink to='/coming-soon'><span><i class="fa-solid fa-magnifying-glass glass"></i></span></NavLink>
           </div>
         </div>
       </div>
       <div className='nav-right'>
         <span><NavLink className='host' to='/create'>Become a Host</NavLink></span>
-        <NavLink to='coming-soon'><i class="fa-solid fa-globe globe"></i></NavLink>
+        <NavLink to='/coming-soon'><i class="fa-solid fa-globe globe"></i></NavLink>
         {isLoaded && <ProfileButton user={sessionUser} setLogin={setLogin} setShowModal={setShowModal} />}
         {showModal && <Modal onClose={() => setShowModal(false)}>
           {login ? <LoginForm setShowModal={setShowModal} /> : <SignupFormPage setShowModal={setShowModal} />}

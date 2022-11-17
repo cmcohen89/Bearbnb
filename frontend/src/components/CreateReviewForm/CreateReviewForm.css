@@ -1,5 +1,6 @@
 .review-body {
-  height: 120px;
+  height: 200px;
+  width: 400px;
   resize: none;
   border-top: 1px solid rgba(128, 128, 128, 0.542);
   border-right: 1px solid rgba(128, 128, 128, 0.542);

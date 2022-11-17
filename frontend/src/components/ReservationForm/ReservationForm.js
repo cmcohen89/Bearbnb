@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { createReview } from '../../store/reviews';
 import { addImage, createSpot, getSpotById } from '../../store/spots';
 import { getSpots } from '../../store/spots';
@@ -41,7 +41,7 @@ const ReservationForm = ({ thisSpot }) => {
         <span><span className='reservation-price'>${thisSpot.price}</span> <span className='night'>night</span></span>
         <span className='reservation-rating-review'>
           <i class="fa-solid fa-star"></i>{" "}
-          {thisSpot.avgStarRating} · <a>{thisSpot.numReviews} {thisSpot.numReviews === 1 ? 'review' : 'reviews'}</a></span>
+          {thisSpot.avgStarRating} · <NavLink className='plain-link' to='/coming-soon'>{thisSpot.numReviews} {thisSpot.numReviews === 1 ? 'review' : 'reviews'}</NavLink></span>
       </div>
       <div className='main-field'>
         <form className='reservation-form' onSubmit={handleSubmit}>
@@ -77,7 +77,7 @@ const ReservationForm = ({ thisSpot }) => {
             // onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button className='reserve' type="submit">Reserve</button>
+          <NavLink to='/coming-soon'><button className='reserve' type="submit">Reserve</button></NavLink>
           <p className='charged'>You won't be charged yet</p>
           <div className='costs'>
             <a>${thisSpot.price} x 7 nights</a>
