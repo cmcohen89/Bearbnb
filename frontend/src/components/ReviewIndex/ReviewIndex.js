@@ -28,7 +28,7 @@ const ReviewIndex = ({ spot }) => {
       </div>
       <div className='reviews-div'>
         {reviews.map((review) => (
-          <div className='review'>
+          <div className='review-text'>
             <span className='reviewer'>{review.User.firstName}</span><br />
             <span className='review-date'>{review.createdAt}</span>
             <p>{review.review}</p>

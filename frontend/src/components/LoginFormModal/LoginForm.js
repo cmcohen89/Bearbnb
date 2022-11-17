@@ -20,10 +20,15 @@ function LoginForm({ setShowModal }) {
         async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
-          console.log(errors)
         }
       );
   };
+
+  const handleDemo = (e) => {
+    e.preventDefault();
+    return dispatch(sessionActions.login({ credential: 'Demo-lition', password: 'password' }))
+      .then(() => setShowModal(false));
+  }
 
   return (
     <div className='modal'>
@@ -57,6 +62,7 @@ function LoginForm({ setShowModal }) {
             required
           />
           <button className='continue' type="submit">Continue</button>
+          <button onClick={handleDemo} className='demo-button'>Log in as Demo User</button>
         </form>
       </div>
       <div className='or'>

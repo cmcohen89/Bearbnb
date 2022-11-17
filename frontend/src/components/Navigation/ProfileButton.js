@@ -31,10 +31,16 @@ function ProfileButton({ user, setLogin, setShowModal }) {
 
   return (
     <>
-      <button class='profile' onClick={openMenu}>
-        <span className='profile-lines'><i class="fa-solid fa-bars"></i></span>
-        <span className="profile-icon"><i className="fas fa-user-circle" /></span>
-      </button>
+      {user ?
+        <button class='profile' onClick={openMenu}>
+          <span className='profile-lines'><i class="fa-solid fa-bars"></i></span>
+          <span className="profile-icon"><i className="fas fa-user-circle" /></span>
+        </button>
+        :
+        <button class='no-profile' onClick={openMenu}>
+          <span className='no-profile-lines'><i class="fa-solid fa-bars"></i></span>
+        </button>
+      }
       {showMenu && (user ?
         (<ul className="profile-dropdown">
           <div className="dropdown">

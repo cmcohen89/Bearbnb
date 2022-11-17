@@ -66,6 +66,7 @@
   margin-top: 5px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .form ::placeholder {
@@ -158,4 +159,15 @@
 
 .apple {
   font-size: 17pt;
+}
+
+.demo-button {
+  margin-top: 15px;
+  margin-bottom: -10px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+.demo-button:hover {
+  color: rgba(128, 128, 128, 0.395);
 }

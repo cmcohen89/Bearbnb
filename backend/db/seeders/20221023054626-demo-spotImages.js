@@ -19,26 +19,6 @@ module.exports = {
         preview: true
       },
       {
-        spotId: 2,
-        url: 'https://cabinsathickoryridge.com/media/Woods-Cabin-Spring.jpg',
-        preview: true
-      },
-      {
-        spotId: 3,
-        url: 'https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg',
-        preview: true
-      },
-      {
-        spotId: 4,
-        url: 'https://s.yimg.com/ny/api/res/1.2/ma7rx4rhQ4n2mTXHP53XSg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTUyNztjZj13ZWJw/https://media.zenfs.com/en/smartasset_475/21759e36688ba0f43fc0796ca627e979',
-        preview: true
-      },
-      {
-        spotId: 5,
-        url: 'https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1103i215%2Ft8x5kxv6t2ez4ht76vvg6zj5p3i215&option=N&h=472&permitphotoenlargement=false',
-        preview: true
-      },
-      {
         spotId: 1,
         url: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg',
         preview: false
@@ -60,22 +40,102 @@ module.exports = {
       },
       {
         spotId: 2,
-        url: 'www.fakeimagewebsite.com/images/201',
+        url: 'https://cabinsathickoryridge.com/media/Woods-Cabin-Spring.jpg',
+        preview: true
+      },
+      {
+        spotId: 2,
+        url: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg',
+        preview: false
+      },
+      {
+        spotId: 2,
+        url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80',
+        preview: false
+      },
+      {
+        spotId: 2,
+        url: 'https://media.istockphoto.com/id/1211174464/photo/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-grass-and-blue-sky.jpg?s=612x612&w=0&k=20&c=h0XtWGD8asz_hfDVus7SWwOrtAFlZYfr7wdStKCQv14=',
+        preview: false
+      },
+      {
+        spotId: 2,
+        url: 'https://www.bhg.com/thmb/0Fg0imFSA6HVZMS2DFWPvjbYDoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
         preview: false
       },
       {
         spotId: 3,
-        url: 'www.fakeimagewebsite.com/images/202',
+        url: 'https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg',
+        preview: true
+      },
+      {
+        spotId: 3,
+        url: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg',
+        preview: false
+      },
+      {
+        spotId: 3,
+        url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80',
+        preview: false
+      },
+      {
+        spotId: 3,
+        url: 'https://media.istockphoto.com/id/1211174464/photo/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-grass-and-blue-sky.jpg?s=612x612&w=0&k=20&c=h0XtWGD8asz_hfDVus7SWwOrtAFlZYfr7wdStKCQv14=',
+        preview: false
+      },
+      {
+        spotId: 3,
+        url: 'https://www.bhg.com/thmb/0Fg0imFSA6HVZMS2DFWPvjbYDoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
         preview: false
       },
       {
         spotId: 4,
-        url: 'www.fakeimagewebsite.com/images/203',
+        url: 'https://s.yimg.com/ny/api/res/1.2/ma7rx4rhQ4n2mTXHP53XSg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTUyNztjZj13ZWJw/https://media.zenfs.com/en/smartasset_475/21759e36688ba0f43fc0796ca627e979',
+        preview: true
+      },
+      {
+        spotId: 4,
+        url: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg',
+        preview: false
+      },
+      {
+        spotId: 4,
+        url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80',
+        preview: false
+      },
+      {
+        spotId: 4,
+        url: 'https://media.istockphoto.com/id/1211174464/photo/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-grass-and-blue-sky.jpg?s=612x612&w=0&k=20&c=h0XtWGD8asz_hfDVus7SWwOrtAFlZYfr7wdStKCQv14=',
+        preview: false
+      },
+      {
+        spotId: 4,
+        url: 'https://www.bhg.com/thmb/0Fg0imFSA6HVZMS2DFWPvjbYDoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
         preview: false
       },
       {
         spotId: 5,
-        url: 'www.fakeimagewebsite.com/images/204',
+        url: 'https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fsir.azureedge.net%2F1103i215%2Ft8x5kxv6t2ez4ht76vvg6zj5p3i215&option=N&h=472&permitphotoenlargement=false',
+        preview: true
+      },
+      {
+        spotId: 5,
+        url: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg',
+        preview: false
+      },
+      {
+        spotId: 5,
+        url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80',
+        preview: false
+      },
+      {
+        spotId: 5,
+        url: 'https://media.istockphoto.com/id/1211174464/photo/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-grass-and-blue-sky.jpg?s=612x612&w=0&k=20&c=h0XtWGD8asz_hfDVus7SWwOrtAFlZYfr7wdStKCQv14=',
+        preview: false
+      },
+      {
+        spotId: 5,
+        url: 'https://www.bhg.com/thmb/0Fg0imFSA6HVZMS2DFWPvjbYDoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
         preview: false
       },
       {
@@ -84,9 +144,49 @@ module.exports = {
         preview: true
       },
       {
+        spotId: 6,
+        url: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg',
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80',
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: 'https://media.istockphoto.com/id/1211174464/photo/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-grass-and-blue-sky.jpg?s=612x612&w=0&k=20&c=h0XtWGD8asz_hfDVus7SWwOrtAFlZYfr7wdStKCQv14=',
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: 'https://www.bhg.com/thmb/0Fg0imFSA6HVZMS2DFWPvjbYDoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
+        preview: false
+      },
+      {
         spotId: 7,
         url: 'https://thumbs.dreamstime.com/b/purple-house-chiloe-chile-weird-architecture-house-number-purple-house-chiloe-chile-113636220.jpg',
         preview: true
+      },
+      {
+        spotId: 7,
+        url: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg',
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80',
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: 'https://media.istockphoto.com/id/1211174464/photo/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-grass-and-blue-sky.jpg?s=612x612&w=0&k=20&c=h0XtWGD8asz_hfDVus7SWwOrtAFlZYfr7wdStKCQv14=',
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: 'https://www.bhg.com/thmb/0Fg0imFSA6HVZMS2DFWPvjbYDoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
+        preview: false
       },
       {
         spotId: 8,
@@ -94,9 +194,49 @@ module.exports = {
         preview: true
       },
       {
+        spotId: 8,
+        url: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg',
+        preview: false
+      },
+      {
+        spotId: 8,
+        url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80',
+        preview: false
+      },
+      {
+        spotId: 8,
+        url: 'https://media.istockphoto.com/id/1211174464/photo/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-grass-and-blue-sky.jpg?s=612x612&w=0&k=20&c=h0XtWGD8asz_hfDVus7SWwOrtAFlZYfr7wdStKCQv14=',
+        preview: false
+      },
+      {
+        spotId: 8,
+        url: 'https://www.bhg.com/thmb/0Fg0imFSA6HVZMS2DFWPvjbYDoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
+        preview: false
+      },
+      {
         spotId: 9,
         url: 'https://images.unsplash.com/photo-1559767949-0faa5c7e9992?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGFrZSUyMGhvdXNlfGVufDB8fDB8fA%3D%3D&w=1000&q=80',
         preview: true
+      },
+      {
+        spotId: 9,
+        url: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg',
+        preview: false
+      },
+      {
+        spotId: 9,
+        url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80',
+        preview: false
+      },
+      {
+        spotId: 9,
+        url: 'https://media.istockphoto.com/id/1211174464/photo/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-grass-and-blue-sky.jpg?s=612x612&w=0&k=20&c=h0XtWGD8asz_hfDVus7SWwOrtAFlZYfr7wdStKCQv14=',
+        preview: false
+      },
+      {
+        spotId: 9,
+        url: 'https://www.bhg.com/thmb/0Fg0imFSA6HVZMS2DFWPvjbYDoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
+        preview: false
       },
       {
         spotId: 10,
@@ -104,15 +244,75 @@ module.exports = {
         preview: true
       },
       {
+        spotId: 10,
+        url: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg',
+        preview: false
+      },
+      {
+        spotId: 10,
+        url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80',
+        preview: false
+      },
+      {
+        spotId: 10,
+        url: 'https://media.istockphoto.com/id/1211174464/photo/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-grass-and-blue-sky.jpg?s=612x612&w=0&k=20&c=h0XtWGD8asz_hfDVus7SWwOrtAFlZYfr7wdStKCQv14=',
+        preview: false
+      },
+      {
+        spotId: 10,
+        url: 'https://www.bhg.com/thmb/0Fg0imFSA6HVZMS2DFWPvjbYDoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
+        preview: false
+      },
+      {
         spotId: 11,
         url: 'https://media.istockphoto.com/id/951142366/photo/shoe-house.jpg?s=612x612&w=0&k=20&c=u9nkzIxHb4czQc_p6cfM4-zmvD7phWaPjq8pGkLUaJw=',
         preview: true
+      },
+      {
+        spotId: 11,
+        url: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg',
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80',
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: 'https://media.istockphoto.com/id/1211174464/photo/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-grass-and-blue-sky.jpg?s=612x612&w=0&k=20&c=h0XtWGD8asz_hfDVus7SWwOrtAFlZYfr7wdStKCQv14=',
+        preview: false
+      },
+      {
+        spotId: 11,
+        url: 'https://www.bhg.com/thmb/0Fg0imFSA6HVZMS2DFWPvjbYDoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
+        preview: false
       },
       {
         spotId: 12,
         url: 'http://cdn.cnn.com/cnnnext/dam/assets/190730170521--tom8995.jpg',
         preview: true
       },
+      {
+        spotId: 12,
+        url: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg',
+        preview: false
+      },
+      {
+        spotId: 12,
+        url: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80',
+        preview: false
+      },
+      {
+        spotId: 12,
+        url: 'https://media.istockphoto.com/id/1211174464/photo/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-grass-and-blue-sky.jpg?s=612x612&w=0&k=20&c=h0XtWGD8asz_hfDVus7SWwOrtAFlZYfr7wdStKCQv14=',
+        preview: false
+      },
+      {
+        spotId: 12,
+        url: 'https://www.bhg.com/thmb/0Fg0imFSA6HVZMS2DFWPvjbYDoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
+        preview: false
+      }
     ])
   },
 

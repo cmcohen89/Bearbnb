@@ -8,9 +8,9 @@
   grid-template-columns: auto auto;
 }
 
-.review {
+.review-text {
   width: 450px;
-  height: 100px;
+  padding: 10px 0px;
 }
 
 .reviews-header {
@@ -58,9 +58,8 @@
     align-items: center;
   }
 
-  .review {
-    width: 80%;
-    height: 100px;
+  .review-text {
+    width: 90%;
   }
 
   .reviews-header {
