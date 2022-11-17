@@ -27,7 +27,7 @@ function Navigation({ isLoaded }) {
           </div>
           <div className="guests">
             <input className='add-guests' type="text" placeholder="Add guests" />
-            <span><NavLink to='coming-soon'><i class="fa-solid fa-magnifying-glass glass"></i></NavLink></span>
+            <NavLink to='coming-soon'><span><i class="fa-solid fa-magnifying-glass glass"></i></span></NavLink>
           </div>
         </div>
       </div>

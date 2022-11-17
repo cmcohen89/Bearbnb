@@ -124,9 +124,12 @@
 }
 
 .medal,
-.key,
-.calendar {
+.key {
   padding-top: 20px;
+}
+
+.calendar {
+  padding-top: 18px;
 }
 
 .medal2 {

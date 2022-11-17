@@ -1,6 +1,6 @@
 .reservation-div {
   position: sticky;
-  top: 130px;
+  top: 60%;
   margin-top: 20px;
   display: flex;
   flex-direction: column;

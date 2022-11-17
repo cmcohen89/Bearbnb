@@ -23,7 +23,9 @@ const SpotIndex = () => {
         {spots.map((spot) => (
           <div className='one-spot'>
             <NavLink className='spot-link' to={`/spots/${spot.id}`}>
-              {spot.previewImage && <img className='spot-image' src={spot.previewImage} alt={spot.name}></img>}
+              <div className='spot-image-container'>
+                {spot.previewImage && <img className='spot-image' src={spot.previewImage} alt={spot.name}></img>}
+              </div>
               <h3 className='spot-location'>
                 {spot.city}, {spot.state}
                 <span className="spot-star">
