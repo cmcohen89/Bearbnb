@@ -1,3 +1,4 @@
+import { compareSync } from 'bcryptjs';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
@@ -22,7 +23,10 @@ const SingleSpot = () => {
 
   const previewImg = singleSpot.SpotImages.find(img => img.preview === true);
   const otherImgs = singleSpot.SpotImages.filter(img => img.preview === false).slice(0, 4);
-  console.log(singleSpot.avgStarRating)
+  while (otherImgs.length < 4) {
+    const placeholder = { url: 'https://i0.wp.com/dejournettgroup.com/wp-content/uploads/2021/12/placeholder.jpg?fit=636%2C475&ssl=1' }
+    otherImgs.push(placeholder);
+  };
 
   return (
     <div className='single-spot-container'>
