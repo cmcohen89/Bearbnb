@@ -1,4 +1,3 @@
-import { compareSync } from 'bcryptjs';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
