@@ -9,7 +9,6 @@
 }
 
 .all-spots {
-  max-width: 2000px;
   margin: 30px 30px;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto;
