@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { addImage, createSpot } from '../../store/spots';
 import './CreateSpotForm.css'
@@ -64,7 +64,7 @@ const CreateSpotForm = () => {
         <span className='create-title'>Create a spot</span>
         <span></span>
       </div>
-      <div className='main-field'>
+      <div className='main-field2'>
         <form className='form2' onSubmit={handleSubmit}>
           <ul className='errors-ul'>
             {errors.map((error, idx) => (
@@ -133,7 +133,7 @@ const CreateSpotForm = () => {
             value={imgUrl}
             required
             onChange={updateImgUrl} />
-          <button className='continue' type="submit">Create Spot</button>
+          <button className='create-spot-button' type="submit">Create Spot</button>
         </form>
       </div>
     </div>

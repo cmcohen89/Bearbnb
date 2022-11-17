@@ -9,6 +9,7 @@ const SpotIndex = () => {
   const dispatch = useDispatch();
 
   let spots = useSelector(state => Object.values(state.spots));
+  const usDollar = Intl.NumberFormat("en-US");
 
   useEffect(() => {
     dispatch(getSpots());
@@ -35,7 +36,7 @@ const SpotIndex = () => {
               </h3>
               <span className='miles'>{Math.ceil(Math.random() * 100) + 1} miles away</span><br></br>
               <span className='miles'>Added {Math.ceil(Math.random() * 10) + 1} weeks ago</span>
-              <h4>${spot.price} <span className='night'>night</span></h4>
+              <h4>${usDollar.format(spot.price)} <span className='night'>night</span></h4>
             </NavLink>
           </div>
         ))}

@@ -1,47 +1,39 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory, useParams } from 'react-router-dom';
-import { createReview } from '../../store/reviews';
-import { addImage, createSpot, getSpotById } from '../../store/spots';
-import { getSpots } from '../../store/spots';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './ReservationForm.css'
 
 const ReservationForm = ({ thisSpot }) => {
-  const dispatch = useDispatch();
-  const history = useHistory();
+  const [checkIn, setCheckIn] = useState('');
+  const [checkOut, setCheckOut] = useState('');
+  const [guests, setGuests] = useState('');
 
-  const user = useSelector(state => state.session.user);
+  const updateCheckIn = (e) => setCheckIn(e.target.value);
+  const updateCheckOut = (e) => setCheckOut(e.target.value);
+  const updateGuests = (e) => setGuests(e.target.value)
 
-  const { id } = useParams();
-  const spot = useSelector(getSpotById(id))
-
-  const [review, setReview] = useState('');
-  const [stars, setStars] = useState(1);
-
-  const updateReview = (e) => setReview(e.target.value);
-  const updateStars = (e) => setStars(e.target.value);
+  const usDollar = Intl.NumberFormat("en-US");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const payload = {
-      review,
-      stars
-    };
+    // const payload = {
+    //   review,
+    //   stars
+    // };
 
-    const newReview = await dispatch(createReview(payload, spot, user));
-    const spots = await dispatch(getSpots());
-    console.log(spots.Spots[id]);
-    if (newReview) history.push(`/spots/${id}`);
+    // const newReview = await dispatch(createReview(payload, spot, user));
+    // const spots = await dispatch(getSpots());
+    // console.log(spots.Spots[id]);
+    // if (newReview) history.push(`/spots/${id}`);
   };
 
   return (
     <div className='reservation-div'>
       <div className='reservation-top-bar'>
-        <span><span className='reservation-price'>${thisSpot.price}</span> <span className='night'>night</span></span>
+        <span><span className='reservation-price'>${usDollar.format(thisSpot.price)}</span> <span className='night'>night</span></span>
         <span className='reservation-rating-review'>
           <i class="fa-solid fa-star"></i>{" "}
-          {thisSpot.avgStarRating} · <NavLink className='plain-link' to='/coming-soon'>{thisSpot.numReviews} {thisSpot.numReviews === 1 ? 'review' : 'reviews'}</NavLink></span>
+          {thisSpot.avgStarRating !== 'NaN' ? thisSpot.avgStarRating : 'New'} · <NavLink className='plain-link' to='/coming-soon'>{thisSpot.numReviews} {thisSpot.numReviews === 1 ? 'review' : 'reviews'}</NavLink></span>
       </div>
       <div className='main-field'>
         <form className='reservation-form' onSubmit={handleSubmit}>
@@ -51,8 +43,8 @@ const ReservationForm = ({ thisSpot }) => {
               <input
                 className='date'
                 type="date"
-                // value={credential}
-                // onChange={(e) => setCredential(e.target.value)}
+                value={checkIn}
+                onChange={updateCheckIn}
                 required
               />
             </div>
@@ -61,8 +53,8 @@ const ReservationForm = ({ thisSpot }) => {
               <input
                 className='date'
                 type="date"
-                // value={credential}
-                // onChange={(e) => setCredential(e.target.value)}
+                value={checkOut}
+                onChange={updateCheckOut}
                 required
               />
             </div>
@@ -73,28 +65,28 @@ const ReservationForm = ({ thisSpot }) => {
             min='1'
             max='4'
             placeholder="Guests"
-            // value={password}
-            // onChange={(e) => setPassword(e.target.value)}
+            value={guests}
+            onChange={updateGuests}
             required
           />
           <NavLink to='/coming-soon'><button className='reserve' type="submit">Reserve</button></NavLink>
           <p className='charged'>You won't be charged yet</p>
           <div className='costs'>
-            <a>${thisSpot.price} x 7 nights</a>
-            <span>${thisSpot.price * 7}</span>
+            <NavLink className='plain-link' to='/coming-soon'>${usDollar.format(thisSpot.price)} x 7 nights</NavLink>
+            <span>${usDollar.format(thisSpot.price * 7)}</span>
           </div>
           <div className='costs'>
-            <a>Cleaning fee</a>
+            <NavLink className='plain-link' to='/coming-soon'>Cleaning fee</NavLink>
             <span>$17</span>
           </div>
           <div className='costs'>
-            <a>Service fee</a>
+            <NavLink className='plain-link' to='/coming-soon'>Service fee</NavLink>
             <span>$120</span>
           </div>
           <span className='line2'></span>
           <div className='reservation-total'>
             <span>Total before taxes:</span>
-            <span>${(thisSpot.price * 7) + 137}</span>
+            <span>${usDollar.format((thisSpot.price * 7) + 137)}</span>
           </div>
         </form>
       </div>

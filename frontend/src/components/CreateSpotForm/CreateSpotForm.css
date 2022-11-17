@@ -2,10 +2,28 @@
   font-size: 20pt;
 }
 
+.main-field2 {
+  display: flex;
+  justify-content: center;
+}
+
 .form2 {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
+}
+
+.create-spot-button {
+  margin-top: 40px;
+  height: 50px;
+  width: 514px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 12pt;
+  background: linear-gradient(to right, rgb(228,30,78), rgb(214,5,101));
+  cursor: pointer;
 }
 
 .form2 input {
@@ -56,4 +74,29 @@
   border: 1px solid rgba(128, 128, 128, 0.542);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  .form2 {
+    align-items: center;
+  }
+
+  .form2 input,
+  .form2 textarea {
+    height: 50px;
+    width: 70vw;
+  }
+
+  .create-spot-button {
+    margin-top: 40px;
+    height: 50px;
+    width: 70vw;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 12pt;
+    background: linear-gradient(to right, rgb(228,30,78), rgb(214,5,101));
+    cursor: pointer;
+  }
 }

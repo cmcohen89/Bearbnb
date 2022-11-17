@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { editSpot } from '../../store/spots';
@@ -120,7 +120,7 @@ const EditSpotForm = () => {
             required
             value={price}
             onChange={updatePrice} />
-          <button className='continue' type="submit">Update Spot</button>
+          <button className='create-spot-button' type="submit">Update Spot</button>
         </form>
       </div>
     </div>

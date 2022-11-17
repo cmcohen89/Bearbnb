@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { createReview } from '../../store/reviews';
-import { addImage, createSpot, getSpotById } from '../../store/spots';
-import { getSpots } from '../../store/spots';
+import { getSpotById } from '../../store/spots';
 import './CreateReviewForm.css'
 
 const CreateReviewForm = () => {
@@ -75,7 +74,7 @@ const CreateReviewForm = () => {
               <option>5</option>
             </select>
           </label>
-          <button className='continue' type="submit">Submit review</button>
+          <button className='create-spot-button' type="submit">Submit review</button>
         </form>
       </div>
     </div>

@@ -29,3 +29,22 @@
 .review-title2 {
   font-size: 18pt;
 }
+
+@media (max-width: 600px) {
+  .review-body {
+    width: 70vw;
+  }
+
+  .create-spot-button {
+    margin-top: 40px;
+    height: 50px;
+    width: 70vw;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 12pt;
+    background: linear-gradient(to right, rgb(228,30,78), rgb(214,5,101));
+    cursor: pointer;
+  }
+}

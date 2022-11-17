@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { Switch, NavLink, Link, Route, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getUserReviews, removeReview } from '../../store/reviews';
 import './MyReviewsIndex.css'
 

@@ -66,7 +66,7 @@ const EditReviewForm = () => {
               <option>5</option>
             </select>
           </label>
-          <button className='continue' type="submit">Update review</button>
+          <button className='create-spot-button' type="submit">Update review</button>
         </form>
       </div>
     </div>
