@@ -44,3 +44,28 @@
 .review-date {
   color: rgba(128, 128, 128, 0.482);
 }
+
+@media (max-width: 1500px) {
+  .reviews-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .reviews-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .review {
+    width: 80%;
+    height: 100px;
+  }
+
+  .reviews-header {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+  }
+}

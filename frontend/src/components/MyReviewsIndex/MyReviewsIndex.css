@@ -86,3 +86,20 @@
   border-radius: 10px;
   border: 1px solid rgba(128, 128, 128, 0.347);
 }
+
+@media (max-width: 1200px) {
+  .my-reviews {
+    margin: 30px 30px;
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .my-reviews {
+    margin: 30px 30px;
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: space-evenly;
+  }
+}

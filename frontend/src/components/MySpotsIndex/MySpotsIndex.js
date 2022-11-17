@@ -21,7 +21,7 @@ const MySpotsIndex = () => {
   return (
     <div>
       <h2 className='review-title'>My Spots</h2>
-      <div className='my-reviews'>
+      <div className='my-spots'>
         {spots.map((spot) => (
           <div className='one-review'>
             <h3>

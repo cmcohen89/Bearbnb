@@ -62,3 +62,48 @@
 .spot-location {
   padding-bottom: 3px;
 }
+
+@media (max-width: 1800px) {
+  .all-spots {
+    margin: 30px 30px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 1500px) {
+  .all-spots {
+    margin: 30px 30px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 1200px) {
+  .all-spots {
+    margin: 30px 30px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 900px) {
+  .all-spots {
+    margin: 30px 30px;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 600px) {
+  .all-spots {
+    margin: 30px 30px;
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: space-evenly;
+  }
+}

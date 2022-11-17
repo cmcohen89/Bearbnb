@@ -39,7 +39,7 @@ const SingleSpot = () => {
       <div className='img-div'>
         <img class='single-spot-img' src={previewImg.url} alt={singleSpot.name} />
         {otherImgs.map(img => (
-          <img class='single-spot-img' src={img.url} alt={singleSpot.name} />
+          <img class='single-spot-img-alt' src={img.url} alt={singleSpot.name} />
         ))}
       </div>
       <div className='single-spot-lower'>
