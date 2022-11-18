@@ -35,7 +35,7 @@ const EditReviewForm = () => {
       <div className='top-bar'>
         {/* <button className="x" onClick={() => setShowModal(false)}><i class="fa-solid fa-xmark"></i></button> */}
         <span></span>
-        <span className='review-title'>Edit review</span>
+        <span className='review-title2'>Edit review</span>
         <span></span>
       </div>
       <div className='main-field'>

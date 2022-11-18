@@ -1,8 +1,13 @@
 .icons-div {
+  position: sticky;
+  top: 8vh;
+  background-color: white;
   display: flex;
   justify-content: space-evenly;
-  width: 95vw;
-  /* margin-left: 30px; */
+  /* width: 95vw; */
+  padding: 0 2.25vw;
+  margin-top: -1vh;
+  border-bottom: 1px solid rgba(213, 213, 213, 0.441);
 }
 
 .icons-div a {
@@ -11,7 +16,7 @@
 }
 
 .icon {
-  margin-top: 35px;
+  margin-top: 2vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,5 +43,29 @@
 @media (max-width: 1500px) {
   .icons-div {
     display: none;
+  }
+}
+
+@media (min-height: 1000px) {
+  .icons-div {
+    top: 7%;
+  }
+}
+
+@media (min-height: 1200px) {
+  .icons-div {
+    top: 5.5%;
+  }
+}
+
+@media (min-height: 1400px) {
+  .icons-div {
+    top: 5%;
+  }
+}
+
+@media (min-height: 1600px) {
+  .icons-div {
+    top: 3.25%;
   }
 }

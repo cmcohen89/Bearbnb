@@ -1,4 +1,6 @@
-nav {
+.nav {
+  position: fixed;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,6 +10,7 @@ nav {
   border-bottom: 1px solid rgba(213, 213, 213, 0.441);
   z-index: 1;
   width: 100%;
+  top: 0;
 }
 
 /* .nav-left {
@@ -55,7 +58,7 @@ nav {
 }
 
 .bar {
-  margin-left: 170px;
+  margin-left: 210px;
   width: 350px;
   background: white;
   box-shadow: 0 0 7px hsl(0 0% 78%);
@@ -168,7 +171,7 @@ nav {
 
 .profile-dropdown {
   border-radius: 5%;
-  box-shadow: 0 0 7px hsl(0 0% 78%);
+  box-shadow: 0 0 7px rgba(199, 199, 199, 0.468);
   position: absolute;
   right: 50px;
   list-style: none;
@@ -274,7 +277,7 @@ nav {
   padding: 12.5px 0;
   padding-left: 20px;
   width: 100%;
-  font-weight: 600;
+  font-weight: 500;
   cursor: default;
 }
 

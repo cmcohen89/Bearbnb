@@ -18,7 +18,11 @@ const SingleSpot = () => {
   }, [dispatch, id]);
 
   if (!singleSpot) return null;
-  console.log(singleSpot)
+
+  const nav = document.getElementsByClassName('nav')[0];
+  const body = document.getElementsByTagName('body')[0];
+  nav.style.position = 'static';
+  body.style.marginTop = '0';
 
   const previewImg = singleSpot.SpotImages.find(img => img.preview === true);
   const otherImgs = singleSpot.SpotImages.filter(img => img.preview === false).slice(0, 4);

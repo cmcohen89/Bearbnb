@@ -1,5 +1,5 @@
 .spot-index {
-  margin: 0 40px;
+  margin: 0px 40px;
 }
 
 .all-spots-container {
@@ -42,7 +42,7 @@
   text-decoration: none;
 }
 
-.spot-image-container{
+.spot-image-container {
   max-width: 373px;
   max-height: 354px;
 }
@@ -80,69 +80,93 @@
 
 @media (max-width: 1800px) {
   .all-spots {
-    margin: 30px 30px;
-    display: grid;
     grid-template-columns: auto auto auto auto auto;
-    justify-content: space-evenly;
   }
+
   .spot-image {
     width: 17vw;
     height: 16vw;
+  }
+
+  .one-spot {
+    max-width: 17vw;
   }
 }
 
 @media (max-width: 1500px) {
   .all-spots {
-    margin: 30px 30px;
-    display: grid;
     grid-template-columns: auto auto auto auto;
-    justify-content: space-evenly;
   }
+
   .spot-image {
     width: 20.5vw;
     height: 19.5vw;
+  }
+
+  .one-spot {
+    max-width: 20vw;
   }
 }
 
 @media (max-width: 1200px) {
   .all-spots {
-    margin: 30px 30px;
-    display: grid;
     grid-template-columns: auto auto auto;
-    justify-content: space-evenly;
   }
+
   .spot-image {
     width: 26vw;
     height: 25vw;
+  }
+
+  .one-spot {
+    max-width: 26.5vw;
   }
 }
 
 @media (max-width: 900px) {
   .all-spots {
-    margin: 30px 30px;
-    display: grid;
     grid-template-columns: auto auto;
-    justify-content: space-evenly;
   }
+
   .spot-image {
     width: 35vw;
     height: 34vw;
+  }
+
+  .one-spot {
+    max-width: 35vw;
   }
 }
 
 @media (max-width: 600px) {
   .all-spots {
-    margin: 30px 30px;
-    display: grid;
     grid-template-columns: auto;
-    justify-content: space-evenly;
   }
+
   .spot-image {
     width: 60vw;
     height: 59vw;
   }
 
+  .one-spot {
+    max-width: 80vw;
+  }
+
   .host {
     display: none;
+  }
+}
+
+@media (min-width: 2800px) {
+  .spot-image {
+    width: 13vw;
+    height: 12vw;
+  }
+}
+
+@media (min-width: 3800px) {
+  .spot-image {
+    width: 10.5vw;
+    height: 9.5vw;
   }
 }

@@ -2,6 +2,10 @@
   font-size: 20pt;
 }
 
+.top-bar {
+  margin-top: -15px;
+}
+
 .main-field2 {
   display: flex;
   justify-content: center;
@@ -79,6 +83,8 @@
 @media (max-width: 600px) {
   .form2 {
     align-items: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
   }
 
   .form2 input,

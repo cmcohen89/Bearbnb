@@ -48,6 +48,7 @@ function ProfileButton({ user, setLogin, setShowModal }) {
             <li className='profile-dropdown-li dropdown-user'>{user.email}</li>
           </div>
           <div className="dropdown-line dropdown">
+            <li className='profile-dropdown-li dropdown-link'><NavLink to='/create'>Host Your Home</NavLink></li>
             <li className='profile-dropdown-li dropdown-link'><NavLink to='/my_spots'>My Spots</NavLink></li>
             <li className='profile-dropdown-li dropdown-link'><NavLink to='/my_reviews'>My Reviews</NavLink></li>
             <li className='profile-dropdown-li dropdown-link'>

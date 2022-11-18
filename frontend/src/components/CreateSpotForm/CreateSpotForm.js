@@ -129,8 +129,8 @@ const CreateSpotForm = () => {
             value={price}
             onChange={updatePrice} />
           <input
-            type="text input"
-            className='previewImg'
+            type="url"
+            className='input previewImg'
             placeholder="Preview Image URL"
             value={imgUrl}
             required
@@ -144,61 +144,3 @@ const CreateSpotForm = () => {
 };
 
 export default CreateSpotForm;
-
-
-
-
-// return (
-//   <section>
-//     <form onSubmit={handleSubmit}>
-//       <input
-//         type="text"
-//         placeholder="Address"
-//         required
-//         value={address}
-//         onChange={updateAddress} />
-//       <input
-//         type="text"
-//         placeholder="City"
-//         required
-//         value={city}
-//         onChange={updateCity} />
-//       <input
-//         type="text"
-//         placeholder="State"
-//         required
-//         value={state}
-//         onChange={updateState} />
-//       <input
-//         type="text"
-//         placeholder="Country"
-//         required
-//         value={country}
-//         onChange={updateCountry} />
-//       <input
-//         type="text"
-//         placeholder="Spot Name"
-//         required
-//         value={name}
-//         onChange={updateName} />
-//       <textarea
-//         type="text"
-//         placeholder="Description"
-//         required
-//         value={description}
-//         onChange={updateDescription} />
-//       <input
-//         type="text"
-//         placeholder='Price'
-//         required
-//         value={price}
-//         onChange={updatePrice} />
-//       <input
-//         type="text"
-//         placeholder="Preview Image URL"
-//         value={imgUrl}
-//         onChange={updateImgUrl} />
-//       <button className='submit' type="submit">Create Spot</button>
-//     </form>
-//   </section>
-// );

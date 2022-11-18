@@ -13,7 +13,7 @@ function Navigation({ isLoaded }) {
   const [login, setLogin] = useState(true);
 
   return (
-    <nav>
+    <nav className='nav'>
       <div className='nav-left'>
         <NavLink className='logo-link' exact to="/"><img className='logo-img' src='/images/logos/logo_5.png' alt='bearbnb logo'></img><span className='logo-text'>bearbnb</span></NavLink>
       </div>
@@ -32,7 +32,7 @@ function Navigation({ isLoaded }) {
         </div>
       </div>
       <div className='nav-right'>
-        <span><NavLink className='host' to='/create'>Become a Host</NavLink></span>
+        <span><NavLink className='host' to='/create'>Bearbnb your home</NavLink></span>
         <NavLink to='/coming-soon'><i class="fa-solid fa-globe globe"></i></NavLink>
         {isLoaded && <ProfileButton user={sessionUser} setLogin={setLogin} setShowModal={setShowModal} />}
         {showModal && <Modal onClose={() => setShowModal(false)}>
