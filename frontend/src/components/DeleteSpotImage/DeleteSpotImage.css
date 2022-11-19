@@ -1,8 +1,9 @@
 .my-images {
   display: grid;
   grid-template-columns: auto auto;
-  height: 70vh;
   overflow: scroll;
+  max-height: 70vh;
+  max-width: 80vw;
 }
 
 .one-image {
@@ -12,7 +13,8 @@
   border-radius: 5%;
   margin: 40px;
   padding: 20px;
-  border: 1px solid rgba(128, 128, 128, 0.347);;
+  border: 1px solid rgba(128, 128, 128, 0.347);
+  height: 60%;
 }
 
 .back-button {
@@ -34,12 +36,6 @@
 
 .my-spots-button-back:hover {
   background-color: rgba(128, 128, 128, 0.07);
-}
-
- @media (max-width: 1300px) {
-  .my-images {
-    grid-template-columns: auto auto auto;
-  }
 }
 
 @media (max-width: 1000px) {

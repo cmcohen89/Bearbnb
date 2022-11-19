@@ -1,6 +1,8 @@
 .create-form {
   border: 1px solid rgba(128, 128, 128, 0.542);
   border-radius: 10px;
+  max-height: 90vh;
+  overflow: auto;
 }
 
 .create-title {

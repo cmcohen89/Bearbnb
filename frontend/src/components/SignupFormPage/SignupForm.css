@@ -1,6 +1,13 @@
 .modal2 {
   height: 930px;
   width: 570px;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.modal {
+  max-height: 90vh;
+  overflow: auto;
 }
 
 .x {
