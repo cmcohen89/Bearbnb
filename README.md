@@ -3,6 +3,7 @@
 ## Table of contents
 * [Intro](#intro)
 * [Features](#features)
+* [Planned Features](#planned-features)
 * [Technologies](#technologies)
 * [Demo Image](#demo-image)
 * [Get Started](#get-started)
@@ -22,6 +23,16 @@ Currently implemented features include:
 - Create, read, update, and delete functionality for Spots
 - Create, read, update, and delete functionality for Reviews
 - Create, read, and delete functionality for Spot Images
+
+## Planned Features
+
+Upcoming features include:
+- User profile combining the "My Spots" and "My Reviews" pages
+- Create, read, update, and delete functionality for Bookings
+- Paginated search feature with optional parameters
+- Google Maps image for each spot page
+- Create, read, update, and delete functionality for Favorites
+- Bonus: Bookings - 4th feature with full CRUD
 
 ## Technologies 
 - Node.js
