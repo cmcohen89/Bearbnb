@@ -1,11 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { getSpotReviews } from '../../store/reviews';
 import './ReviewIndex.css';
+import { Modal } from '../../context/Modal';
+import CreateReviewForm from '../CreateReviewForm/CreateReviewForm';
 
 const ReviewIndex = ({ spot }) => {
   const dispatch = useDispatch();
+
+  const [showModal, setShowModal] = useState(false);
 
   let reviews = useSelector(state => Object.values(state.reviews));
   reviews = reviews.filter((review) => review.spotId === spot.id);
@@ -24,7 +28,12 @@ const ReviewIndex = ({ spot }) => {
     <div className='reviews-section'>
       <div className='reviews-header'>
         <h2 className="reviews-title"><i className="fa-solid fa-star"></i> {spot.avgStarRating !== 'NaN' ? spot.avgStarRating : 'New'} · {spot.numReviews} {spot.numReviews === 1 ? 'review' : 'reviews'}</h2>
-        <NavLink to={`${spot.id}/create_review`}><button className='add-review'>Add a Review</button></NavLink>
+        <button className='add-review' onClick={() => setShowModal(true)}>Add a Review</button>
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <CreateReviewForm setShowModal={setShowModal} />
+          </Modal>
+        )}
       </div>
       <div className='reviews-div'>
         {reviews.map((review) => (

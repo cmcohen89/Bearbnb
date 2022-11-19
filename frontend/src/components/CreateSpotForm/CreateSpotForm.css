@@ -1,3 +1,8 @@
+.create-form {
+  border: 1px solid rgba(128, 128, 128, 0.542);
+  border-radius: 10px;
+}
+
 .create-title {
   font-size: 20pt;
 }
@@ -17,13 +22,13 @@
 }
 
 .form2 {
-  margin-top: 50px;
+  padding: 40px 40px 0px 40px;
   display: flex;
   flex-direction: column;
 }
 
 .create-spot-button {
-  margin-top: 40px;
+  margin: 30px 0;
   height: 50px;
   width: 514px;
   border-radius: 10px;
@@ -33,6 +38,11 @@
   font-size: 12pt;
   background: linear-gradient(to right, rgb(228,30,78), rgb(214,5,101));
   cursor: pointer;
+}
+
+.cancel-button-container {
+  display: flex;
+  justify-content: center;
 }
 
 .form2 input {

@@ -5,7 +5,7 @@ import { createReview } from '../../store/reviews';
 import { getSpotById } from '../../store/spots';
 import './CreateReviewForm.css'
 
-const CreateReviewForm = () => {
+const CreateReviewForm = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -36,7 +36,7 @@ const CreateReviewForm = () => {
         if (data && data.errors) setErrors(data.errors);
       });
 
-    if (newReview) history.push(`/spots/${id}`);
+    if (newReview) setShowModal(false);
   };
 
   return (
@@ -75,6 +75,7 @@ const CreateReviewForm = () => {
             </select>
           </label>
           <button className='create-spot-button' type="submit">Submit review</button>
+          <button className='my-spots-button' onClick={() => setShowModal(false)}>Cancel</button>
         </form>
       </div>
     </div>

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 
-function ProfileButton({ user, setLogin, setShowModal }) {
+function ProfileButton({ user, setLogin, setShowModal, setShowModal2, setShow404Modal }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const history = useHistory();
 
   const openMenu = () => {
     if (showMenu) return;
@@ -27,6 +28,7 @@ function ProfileButton({ user, setLogin, setShowModal }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    history.push('/');
   };
 
   return (
@@ -48,7 +50,7 @@ function ProfileButton({ user, setLogin, setShowModal }) {
             <li className='profile-dropdown-li dropdown-user'>{user.email}</li>
           </div>
           <div className="dropdown-line dropdown">
-            <li className='profile-dropdown-li dropdown-link'><NavLink to='/create'>Host Your Home</NavLink></li>
+            <li className='profile-dropdown-li dropdown-link'><a onClick={() => { setShowModal2(true) }}>Host Your Home</a></li>
             <li className='profile-dropdown-li dropdown-link'><NavLink to='/my_spots'>My Spots</NavLink></li>
             <li className='profile-dropdown-li dropdown-link'><NavLink to='/my_reviews'>My Reviews</NavLink></li>
             <li className='profile-dropdown-li dropdown-link'>
@@ -73,10 +75,13 @@ function ProfileButton({ user, setLogin, setShowModal }) {
           </div>
           <div className='dropdown-line dropdown'>
             <li className="profile-dropdown-li dropdown-link">
-              <NavLink to='/create'>Host your home</NavLink>
+              <a onClick={() => {
+                setLogin(true)
+                setShowModal(true)
+              }}>Host your home</a>
             </li>
-            <li className="profile-dropdown-li dropdown-link"><NavLink to='/coming-soon'>Host an experience</NavLink></li>
-            <li className="profile-dropdown-li dropdown-link"><NavLink to='/coming-soon'>Help</NavLink></li>
+            <li className="profile-dropdown-li dropdown-link"><a onClick={() => setShow404Modal(true)}>Host an experience</a></li>
+            <li className="profile-dropdown-li dropdown-link"><a onClick={() => setShow404Modal(true)}>Help</a></li>
           </div>
         </ul>)
       )}

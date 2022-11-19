@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { editSpot, getSingleSpot } from '../../store/spots';
+import { editSpot, getSingleSpot, getSpots } from '../../store/spots';
 import { getSpotById } from '../../store/spots';
 
-const EditSpotForm = () => {
+const EditSpotForm = ({ data, setShowSpotEditModal }) => {
   const dispatch = useDispatch();
-  const { id } = useParams();
-  const spot = useSelector(getSpotById(id))
-  const history = useHistory();
+  // const { id } = useParams();
+  // const spot = useSelector(getSpotById(spotId))
+  const spot = data;
 
   const [address, setAddress] = useState(spot ? spot.address : '');
   const [city, setCity] = useState(spot ? spot.city : '');
@@ -27,9 +27,9 @@ const EditSpotForm = () => {
   const updateDescription = (e) => setDescription(e.target.value);
   const updatePrice = (e) => setPrice(e.target.value);
 
-  useEffect(() => {
-    dispatch(getSingleSpot(id));
-  }, [dispatch, id])
+  // useEffect(() => {
+  //   dispatch(getSingleSpot(id));
+  // }, [dispatch, id])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,7 +52,7 @@ const EditSpotForm = () => {
       });
 
 
-    if (updatedSpot) history.push(`/my_spots`);
+    if (updatedSpot) setShowSpotEditModal(false);
   };
 
   if (!spot) return null;
@@ -128,6 +128,9 @@ const EditSpotForm = () => {
             onChange={updatePrice} />
           <button className='create-spot-button' type="submit">Update Spot</button>
         </form>
+      </div>
+      <div className='back-button'>
+        <button className='my-spots-button' onClick={() => setShowSpotEditModal(false)}>Cancel</button>
       </div>
     </div>
   );

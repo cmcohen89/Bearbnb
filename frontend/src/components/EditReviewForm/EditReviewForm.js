@@ -3,14 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { editReview, getReviewById } from '../../store/reviews';
 
-const EditReviewForm = () => {
+const EditReviewForm = ({ data, setShowReviewEditModal }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   const user = useSelector(state => state.session.user);
 
-  const { id } = useParams();
-  const currReview = useSelector(getReviewById(id))
+  // const { id } = useParams();
+  const currReview = data;
+  console.log(currReview)
 
   const [review, setReview] = useState(currReview ? currReview.review : '');
   const [stars, setStars] = useState(currReview ? currReview.stars : 0);
@@ -27,13 +28,13 @@ const EditReviewForm = () => {
       stars
     };
 
-    const updatedReview = await dispatch(editReview(payload, id, user, currReview.Spot))
+    const updatedReview = await dispatch(editReview(payload, currReview.id, user, currReview.Spot))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
 
-    if (updatedReview) history.push(`/my_reviews`);
+    if (updatedReview) setShowReviewEditModal(false);
   };
 
   return (
@@ -73,6 +74,9 @@ const EditReviewForm = () => {
           </label>
           <button className='create-spot-button' type="submit">Update review</button>
         </form>
+      </div>
+      <div className='back-button'>
+        <button className='my-spots-button' onClick={() => setShowReviewEditModal(false)}>Cancel</button>
       </div>
     </div>
   );

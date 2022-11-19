@@ -1,10 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import { getSingleSpot } from '../../store/spots';
 import ReservationForm from '../ReservationForm/ReservationForm';
 import ReviewIndex from '../ReviewIndex/ReviewIndex';
 import './SingleSpot.css';
+import { Modal } from '../../context/Modal';
+import ComingSoon from '../ComingSoon/ComingSoon';
 
 const SingleSpot = () => {
   const dispatch = useDispatch();
@@ -12,6 +14,8 @@ const SingleSpot = () => {
   let spots = useSelector(state => Object.values(state.spots));
   spots = spots.filter(spot => spot.SpotImages);
   const singleSpot = spots.find(spot => spot.id === +id);
+
+  const [show404Modal, setShow404Modal] = useState(false);
 
   useEffect(() => {
     dispatch(getSingleSpot(id));
@@ -38,11 +42,14 @@ const SingleSpot = () => {
         <h3 className='single-spot-subtitle'>
           <div className='single-spot-subtitle-left'>
             <i className="fa-solid fa-star"></i>{" "}
-            <span className='single-spot-avgRating'>{singleSpot.avgStarRating !== 'NaN' ? singleSpot.avgStarRating : "New"}</span> · <NavLink className='plain-link' to='/coming-soon'>{singleSpot.numReviews} {singleSpot.numReviews === 1 ? 'Review' : 'Reviews'}</NavLink> · <i className="fa-solid fa-medal medal2"></i> Superhost · <NavLink className='plain-link' to='/coming-soon'>{singleSpot.city}</NavLink>,<NavLink className='plain-link' to='/coming-soon'>{singleSpot.state}</NavLink>,<NavLink className='plain-link' to='/coming-soon'>{singleSpot.country}</NavLink>
+            <span className='single-spot-avgRating'>{singleSpot.avgStarRating !== 'NaN' ? singleSpot.avgStarRating : "New"}</span> · <a onClick={() => setShow404Modal(true)}>{singleSpot.numReviews} {singleSpot.numReviews === 1 ? 'Review' : 'Reviews'}</a> · <i className="fa-solid fa-medal medal2"></i> Superhost · <a onClick={() => setShow404Modal(true)}>{singleSpot.city}</a>,<a onClick={() => setShow404Modal(true)}>{singleSpot.state}</a>,<a onClick={() => setShow404Modal(true)}>{singleSpot.country}</a>
+            {show404Modal && <Modal onClose={() => setShow404Modal(false)}>
+              <ComingSoon setShow404Modal={setShow404Modal} />
+            </Modal>}
           </div>
           <div className='single-spot-subtitle-right'>
-            <span><i className="fa-solid fa-arrow-up-from-bracket arrow"></i><NavLink className='plain-link' to='/coming-soon'>Share</NavLink></span>
-            <span><i className="fa-regular fa-heart heart"></i><NavLink className='plain-link' to='/coming-soon'>Save</NavLink></span>
+            <span><i className="fa-solid fa-arrow-up-from-bracket arrow"></i><a onClick={() => setShow404Modal(true)}>Share</a></span>
+            <span><i className="fa-regular fa-heart heart"></i><a onClick={() => setShow404Modal(true)}>Save</a></span>
           </div>
         </h3>
         <div className='img-div'>
@@ -88,14 +95,14 @@ const SingleSpot = () => {
             <div className='single-spot-lower-left-section'>
               <img className='aircover' src='https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg' />
               <p>Every booking includes free protection from Host cancellations, listing<br></br> inaccuracies, and other issues like trouble checking in.</p>
-              <NavLink to='/coming-soon' className='learn plain-link'>Learn more</NavLink>
+              <a className='learn' onClick={() => setShow404Modal(true)}>Learn more</a>
             </div>
             <div className='single-spot-lower-left-section-final'>
               <p>{singleSpot.description}</p>
             </div>
           </div>
           <div className='single-spot-lower-right'>
-            <ReservationForm thisSpot={singleSpot} />
+            <ReservationForm thisSpot={singleSpot} setShow404Modal={setShow404Modal} />
           </div>
         </div>
         <div>

@@ -1,7 +1,8 @@
 .my-images {
   display: grid;
-  justify-content: space-evenly;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto;
+  height: 70vh;
+  overflow: scroll;
 }
 
 .one-image {
@@ -9,10 +10,33 @@
   flex-direction: column;
   align-items: center;
   border-radius: 5%;
-  margin: 20px;
+  margin: 40px;
+  padding: 20px;
+  border: 1px solid rgba(128, 128, 128, 0.347);;
 }
 
-@media (max-width: 1300px) {
+.back-button {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.my-spots-button-back {
+  padding: 20px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.347);
+  cursor: pointer;
+  width: 220px;
+  font-size: 14pt;
+  font-weight: 600;
+}
+
+.my-spots-button-back:hover {
+  background-color: rgba(128, 128, 128, 0.07);
+}
+
+ @media (max-width: 1300px) {
   .my-images {
     grid-template-columns: auto auto auto;
   }

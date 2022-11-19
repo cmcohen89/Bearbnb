@@ -190,8 +190,10 @@ const spotsReducer = (state = initialState, action) => {
         return spots;
       }, {});
     case LOAD_SINGLE_SPOT:
+      const previewImg = action.spot.SpotImages.find(img => img.preview === true)
       return {
-        [action.spot.id]: { ...action.spot }
+        ...newState,
+        [action.spot.id]: { ...action.spot, previewImage: previewImg.url }
       }
     case ADD_SPOT:
       return {
@@ -204,9 +206,10 @@ const spotsReducer = (state = initialState, action) => {
         [action.spot.id]: { ...action.spot, previewImage: action.img.url }
       };
     case ADD_ANOTHER_SPOT_IMG:
+      console.log(action.spot)
       return {
         ...state,
-        [action.spot.id]: { ...action.spot, SpotImages: [...action.spot.SpotImages, { ...action.img }] }
+        [action.spot.id]: { ...action.spot }
       }
     case UPDATE_SPOT:
       return {
@@ -217,9 +220,11 @@ const spotsReducer = (state = initialState, action) => {
       delete newState[action.spotId];
       return newState;
     case DELETE_IMG:
-      const img = newState[action.spotId.SpotImages].find(img => img.id === action.imgId);
-      delete newState[action.spotId.SpotImages[img.id]]
-      return newState;
+      let newSpotImages = [];
+      for (let img of newState[action.spotId].SpotImages) {
+        if (img.id !== action.imgId) newSpotImages.push(img);
+      }
+      return { ...newState, [action.spotId]: { ...newState[action.spotId], SpotImages: newSpotImages } };
     default:
       return state;
   };

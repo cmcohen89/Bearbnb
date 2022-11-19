@@ -4,17 +4,17 @@ import { useHistory, useParams } from 'react-router-dom';
 import { addAnotherImage, getSingleSpot, getSpotById } from '../../store/spots';
 import './AddSpotImage.css'
 
-const AddSpotImage = () => {
+const AddSpotImage = ({ data, setShowAddImageModal }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
 
-  const { id } = useParams();
-  const spot = useSelector(getSpotById(id))
+  // const { id } = useParams();
+  const spot = data;
 
-  useEffect(() => {
-    dispatch(getSingleSpot(id));
-  }, [dispatch, id]);
+  // useEffect(() => {
+  //   dispatch(getSingleSpot(id));
+  // }, [dispatch, id]);
 
   const [url, setUrl] = useState('');
   const [errors, setErrors] = useState([]);
@@ -30,14 +30,13 @@ const AddSpotImage = () => {
       preview: false
     };
 
-    // need to load in the spot by ID for the thunk!
     const newImg = await dispatch(addAnotherImage(payload, spot))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
 
-    if (newImg) history.push(`/my_spots`);
+    setShowAddImageModal(false);
   };
 
   return (
@@ -64,6 +63,9 @@ const AddSpotImage = () => {
           />
           <button className='create-spot-button' type="submit">Submit image</button>
         </form>
+      </div>
+      <div className='back-button'>
+        <button className='my-spots-button' onClick={() => setShowAddImageModal(false)}>Cancel</button>
       </div>
     </div>
   );

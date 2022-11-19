@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import './ComingSoon.css'
 
-const ComingSoon = () => {
+const ComingSoon = ({ setShow404Modal }) => {
   return (
     <div className='coming-soon'>
       <h1>Feature Coming Soon!</h1>
-      <h2><NavLink to='/'>Return to Main Page</NavLink></h2>
+      <button onClick={() => setShow404Modal(false)} className='my-spots-button'>Return</button>
     </div>
   )
 }

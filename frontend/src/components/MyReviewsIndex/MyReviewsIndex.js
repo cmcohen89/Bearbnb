@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { getUserReviews, removeReview } from '../../store/reviews';
 import './MyReviewsIndex.css'
+import { Modal } from '../../context/Modal';
+import EditReviewForm from '../EditReviewForm/EditReviewForm';
 
 const MyReviewsIndex = () => {
   const dispatch = useDispatch();
@@ -12,6 +14,11 @@ const MyReviewsIndex = () => {
   for (let review of reviews) {
     review.createdAt = new Date(review.createdAt).toLocaleDateString();
   }
+
+  const [showReviewEditModal, setShowReviewEditModal] = useState(false);
+  const [showReviewDeleteModal, setShowReviewDeleteModal] = useState(false);
+
+  const [modalData, setModalData] = useState(null);
 
   useEffect(() => {
     dispatch(getUserReviews());
@@ -29,12 +36,19 @@ const MyReviewsIndex = () => {
               <NavLink className='review-link' to={`/spots/${review.Spot.id}`}>{review.Spot.name}</NavLink>
             </h3>
             {review.Spot.previewImage && <img className='review-image' src={review.Spot.previewImage} alt={review.Spot.name}></img>}
-            <h4>{review.Spot.address}, {review.Spot.city}, <br></br>{review.Spot.state}, {review.Spot.country}</h4>
             <h4>Reviewed on: {review.createdAt}</h4>
             <span className='spot-star'><i className="fa-solid fa-star star"></i>{review.stars}</span>
             <p className='review-description'>{review.review}</p>
             <div className='review-buttons'>
-              <NavLink to={`reviews/${review.id}/edit`}><button className='review-button'>Edit Review</button></NavLink>
+              <button className='review-button' onClick={() => {
+                setModalData(review);
+                setShowReviewEditModal(true);
+              }}>Edit Review</button>
+              {showReviewEditModal && (
+                <Modal onClose={() => setShowReviewEditModal(false)}>
+                  <EditReviewForm data={modalData} setShowReviewEditModal={setShowReviewEditModal} />
+                </Modal>
+              )}
               <button className='review-button' onClick={
                 (e) => {
                   e.preventDefault();

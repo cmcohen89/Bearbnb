@@ -22,6 +22,7 @@
   cursor: pointer;
   border-bottom: 3px solid transparent;
   transition: border-bottom 0.5s;
+  width: 86px;
 }
 
 .icon:hover {
