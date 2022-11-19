@@ -1,0 +1,31 @@
+.my-images {
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: auto auto auto auto;
+}
+
+.one-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5%;
+  margin: 20px;
+}
+
+@media (max-width: 1300px) {
+  .my-images {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .my-images {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .my-images {
+    grid-template-columns: auto;
+  }
+}

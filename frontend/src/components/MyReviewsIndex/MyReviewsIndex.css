@@ -7,8 +7,8 @@
 
 .review-title {
   text-align: center;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(213, 213, 213, 0.441);
+  padding-top: 20px;
+  /* border-bottom: 1px solid rgba(213, 213, 213, 0.441); */
 }
 
 .one-review {
@@ -38,6 +38,11 @@
 
 .review-link {
   text-decoration: none;
+  color: #333;
+}
+
+.review-link:hover {
+  text-decoration: underline;
 }
 
 .review-image {
@@ -85,6 +90,14 @@
   padding: 10px;
   border-radius: 10px;
   border: 1px solid rgba(128, 128, 128, 0.347);
+}
+
+@media (max-width: 1500px) {
+  .my-reviews {
+    margin: 30px 30px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
 }
 
 @media (max-width: 1200px) {

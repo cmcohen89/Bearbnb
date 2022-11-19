@@ -29,7 +29,7 @@ const SpotIndex = () => {
       <div className='spot-index'>
         <div className='all-spots'>
           {spots.map((spot) => (
-            <div className='one-spot'>
+            <div key={spot.id} className='one-spot'>
               <NavLink className='spot-link' to={`/spots/${spot.id}`}>
                 <div className='spot-image-container'>
                   {spot.previewImage && <img className='spot-image' src={spot.previewImage} alt={spot.name}></img>}
@@ -37,7 +37,7 @@ const SpotIndex = () => {
                 <h3 className='spot-location'>
                   {spot.city}, {spot.state}
                   <span className="spot-star">
-                    <i class="fa-solid fa-star star"></i>
+                    <i className="fa-solid fa-star star"></i>
                     {spot.avgRating ? spot.avgRating : "New"}
                   </span>
                 </h3>

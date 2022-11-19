@@ -12,6 +12,8 @@ import CreateReviewForm from "./components/CreateReviewForm/CreateReviewForm";
 import MyReviewsIndex from "./components/MyReviewsIndex/MyReviewsIndex";
 import EditReviewForm from "./components/EditReviewForm/EditReviewForm";
 import ComingSoon from "./components/ComingSoon/ComingSoon";
+import AddSpotImage from "./components/AddSpotImage/AddSpotImage";
+import DeleteSpotImage from "./components/DeleteSpotImage/DeleteSpotImage";
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +53,12 @@ function App() {
           </Route>
           <Route path='/coming-soon'>
             <ComingSoon />
+          </Route>
+          <Route exact path='/spots/:id/images'>
+            <AddSpotImage />
+          </Route>
+          <Route exact path='/spots/:id/images/delete'>
+            <DeleteSpotImage />
           </Route>
           <Route>
             <h1 style={{ textAlign: 'center' }}>404 Not Found!</h1>

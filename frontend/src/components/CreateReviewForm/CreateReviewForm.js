@@ -41,7 +41,7 @@ const CreateReviewForm = () => {
 
   return (
     <div className='review-form'>
-      <div className='top-bar'>
+      <div className='top-bar1'>
         <span></span>
         <span className='review-title2'>Write a review</span>
         <span></span>

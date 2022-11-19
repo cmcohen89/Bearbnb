@@ -32,7 +32,7 @@ const ReservationForm = ({ thisSpot }) => {
       <div className='reservation-top-bar'>
         <span><span className='reservation-price'>${usDollar.format(thisSpot.price)}</span> <span className='night'>night</span></span>
         <span className='reservation-rating-review'>
-          <i class="fa-solid fa-star"></i>{" "}
+          <i className="fa-solid fa-star"></i>{" "}
           {thisSpot.avgStarRating !== 'NaN' ? thisSpot.avgStarRating : 'New'} · <NavLink className='plain-link' to='/coming-soon'>{thisSpot.numReviews} {thisSpot.numReviews === 1 ? 'review' : 'reviews'}</NavLink></span>
       </div>
       <div className='main-field'>

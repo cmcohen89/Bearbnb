@@ -531,6 +531,30 @@ router.post(
 
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
+    if (address.length < 3 || address.split(' ').length < 2) {
+      const err = new Error('Please enter a valid address');
+      err.status = 401;
+      err.title = 'Please enter a valid address';
+      err.errors = ["Please enter a valid address"];
+      return next(err);
+    }
+
+    if (name.length < 6) {
+      const err = new Error('Please enter a more descriptive name for this spot!');
+      err.status = 401;
+      err.title = 'Please enter a more descriptive name for this spot!';
+      err.errors = ["Please enter a more descriptive name for this spot!"];
+      return next(err);
+    }
+
+    if (description.length < 30) {
+      const err = new Error('Please write a more thorough description!');
+      err.status = 401;
+      err.title = 'Please write a more thorough description!';
+      err.errors = ["Please write a more thorough description!"];
+      return next(err);
+    }
+
     const newSpot = await Spot.create({
       ownerId: user.id,
       address,

@@ -2,8 +2,13 @@
   font-size: 20pt;
 }
 
-.top-bar {
-  margin-top: -15px;
+.top-bar1 {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .main-field2 {

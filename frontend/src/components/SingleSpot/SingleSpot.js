@@ -37,18 +37,18 @@ const SingleSpot = () => {
         <h2 className='single-spot-title'>{singleSpot.name}</h2>
         <h3 className='single-spot-subtitle'>
           <div className='single-spot-subtitle-left'>
-            <i class="fa-solid fa-star"></i>{" "}
-            <span className='single-spot-avgRating'>{singleSpot.avgStarRating !== 'NaN' ? singleSpot.avgStarRating : "New"}</span> · <NavLink className='plain-link' to='/coming-soon'>{singleSpot.numReviews} {singleSpot.numReviews === 1 ? 'Review' : 'Reviews'}</NavLink> · <i class="fa-solid fa-medal medal2"></i> Superhost · <NavLink className='plain-link' to='/coming-soon'>{singleSpot.city}</NavLink>,<NavLink className='plain-link' to='/coming-soon'>{singleSpot.state}</NavLink>,<NavLink className='plain-link' to='/coming-soon'>{singleSpot.country}</NavLink>
+            <i className="fa-solid fa-star"></i>{" "}
+            <span className='single-spot-avgRating'>{singleSpot.avgStarRating !== 'NaN' ? singleSpot.avgStarRating : "New"}</span> · <NavLink className='plain-link' to='/coming-soon'>{singleSpot.numReviews} {singleSpot.numReviews === 1 ? 'Review' : 'Reviews'}</NavLink> · <i className="fa-solid fa-medal medal2"></i> Superhost · <NavLink className='plain-link' to='/coming-soon'>{singleSpot.city}</NavLink>,<NavLink className='plain-link' to='/coming-soon'>{singleSpot.state}</NavLink>,<NavLink className='plain-link' to='/coming-soon'>{singleSpot.country}</NavLink>
           </div>
           <div className='single-spot-subtitle-right'>
-            <span><i class="fa-solid fa-arrow-up-from-bracket arrow"></i><NavLink className='plain-link' to='/coming-soon'>Share</NavLink></span>
-            <span><i class="fa-regular fa-heart heart"></i><NavLink className='plain-link' to='/coming-soon'>Save</NavLink></span>
+            <span><i className="fa-solid fa-arrow-up-from-bracket arrow"></i><NavLink className='plain-link' to='/coming-soon'>Share</NavLink></span>
+            <span><i className="fa-regular fa-heart heart"></i><NavLink className='plain-link' to='/coming-soon'>Save</NavLink></span>
           </div>
         </h3>
         <div className='img-div'>
-          <img class='single-spot-img' src={previewImg.url} alt={singleSpot.name} />
+          <img className='single-spot-img' src={previewImg.url} alt={singleSpot.name} />
           {otherImgs.map(img => (
-            <img class='single-spot-img-alt' src={img.url} alt={singleSpot.name} />
+            <img className='single-spot-img-alt' src={img.url} alt={singleSpot.name} />
           ))}
         </div>
         <div className='single-spot-lower'>
@@ -60,27 +60,27 @@ const SingleSpot = () => {
             <div className='single-spot-lower-left-section'>
               <div className='stat-li'>
                 <div>
-                  <i class="fa-solid fa-medal medal"></i>
+                  <i className="fa-solid fa-medal medal"></i>
                 </div>
-                <div class='inner-li'>
+                <div className='inner-li'>
                   <p className='stat-header-item'>{singleSpot.Owner.firstName} is a Superhost</p>
                   <span className='stat-item'>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</span>
                 </div>
               </div>
               <div className='stat-li'>
                 <div>
-                  <i class="fa-solid fa-key key"></i>
+                  <i className="fa-solid fa-key key"></i>
                 </div>
-                <div class='inner-li'>
+                <div className='inner-li'>
                   <p className='stat-header-item'>Great check-in experience</p>
                   <span className='stat-item'>100% of recent guests gave the check-in process a 5-star rating.</span>
                 </div>
               </div>
               <div className='stat-li'>
                 <div>
-                  <i class="fa-regular fa-calendar calendar"></i>
+                  <i className="fa-regular fa-calendar calendar"></i>
                 </div>
-                <div class='inner-li'>
+                <div className='inner-li'>
                   <p className='stat-header-item'>Free cancellation for 48 hours</p>
                 </div>
               </div>

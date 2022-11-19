@@ -24,22 +24,26 @@ const MySpotsIndex = () => {
       <div className='my-spots'>
         {spots.map((spot) => (
           <div className='one-review'>
-            <h3>
+            <span className='my-spots-title'>
               <NavLink className='review-link' to={`/spots/${spot.id}`}>{spot.name}</NavLink>
-            </h3>
+              <h5 className='my-spots-star'><i className="fa-solid fa-star star"></i>{spot.avgRating ? spot.avgRating : "New"}</h5>
+            </span>
             {spot.previewImage && <img className='review-image' src={spot.previewImage} alt={spot.name}></img>}
-            <h4 className='spot-location'>{spot.address}, {spot.city}, <br></br>{spot.state}, {spot.country}</h4>
-            <h4 className='spot-star'><i class="fa-solid fa-star star"></i>
-              {spot.avgRating ? spot.avgRating : "New"}</h4>
-            <p className='review-description'>{spot.description}</p>
+            <h4 className='my-spots-location'>{spot.address}, {spot.city}, <br></br>{spot.state}, {spot.country}</h4>
             <div className='review-buttons'>
-              <NavLink to={`spots/${spot.id}/edit`}><button className='review-button'>Edit Spot</button></NavLink>
-              <button className='review-button' onClick={
-                (e) => {
-                  e.preventDefault();
-                  dispatch(removeSpot(spot.id))
-                }
-              }>Delete Spot</button>
+              <div>
+                <NavLink to={`/spots/${spot.id}/edit`}><button className='my-spots-button'>Edit Spot</button></NavLink>
+                <button className='my-spots-button' onClick={
+                  (e) => {
+                    e.preventDefault();
+                    dispatch(removeSpot(spot.id))
+                  }
+                }>Delete Spot</button>
+              </div>
+              <div>
+                <NavLink to={`/spots/${spot.id}/images`}><button className='my-spots-button'>Add Image</button></NavLink>
+                <NavLink to={`/spots/${spot.id}/images/delete`}><button className='my-spots-button'>Delete Image</button></NavLink>
+              </div>
             </div>
           </div>
         ))}

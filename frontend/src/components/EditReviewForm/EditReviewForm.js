@@ -14,6 +14,7 @@ const EditReviewForm = () => {
 
   const [review, setReview] = useState(currReview ? currReview.review : '');
   const [stars, setStars] = useState(currReview ? currReview.stars : 0);
+  const [errors, setErrors] = useState([]);
 
   const updateReview = (e) => setReview(e.target.value);
   const updateStars = (e) => setStars(e.target.value);
@@ -26,25 +27,29 @@ const EditReviewForm = () => {
       stars
     };
 
-    const updatedReview = await dispatch(editReview(payload, id, user, currReview.Spot));
+    const updatedReview = await dispatch(editReview(payload, id, user, currReview.Spot))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
+
     if (updatedReview) history.push(`/my_reviews`);
   };
 
   return (
     <div className='review-form'>
-      <div className='top-bar'>
-        {/* <button className="x" onClick={() => setShowModal(false)}><i class="fa-solid fa-xmark"></i></button> */}
+      <div className='top-bar1'>
         <span></span>
         <span className='review-title2'>Edit review</span>
         <span></span>
       </div>
       <div className='main-field'>
         <form className='form' onSubmit={handleSubmit}>
-          {/* {!!errors.length && <ul>
+          {!!errors.length && <ul>
             {errors.map((error, idx) => (
               <li className='errors' key={idx}>{error}</li>
             ))}
-          </ul>} */}
+          </ul>}
           <textarea
             className='review-body'
             type="text"

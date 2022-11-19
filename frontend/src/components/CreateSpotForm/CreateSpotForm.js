@@ -59,7 +59,7 @@ const CreateSpotForm = () => {
 
   return (
     <div className='create-form'>
-      <div className='top-bar'>
+      <div className='top-bar1'>
         <span></span>
         <span className='create-title'>Create a spot</span>
         <span></span>

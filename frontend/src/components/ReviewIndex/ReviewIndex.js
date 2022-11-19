@@ -23,7 +23,7 @@ const ReviewIndex = ({ spot }) => {
   return (
     <div className='reviews-section'>
       <div className='reviews-header'>
-        <h2 className="reviews-title"><i class="fa-solid fa-star"></i> {spot.avgStarRating !== 'NaN' ? spot.avgStarRating : 'New'} · {spot.numReviews} {spot.numReviews === 1 ? 'review' : 'reviews'}</h2>
+        <h2 className="reviews-title"><i className="fa-solid fa-star"></i> {spot.avgStarRating !== 'NaN' ? spot.avgStarRating : 'New'} · {spot.numReviews} {spot.numReviews === 1 ? 'review' : 'reviews'}</h2>
         <NavLink to={`${spot.id}/create_review`}><button className='add-review'>Add a Review</button></NavLink>
       </div>
       <div className='reviews-div'>

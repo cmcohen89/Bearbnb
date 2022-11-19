@@ -32,13 +32,13 @@ function ProfileButton({ user, setLogin, setShowModal }) {
   return (
     <>
       {user ?
-        <button class='profile' onClick={openMenu}>
-          <span className='profile-lines'><i class="fa-solid fa-bars"></i></span>
+        <button className='profile' onClick={openMenu}>
+          <span className='profile-lines'><i className="fa-solid fa-bars"></i></span>
           <span className="profile-icon"><i className="fas fa-user-circle" /></span>
         </button>
         :
-        <button class='no-profile' onClick={openMenu}>
-          <span className='no-profile-lines'><i class="fa-solid fa-bars"></i></span>
+        <button className='no-profile' onClick={openMenu}>
+          <span className='no-profile-lines'><i className="fa-solid fa-bars"></i></span>
         </button>
       }
       {showMenu && (user ?

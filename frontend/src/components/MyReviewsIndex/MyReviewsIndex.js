@@ -21,7 +21,7 @@ const MyReviewsIndex = () => {
 
   return (
     <>
-      <h2 class='review-title'>My Reviews</h2>
+      <h2 className='review-title'>My Reviews</h2>
       <div className='my-reviews'>
         {reviews.map((review) => (
           <div className='one-review'>
@@ -31,7 +31,7 @@ const MyReviewsIndex = () => {
             {review.Spot.previewImage && <img className='review-image' src={review.Spot.previewImage} alt={review.Spot.name}></img>}
             <h4>{review.Spot.address}, {review.Spot.city}, <br></br>{review.Spot.state}, {review.Spot.country}</h4>
             <h4>Reviewed on: {review.createdAt}</h4>
-            <span className='spot-star'><i class="fa-solid fa-star star"></i>{review.stars}</span>
+            <span className='spot-star'><i className="fa-solid fa-star star"></i>{review.stars}</span>
             <p className='review-description'>{review.review}</p>
             <div className='review-buttons'>
               <NavLink to={`reviews/${review.id}/edit`}><button className='review-button'>Edit Review</button></NavLink>
