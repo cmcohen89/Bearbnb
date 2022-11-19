@@ -36,4 +36,4 @@ Currently implemented features include:
 
 ## Get Started
 
-To run the app locally, navigate to the /backend directory in the terminal and enter `npm start`. In a separate terminal, navigate to the /frontened directory and enter `npm start`. This should automatically launch a browser window navigated to the proper localhost address. By defauly, the app will be running on port 3000.
+To run the app locally, navigate to the `/backend` directory in the terminal and enter `npm start`. In a separate terminal, navigate to the `/frontend` directory and enter `npm start`. This should automatically launch a browser window navigated to the proper localhost address. By defauly, the app will be running on port 3000.
