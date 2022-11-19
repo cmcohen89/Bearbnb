@@ -1,6 +1,8 @@
 .coming-soon {
   text-align: center;
-  margin: 200px;
+  padding: 50px;
+  border: 1px solid rgba(128, 128, 128, 0.347);
+  border-radius: 10px;
 }
 
 @media (max-width: 600px) {

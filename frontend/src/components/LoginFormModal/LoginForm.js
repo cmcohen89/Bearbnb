@@ -33,18 +33,18 @@ function LoginForm({ setShowModal }) {
   return (
     <div className='modal'>
       <div className='top-bar'>
-        <button className="x" onClick={() => setShowModal(false)}><i class="fa-solid fa-xmark"></i></button>
+        <button className="x" onClick={() => setShowModal(false)}><i className="fa-solid fa-xmark"></i></button>
         <span>Log in</span>
         <span></span>
       </div>
       <h3 className='welcome'>Welcome to Bearbnb</h3>
       <div className='main-field'>
         <form className='form' onSubmit={handleSubmit}>
-          <ul className='errors-ul'>
+          {!!errors.length && <ul className='errors-ul'>
             {errors.map((error, idx) => (
               <li className='errors' key={idx}>{error}</li>
             ))}
-          </ul>
+          </ul>}
           <input
             className='username input'
             type="text"
@@ -72,7 +72,7 @@ function LoginForm({ setShowModal }) {
       </div>
       <div className='widgets'>
         <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
-          <i class="fa-brands fa-facebook fb"></i>
+          <i className="fa-brands fa-facebook fb"></i>
           <span>Continue with Facebook</span>
           <span></span>
         </button></NavLink>
@@ -82,12 +82,12 @@ function LoginForm({ setShowModal }) {
           <span></span>
         </button></NavLink>
         <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
-          <i class="fa-brands fa-apple apple"></i>
+          <i className="fa-brands fa-apple apple"></i>
           <span>Continue with Apple</span>
           <span></span>
         </button></NavLink>
         <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
-          <i class="fa-solid fa-mobile-retro phone"></i>
+          <i className="fa-solid fa-mobile-retro phone"></i>
           <span>Continue with phone number</span>
           <span></span>
         </button></NavLink>

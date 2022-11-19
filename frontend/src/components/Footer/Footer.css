@@ -28,6 +28,7 @@ footer {
 .plain-link-gray {
   color: rgb(51, 51, 51);
   text-decoration: none;
+  cursor: pointer;
 }
 
 .globe2 {

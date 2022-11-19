@@ -3,17 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { editReview, getReviewById } from '../../store/reviews';
 
-const EditReviewForm = () => {
+const EditReviewForm = ({ data, setShowReviewEditModal }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   const user = useSelector(state => state.session.user);
 
-  const { id } = useParams();
-  const currReview = useSelector(getReviewById(id))
+  // const { id } = useParams();
+  const currReview = data;
+  console.log(currReview)
 
   const [review, setReview] = useState(currReview ? currReview.review : '');
   const [stars, setStars] = useState(currReview ? currReview.stars : 0);
+  const [errors, setErrors] = useState([]);
 
   const updateReview = (e) => setReview(e.target.value);
   const updateStars = (e) => setStars(e.target.value);
@@ -26,25 +28,29 @@ const EditReviewForm = () => {
       stars
     };
 
-    const updatedReview = await dispatch(editReview(payload, id, user, currReview.Spot));
-    if (updatedReview) history.push(`/my_reviews`);
+    const updatedReview = await dispatch(editReview(payload, currReview.id, user, currReview.Spot))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
+
+    if (updatedReview) setShowReviewEditModal(false);
   };
 
   return (
     <div className='review-form'>
-      <div className='top-bar'>
-        {/* <button className="x" onClick={() => setShowModal(false)}><i class="fa-solid fa-xmark"></i></button> */}
+      <div className='top-bar1'>
         <span></span>
         <span className='review-title2'>Edit review</span>
         <span></span>
       </div>
       <div className='main-field'>
         <form className='form' onSubmit={handleSubmit}>
-          {/* {!!errors.length && <ul>
+          {!!errors.length && <ul>
             {errors.map((error, idx) => (
               <li className='errors' key={idx}>{error}</li>
             ))}
-          </ul>} */}
+          </ul>}
           <textarea
             className='review-body'
             type="text"
@@ -68,6 +74,9 @@ const EditReviewForm = () => {
           </label>
           <button className='create-spot-button' type="submit">Update review</button>
         </form>
+      </div>
+      <div className='back-button'>
+        <button className='my-spots-button' onClick={() => setShowReviewEditModal(false)}>Cancel</button>
       </div>
     </div>
   );

@@ -1,10 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import { getSingleSpot } from '../../store/spots';
 import ReservationForm from '../ReservationForm/ReservationForm';
 import ReviewIndex from '../ReviewIndex/ReviewIndex';
 import './SingleSpot.css';
+import { Modal } from '../../context/Modal';
+import ComingSoon from '../ComingSoon/ComingSoon';
 
 const SingleSpot = () => {
   const dispatch = useDispatch();
@@ -12,6 +14,8 @@ const SingleSpot = () => {
   let spots = useSelector(state => Object.values(state.spots));
   spots = spots.filter(spot => spot.SpotImages);
   const singleSpot = spots.find(spot => spot.id === +id);
+
+  const [show404Modal, setShow404Modal] = useState(false);
 
   useEffect(() => {
     dispatch(getSingleSpot(id));
@@ -37,18 +41,21 @@ const SingleSpot = () => {
         <h2 className='single-spot-title'>{singleSpot.name}</h2>
         <h3 className='single-spot-subtitle'>
           <div className='single-spot-subtitle-left'>
-            <i class="fa-solid fa-star"></i>{" "}
-            <span className='single-spot-avgRating'>{singleSpot.avgStarRating !== 'NaN' ? singleSpot.avgStarRating : "New"}</span> · <NavLink className='plain-link' to='/coming-soon'>{singleSpot.numReviews} {singleSpot.numReviews === 1 ? 'Review' : 'Reviews'}</NavLink> · <i class="fa-solid fa-medal medal2"></i> Superhost · <NavLink className='plain-link' to='/coming-soon'>{singleSpot.city}</NavLink>,<NavLink className='plain-link' to='/coming-soon'>{singleSpot.state}</NavLink>,<NavLink className='plain-link' to='/coming-soon'>{singleSpot.country}</NavLink>
+            <i className="fa-solid fa-star"></i>{" "}
+            <span className='single-spot-avgRating'>{singleSpot.avgStarRating !== 'NaN' ? singleSpot.avgStarRating : "New"}</span> · <a onClick={() => setShow404Modal(true)}>{singleSpot.numReviews} {singleSpot.numReviews === 1 ? 'Review' : 'Reviews'}</a> · <i className="fa-solid fa-medal medal2"></i> Superhost · <a onClick={() => setShow404Modal(true)}>{singleSpot.city}</a>,<a onClick={() => setShow404Modal(true)}>{singleSpot.state}</a>,<a onClick={() => setShow404Modal(true)}>{singleSpot.country}</a>
+            {show404Modal && <Modal onClose={() => setShow404Modal(false)}>
+              <ComingSoon setShow404Modal={setShow404Modal} />
+            </Modal>}
           </div>
           <div className='single-spot-subtitle-right'>
-            <span><i class="fa-solid fa-arrow-up-from-bracket arrow"></i><NavLink className='plain-link' to='/coming-soon'>Share</NavLink></span>
-            <span><i class="fa-regular fa-heart heart"></i><NavLink className='plain-link' to='/coming-soon'>Save</NavLink></span>
+            <span><i className="fa-solid fa-arrow-up-from-bracket arrow"></i><a onClick={() => setShow404Modal(true)}>Share</a></span>
+            <span><i className="fa-regular fa-heart heart"></i><a onClick={() => setShow404Modal(true)}>Save</a></span>
           </div>
         </h3>
         <div className='img-div'>
-          <img class='single-spot-img' src={previewImg.url} alt={singleSpot.name} />
+          <img className='single-spot-img' src={previewImg.url} alt={singleSpot.name} />
           {otherImgs.map(img => (
-            <img class='single-spot-img-alt' src={img.url} alt={singleSpot.name} />
+            <img className='single-spot-img-alt' src={img.url} alt={singleSpot.name} />
           ))}
         </div>
         <div className='single-spot-lower'>
@@ -60,27 +67,27 @@ const SingleSpot = () => {
             <div className='single-spot-lower-left-section'>
               <div className='stat-li'>
                 <div>
-                  <i class="fa-solid fa-medal medal"></i>
+                  <i className="fa-solid fa-medal medal"></i>
                 </div>
-                <div class='inner-li'>
+                <div className='inner-li'>
                   <p className='stat-header-item'>{singleSpot.Owner.firstName} is a Superhost</p>
                   <span className='stat-item'>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</span>
                 </div>
               </div>
               <div className='stat-li'>
                 <div>
-                  <i class="fa-solid fa-key key"></i>
+                  <i className="fa-solid fa-key key"></i>
                 </div>
-                <div class='inner-li'>
+                <div className='inner-li'>
                   <p className='stat-header-item'>Great check-in experience</p>
                   <span className='stat-item'>100% of recent guests gave the check-in process a 5-star rating.</span>
                 </div>
               </div>
               <div className='stat-li'>
                 <div>
-                  <i class="fa-regular fa-calendar calendar"></i>
+                  <i className="fa-regular fa-calendar calendar"></i>
                 </div>
-                <div class='inner-li'>
+                <div className='inner-li'>
                   <p className='stat-header-item'>Free cancellation for 48 hours</p>
                 </div>
               </div>
@@ -88,14 +95,14 @@ const SingleSpot = () => {
             <div className='single-spot-lower-left-section'>
               <img className='aircover' src='https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg' />
               <p>Every booking includes free protection from Host cancellations, listing<br></br> inaccuracies, and other issues like trouble checking in.</p>
-              <NavLink to='/coming-soon' className='learn plain-link'>Learn more</NavLink>
+              <a className='learn' onClick={() => setShow404Modal(true)}>Learn more</a>
             </div>
             <div className='single-spot-lower-left-section-final'>
               <p>{singleSpot.description}</p>
             </div>
           </div>
           <div className='single-spot-lower-right'>
-            <ReservationForm thisSpot={singleSpot} />
+            <ReservationForm thisSpot={singleSpot} setShow404Modal={setShow404Modal} />
           </div>
         </div>
         <div>

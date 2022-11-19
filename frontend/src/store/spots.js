@@ -4,8 +4,10 @@ const LOAD_SPOTS = 'spots/LOAD';
 const LOAD_SINGLE_SPOT = 'spots/LOAD_SINGLE'
 const ADD_SPOT = 'spots/ADD';
 const ADD_SPOT_IMG = 'spots/ADD_IMG';
+const ADD_ANOTHER_SPOT_IMG = 'spots/ADD_ANOTHER_IMG';
 const UPDATE_SPOT = 'spots/UPDATE';
 const DELETE_SPOT = 'spots/DELETE';
+const DELETE_IMG = 'spots/DELETE_IMG';
 
 export const loadSpots = (spots) => {
   return {
@@ -36,6 +38,14 @@ export const addSpotImg = (img, spot) => {
   };
 };
 
+export const addAnotherSpotImg = (img, spot) => {
+  return {
+    type: ADD_ANOTHER_SPOT_IMG,
+    img,
+    spot
+  }
+}
+
 export const updateSpot = (spot, img) => {
   return {
     type: UPDATE_SPOT,
@@ -50,6 +60,14 @@ export const deleteSpot = (spotId) => {
     spotId
   };
 };
+
+export const deleteImage = (imgId, spotId) => {
+  return {
+    type: DELETE_IMG,
+    imgId,
+    spotId
+  }
+}
 
 export const getSpots = () => async dispatch => {
   const response = await csrfFetch('/api/spots');
@@ -99,6 +117,20 @@ export const addImage = (payload, spot) => async dispatch => {
   };
 };
 
+export const addAnotherImage = (payload, spot) => async dispatch => {
+  const response = await csrfFetch(`/api/spots/${spot.id}/images`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+
+  if (response.ok) {
+    const img = await response.json();
+    dispatch(addAnotherSpotImg(img, spot));
+    return img;
+  };
+};
+
 export const editSpot = (payload, spot) => async dispatch => {
   const response = await csrfFetch(`/api/spots/${spot.id}`, {
     method: "PUT",
@@ -126,12 +158,26 @@ export const removeSpot = (spotId) => async dispatch => {
   };
 };
 
+export const removeImage = (imgId, spotId) => async dispatch => {
+  const response = await csrfFetch(`/api/spot-images/${imgId}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  if (response.ok) {
+    const deletedMessage = await response.json();
+    dispatch(deleteImage(imgId, spotId));
+    return deletedMessage;
+  }
+}
+
 export const getAllSpots = (state) => Object.values(state.spots);
 export const getSpotById = (id) => (state) => state.spots[id];
 
 const initialState = {};
 
 const spotsReducer = (state = initialState, action) => {
+  const newState = { ...state };
   switch (action.type) {
     case LOAD_SPOTS:
       // const allSpots = {};
@@ -144,8 +190,10 @@ const spotsReducer = (state = initialState, action) => {
         return spots;
       }, {});
     case LOAD_SINGLE_SPOT:
+      const previewImg = action.spot.SpotImages.find(img => img.preview === true)
       return {
-        [action.spot.id]: { ...action.spot }
+        ...newState,
+        [action.spot.id]: { ...action.spot, previewImage: previewImg.url }
       }
     case ADD_SPOT:
       return {
@@ -157,15 +205,26 @@ const spotsReducer = (state = initialState, action) => {
         ...state,
         [action.spot.id]: { ...action.spot, previewImage: action.img.url }
       };
+    case ADD_ANOTHER_SPOT_IMG:
+      console.log(action.spot)
+      return {
+        ...state,
+        [action.spot.id]: { ...action.spot }
+      }
     case UPDATE_SPOT:
       return {
         ...state,
         [action.spot.id]: { ...action.spot, previewImage: action.img }
       };
     case DELETE_SPOT:
-      const newState = { ...state };
       delete newState[action.spotId];
       return newState;
+    case DELETE_IMG:
+      let newSpotImages = [];
+      for (let img of newState[action.spotId].SpotImages) {
+        if (img.id !== action.imgId) newSpotImages.push(img);
+      }
+      return { ...newState, [action.spotId]: { ...newState[action.spotId], SpotImages: newSpotImages } };
     default:
       return state;
   };

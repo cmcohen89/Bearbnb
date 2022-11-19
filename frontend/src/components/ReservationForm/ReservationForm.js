@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './ReservationForm.css'
 
-const ReservationForm = ({ thisSpot }) => {
+const ReservationForm = ({ thisSpot, setShow404Modal }) => {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [guests, setGuests] = useState('');
@@ -32,8 +32,8 @@ const ReservationForm = ({ thisSpot }) => {
       <div className='reservation-top-bar'>
         <span><span className='reservation-price'>${usDollar.format(thisSpot.price)}</span> <span className='night'>night</span></span>
         <span className='reservation-rating-review'>
-          <i class="fa-solid fa-star"></i>{" "}
-          {thisSpot.avgStarRating !== 'NaN' ? thisSpot.avgStarRating : 'New'} · <NavLink className='plain-link' to='/coming-soon'>{thisSpot.numReviews} {thisSpot.numReviews === 1 ? 'review' : 'reviews'}</NavLink></span>
+          <i className="fa-solid fa-star"></i>{" "}
+          {thisSpot.avgStarRating !== 'NaN' ? thisSpot.avgStarRating : 'New'} · <a className='reservation-hover' onClick={() => setShow404Modal(true)}>{thisSpot.numReviews} {thisSpot.numReviews === 1 ? 'review' : 'reviews'}</a></span>
       </div>
       <div className='main-field'>
         <form className='reservation-form' onSubmit={handleSubmit}>
@@ -69,18 +69,18 @@ const ReservationForm = ({ thisSpot }) => {
             onChange={updateGuests}
             required
           />
-          <NavLink to='/coming-soon'><button className='reserve' type="submit">Reserve</button></NavLink>
+          <a className='plain-link-gray' onClick={() => setShow404Modal(true)}><button className='reserve' type="submit">Reserve</button></a>
           <p className='charged'>You won't be charged yet</p>
           <div className='costs'>
-            <NavLink className='plain-link' to='/coming-soon'>${usDollar.format(thisSpot.price)} x 7 nights</NavLink>
+            <a className='plain-link-gray' onClick={() => setShow404Modal(true)}>${usDollar.format(thisSpot.price)} x 7 nights</a>
             <span>${usDollar.format(thisSpot.price * 7)}</span>
           </div>
           <div className='costs'>
-            <NavLink className='plain-link' to='/coming-soon'>Cleaning fee</NavLink>
+            <a className='plain-link-gray' onClick={() => setShow404Modal(true)}>Cleaning fee</a>
             <span>$17</span>
           </div>
           <div className='costs'>
-            <NavLink className='plain-link' to='/coming-soon'>Service fee</NavLink>
+            <a className='plain-link-gray' onClick={() => setShow404Modal(true)}>Service fee</a>
             <span>$120</span>
           </div>
           <span className='line2'></span>

@@ -4,7 +4,6 @@
   background-color: white;
   display: flex;
   justify-content: space-evenly;
-  /* width: 95vw; */
   padding: 0 2.25vw;
   margin-top: -1vh;
   border-bottom: 1px solid rgba(213, 213, 213, 0.441);
@@ -23,6 +22,7 @@
   cursor: pointer;
   border-bottom: 3px solid transparent;
   transition: border-bottom 0.5s;
+  width: 86px;
 }
 
 .icon:hover {
@@ -40,9 +40,15 @@
   height: 25px;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1200px) {
   .icons-div {
     display: none;
+  }
+}
+
+@media (max-width: 1500px) {
+  .icons-div {
+    padding: 0;
   }
 }
 
@@ -67,5 +73,11 @@
 @media (min-height: 1600px) {
   .icons-div {
     top: 3.25%;
+  }
+}
+
+@media (max-height: 900px) {
+  .icons-div {
+    top: 80px;
   }
 }

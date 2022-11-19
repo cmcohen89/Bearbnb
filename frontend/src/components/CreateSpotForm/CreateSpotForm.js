@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { addImage, createSpot } from '../../store/spots';
 import './CreateSpotForm.css'
 
-const CreateSpotForm = () => {
+const CreateSpotForm = ({ setShowModal2 }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [address, setAddress] = useState('');
@@ -54,12 +54,12 @@ const CreateSpotForm = () => {
       await dispatch(addImage(imgPayload, newSpot));
     }
 
-    if (newSpot) history.push(`/`);
+    if (newSpot) setShowModal2(false);
   };
 
   return (
     <div className='create-form'>
-      <div className='top-bar'>
+      <div className='top-bar1'>
         <span></span>
         <span className='create-title'>Create a spot</span>
         <span></span>
@@ -136,6 +136,9 @@ const CreateSpotForm = () => {
             required
             onChange={updateImgUrl} />
           <button className='create-spot-button' type="submit">Create Spot</button>
+          <div className='cancel-button-container'>
+            <button className='my-spots-button' onClick={() => setShowModal2(false)}>Cancel</button>
+          </div>
         </form>
       </div>
     </div>
