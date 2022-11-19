@@ -4,8 +4,8 @@
 * [Intro](#intro)
 * [Features](#features)
 * [Technologies](#technologies)
-* [Demo Image](#demo_image)
-* [Get Started](#get_started)
+* [Demo Image](#demo-image)
+* [Get Started](#get-started)
 
 
 ## Intro
@@ -33,3 +33,7 @@ Currently implemented features include:
 ## Demo Image
 
 ![Bearbnb Splash Page](https://user-images.githubusercontent.com/103705214/202872619-b7e63821-9e44-48f7-8893-c9d942eeab2b.png)
+
+## Get Started
+
+To run the app locally, navigate to the /backend directory in the terminal and enter `npm start`. In a separate terminal, navigate to the /frontened directory and enter `npm start`. This should automatically launch a browser window navigated to the proper localhost address. By defauly, the app will be running on port 3000.
