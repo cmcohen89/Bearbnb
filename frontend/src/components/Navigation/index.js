@@ -19,7 +19,9 @@ function Navigation({ isLoaded }) {
   return (
     <nav className='nav'>
       <div className='nav-left'>
-        <NavLink className='logo-link' exact to="/"><img className='logo-img' src='/images/logos/logo_5.png' alt='bearbnb logo'></img><span className='logo-text'>bearbnb</span></NavLink>
+        <NavLink className='logo-link' exact to="/">
+          <img className='logo-img' src='/images/logos/logo_5.png' alt='bearbnb logo'></img><span className='logo-text'>bearbnb</span>
+        </NavLink>
       </div>
       <div className='nav-center'>
         <div className="bar">
@@ -46,9 +48,18 @@ function Navigation({ isLoaded }) {
         {show404Modal && <Modal onClose={() => setShow404Modal(false)}>
           <ComingSoon setShow404Modal={setShow404Modal} />
         </Modal>}
-        {isLoaded && <ProfileButton user={sessionUser} setLogin={setLogin} setShowModal={setShowModal} setShowModal2={setShowModal2} setShow404Modal={setShow404Modal} />}
+        {isLoaded &&
+          <ProfileButton
+            user={sessionUser}
+            setLogin={setLogin}
+            setShowModal={setShowModal}
+            setShowModal2={setShowModal2}
+            setShow404Modal={setShow404Modal}
+          />}
         {showModal && <Modal onClose={() => setShowModal(false)}>
-          {login ? <LoginForm setShowModal={setShowModal} setShow404Modal={setShow404Modal} /> : <SignupFormPage setShowModal={setShowModal} setShow404Modal={setShow404Modal} />}
+          {login ?
+            <LoginForm setShowModal={setShowModal} setShow404Modal={setShow404Modal} /> :
+            <SignupFormPage setShowModal={setShowModal} setShow404Modal={setShow404Modal} />}
         </Modal>}
       </div>
     </nav>

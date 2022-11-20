@@ -10,12 +10,12 @@ const SpotTypeBar = ({ setShow404Modal }) => {
         <span className='icon-label'>Cabins</span>
       </div></a>
       <a onClick={() => setShow404Modal(true)}><div className='icon'>
-        <img className='location-icon' src='/images/location_icons/omg.jpg' alt='omg'></img>
-        <span className='icon-label'>OMG!</span>
-      </div></a>
-      <a onClick={() => setShow404Modal(true)}><div className='icon'>
         <img className='location-icon' src='/images/location_icons/views.jpg' alt='views'></img>
         <span className='icon-label'>Amazing views</span>
+      </div></a>
+      <a onClick={() => setShow404Modal(true)}><div className='icon'>
+        <img className='location-icon' src='/images/location_icons/omg.jpg' alt='omg'></img>
+        <span className='icon-label'>OMG!</span>
       </div></a>
       <a onClick={() => setShow404Modal(true)}><div className='icon'>
         <img className='location-icon' src='/images/location_icons/treehouse.jpg' alt='treehouse'></img>

@@ -7,6 +7,7 @@ import ReviewIndex from '../ReviewIndex/ReviewIndex';
 import './SingleSpot.css';
 import { Modal } from '../../context/Modal';
 import ComingSoon from '../ComingSoon/ComingSoon';
+import Map from '../Map/Map';
 
 const SingleSpot = () => {
   const dispatch = useDispatch();
@@ -42,7 +43,12 @@ const SingleSpot = () => {
         <h3 className='single-spot-subtitle'>
           <div className='single-spot-subtitle-left'>
             <i className="fa-solid fa-star"></i>{" "}
-            <span className='single-spot-avgRating'>{singleSpot.avgStarRating !== 'NaN' ? singleSpot.avgStarRating : "New"}</span> · <a onClick={() => setShow404Modal(true)}>{singleSpot.numReviews} {singleSpot.numReviews === 1 ? 'Review' : 'Reviews'}</a> · <i className="fa-solid fa-medal medal2"></i> Superhost · <a onClick={() => setShow404Modal(true)}>{singleSpot.city}</a>,<a onClick={() => setShow404Modal(true)}>{singleSpot.state}</a>,<a onClick={() => setShow404Modal(true)}>{singleSpot.country}</a>
+            <span className='single-spot-avgRating'>{singleSpot.avgStarRating !== 'NaN' ? singleSpot.avgStarRating : "New"}</span> · {" "}
+            <a onClick={() => setShow404Modal(true)}>{singleSpot.numReviews} {singleSpot.numReviews === 1 ? 'Review' : 'Reviews'}</a> · {" "}
+            <i className="fa-solid fa-medal medal2"></i> Superhost · {" "}
+            <a onClick={() => setShow404Modal(true)}>{singleSpot.city}</a>,
+            <a onClick={() => setShow404Modal(true)}>{singleSpot.state}</a>,
+            <a onClick={() => setShow404Modal(true)}>{singleSpot.country}</a>
             {show404Modal && <Modal onClose={() => setShow404Modal(false)}>
               <ComingSoon setShow404Modal={setShow404Modal} />
             </Modal>}
@@ -100,12 +106,15 @@ const SingleSpot = () => {
             <div className='single-spot-lower-left-section-final'>
               <p className='spot-description'>{singleSpot.description}</p>
             </div>
+            <div className='single-spot-map'>
+              <Map spot={singleSpot} />
+            </div>
           </div>
           <div className='single-spot-lower-right'>
             <ReservationForm thisSpot={singleSpot} setShow404Modal={setShow404Modal} />
           </div>
         </div>
-        <div>
+        <div className='review-index'>
           <ReviewIndex spot={singleSpot} />
         </div>
       </div>

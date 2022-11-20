@@ -30,7 +30,11 @@ const ReviewIndex = ({ spot }) => {
   return (
     <div className='reviews-section'>
       <div className='reviews-header'>
-        <h2 className="reviews-title"><i className="fa-solid fa-star"></i> {spot.avgStarRating !== 'NaN' ? spot.avgStarRating : 'New'} · {spot.numReviews} {spot.numReviews === 1 ? 'review' : 'reviews'}</h2>
+        <h2 className="reviews-title">
+          <i className="fa-solid fa-star"></i> {" "}
+          {spot.avgStarRating !== 'NaN' ? spot.avgStarRating : 'New'} · {" "}
+          {spot.numReviews} {spot.numReviews === 1 ? 'review' : 'reviews'}
+        </h2>
         <button className='add-review' onClick={() => setShowModal(true)}>Add a Review</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>

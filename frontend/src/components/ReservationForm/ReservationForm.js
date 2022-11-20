@@ -33,7 +33,9 @@ const ReservationForm = ({ thisSpot, setShow404Modal }) => {
         <span><span className='reservation-price'>${usDollar.format(thisSpot.price)}</span> <span className='night'>night</span></span>
         <span className='reservation-rating-review'>
           <i className="fa-solid fa-star"></i>{" "}
-          {thisSpot.avgStarRating !== 'NaN' ? thisSpot.avgStarRating : 'New'} · <a className='reservation-hover' onClick={() => setShow404Modal(true)}>{thisSpot.numReviews} {thisSpot.numReviews === 1 ? 'review' : 'reviews'}</a></span>
+          {thisSpot.avgStarRating !== 'NaN' ? thisSpot.avgStarRating : 'New'} · {" "}
+          <a className='reservation-hover' onClick={() => setShow404Modal(true)}>{thisSpot.numReviews} {thisSpot.numReviews === 1 ? 'review' : 'reviews'}</a>
+        </span>
       </div>
       <div className='main-field'>
         <form className='reservation-form' onSubmit={handleSubmit}>
