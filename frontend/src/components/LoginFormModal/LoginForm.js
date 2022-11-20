@@ -5,7 +5,7 @@ import '../LoginFormPage/LoginForm.css'
 import './LoginFormModal.css'
 import { NavLink } from "react-router-dom";
 
-function LoginForm({ setShowModal }) {
+function LoginForm({ setShowModal, setShow404Modal }) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -71,26 +71,26 @@ function LoginForm({ setShowModal }) {
         <div className="line"></div>
       </div>
       <div className='widgets'>
-        <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
+        <a><button onClick={() => setShow404Modal(true)} className='widget'>
           <i className="fa-brands fa-facebook fb"></i>
           <span>Continue with Facebook</span>
           <span></span>
-        </button></NavLink>
-        <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
+        </button></a>
+        <a><button onClick={() => setShow404Modal(true)} className='widget'>
           <img className='google' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" />
           <span>Continue with Google</span>
           <span></span>
-        </button></NavLink>
-        <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
+        </button></a>
+        <a><button onClick={() => setShow404Modal(true)} className='widget'>
           <i className="fa-brands fa-apple apple"></i>
           <span>Continue with Apple</span>
           <span></span>
-        </button></NavLink>
-        <NavLink to='coming-soon'><button onClick={() => setShowModal(false)} className='widget'>
+        </button></a>
+        <a><button onClick={() => setShow404Modal(true)} className='widget'>
           <i className="fa-solid fa-mobile-retro phone"></i>
           <span>Continue with phone number</span>
           <span></span>
-        </button></NavLink>
+        </button></a>
       </div>
     </div>
   );

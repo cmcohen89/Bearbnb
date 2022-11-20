@@ -98,7 +98,7 @@ const SingleSpot = () => {
               <a className='learn' onClick={() => setShow404Modal(true)}>Learn more</a>
             </div>
             <div className='single-spot-lower-left-section-final'>
-              <p>{singleSpot.description}</p>
+              <p className='spot-description'>{singleSpot.description}</p>
             </div>
           </div>
           <div className='single-spot-lower-right'>

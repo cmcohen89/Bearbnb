@@ -1,18 +1,17 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { createReview } from '../../store/reviews';
-import { getSpotById } from '../../store/spots';
+import { createReview, getSpotReviews } from '../../store/reviews';
+import { getSingleSpot, getSpotById } from '../../store/spots';
 import './CreateReviewForm.css'
 
 const CreateReviewForm = ({ setShowModal }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const user = useSelector(state => state.session.user);
 
   const { id } = useParams();
-  const spot = useSelector(getSpotById(id))
+  let spot = useSelector(getSpotById(id))
 
   const [review, setReview] = useState('');
   const [stars, setStars] = useState(1);
@@ -35,6 +34,8 @@ const CreateReviewForm = ({ setShowModal }) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
+
+    dispatch(getSingleSpot(spot.id));
 
     if (newReview) setShowModal(false);
   };

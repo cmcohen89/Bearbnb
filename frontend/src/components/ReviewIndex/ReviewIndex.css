@@ -13,6 +13,10 @@
   padding: 10px 0px;
 }
 
+.review-description {
+  /* overflow-wrap: break-word; */
+}
+
 .reviews-header {
   margin-top: 20px;
   display: flex;

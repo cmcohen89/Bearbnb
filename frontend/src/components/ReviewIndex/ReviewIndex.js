@@ -5,9 +5,12 @@ import { getSpotReviews } from '../../store/reviews';
 import './ReviewIndex.css';
 import { Modal } from '../../context/Modal';
 import CreateReviewForm from '../CreateReviewForm/CreateReviewForm';
+import LoginForm from '../LoginFormModal/LoginForm';
 
 const ReviewIndex = ({ spot }) => {
   const dispatch = useDispatch();
+
+  const user = useSelector(state => state.session.user);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -31,7 +34,7 @@ const ReviewIndex = ({ spot }) => {
         <button className='add-review' onClick={() => setShowModal(true)}>Add a Review</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <CreateReviewForm setShowModal={setShowModal} />
+            {user ? <CreateReviewForm setShowModal={setShowModal} /> : <LoginForm setShowModal={setShowModal} />}
           </Modal>
         )}
       </div>
@@ -40,7 +43,7 @@ const ReviewIndex = ({ spot }) => {
           <div className='review-text'>
             <span className='reviewer'>{review.User.firstName}</span><br />
             <span className='review-date'>{review.createdAt}</span>
-            <p>{review.review}</p>
+            <p className='spot-description'>{review.review}</p>
           </div>
         ))}
       </div>

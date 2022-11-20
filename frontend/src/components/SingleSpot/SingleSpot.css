@@ -6,7 +6,7 @@
 
 .single-spot {
   margin: 0 20%;
-  max-width: 1500px;
+  max-width: 1120px;
 }
 
 .single-spot-title {
@@ -173,6 +173,10 @@
 
 .plain-link {
   color: black;
+}
+
+.spot-description {
+  word-break: break-word;
 }
 
 

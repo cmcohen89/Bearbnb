@@ -33,9 +33,6 @@ function App() {
           <Route path="/my_reviews">
             <MyReviewsIndex />
           </Route>
-          <Route path='/coming-soon'>
-            <ComingSoon />
-          </Route>
           <Route>
             <h1 style={{ textAlign: 'center' }}>404 Not Found!</h1>
           </Route>

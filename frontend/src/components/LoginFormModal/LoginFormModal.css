@@ -16,6 +16,7 @@
   background-color: white;
   border: none;
   font-size: 14pt;
+  cursor: pointer;
 }
 
 .top-bar {

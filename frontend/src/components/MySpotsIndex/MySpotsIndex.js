@@ -31,6 +31,7 @@ const MySpotsIndex = () => {
   return (
     <div>
       <h2 className='review-title'>My Spots</h2>
+      {spots.length > 0 ? null : <h1 className='review-title'>You're not the host of any spots!</h1>}
       <div className='my-spots'>
         {spots.map((spot) => (
           <div className='one-review'>

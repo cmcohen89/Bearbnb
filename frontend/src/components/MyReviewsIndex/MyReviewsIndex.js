@@ -29,6 +29,7 @@ const MyReviewsIndex = () => {
   return (
     <>
       <h2 className='review-title'>My Reviews</h2>
+      {reviews.length > 0 ? null : <h1 className='review-title'>You haven't left any reviews!</h1>}
       <div className='my-reviews'>
         {reviews.map((review) => (
           <div className='one-review'>

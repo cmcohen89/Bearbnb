@@ -48,7 +48,7 @@ function Navigation({ isLoaded }) {
         </Modal>}
         {isLoaded && <ProfileButton user={sessionUser} setLogin={setLogin} setShowModal={setShowModal} setShowModal2={setShowModal2} setShow404Modal={setShow404Modal} />}
         {showModal && <Modal onClose={() => setShowModal(false)}>
-          {login ? <LoginForm setShowModal={setShowModal} /> : <SignupFormPage setShowModal={setShowModal} />}
+          {login ? <LoginForm setShowModal={setShowModal} setShow404Modal={setShow404Modal} /> : <SignupFormPage setShowModal={setShowModal} setShow404Modal={setShow404Modal} />}
         </Modal>}
       </div>
     </nav>
