@@ -9,13 +9,8 @@
   letter-spacing: -.75px;
 }
 
-/* @media (max-width: 1900px) {
-  .single-spot-map {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 20%;
-    width: 80vw;
+@media (max-width: 600px) {
+  #map {
+    width: 100%;
   }
-} */
+}

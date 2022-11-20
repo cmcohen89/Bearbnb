@@ -224,7 +224,6 @@
 
 @media (max-width: 600px) {
   .single-spot-container {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -232,6 +231,12 @@
 
   .single-spot {
     text-align: center;
+  }
+
+  .stat-li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .coming-soon {
