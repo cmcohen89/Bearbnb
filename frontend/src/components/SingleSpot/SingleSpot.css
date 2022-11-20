@@ -230,19 +230,8 @@
     justify-content: center;
   }
 
-  .single-spot-subtitle {
-    display: block;
-  }
-
   .single-spot {
-    margin: 0;
     text-align: center;
-  }
-
-  .stat-li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .coming-soon {
