@@ -330,6 +330,14 @@ router.post(
       return next(err);
     }
 
+    if (spot.ownerId === user.id) {
+      const err = new Error('Cannot review your own spot');
+      err.status = 404;
+      err.title = 'Cannot review your own spot';
+      err.errors = ["You can't write a review for your own spot!"];
+      return next(err);
+    }
+
     const spotReviews = await Review.findAll({
       where: {
         spotId: req.params.spotId
