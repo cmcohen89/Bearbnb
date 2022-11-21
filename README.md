@@ -1,4 +1,4 @@
-# [Bearbnb](https://cmcohen-airbnb-project.herokuapp.com/) 
+# [Bearbnb](https://cmcohen-bearbnb.herokuapp.com/) 
 
 ## Table of contents
 * [Intro](#intro)
