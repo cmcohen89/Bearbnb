@@ -192,9 +192,9 @@ const SingleSpot = () => {
             </div>
           </div>
         </div>
-        <div className='single-spot-footer'>
+        {/* <div className='single-spot-footer'>
           Support
-        </div>
+        </div> */}
       </div>
     </div>
   );
