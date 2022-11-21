@@ -6,6 +6,7 @@ import './ReviewIndex.css';
 import { Modal } from '../../context/Modal';
 import CreateReviewForm from '../CreateReviewForm/CreateReviewForm';
 import LoginForm from '../LoginFormModal/LoginForm';
+import { faker } from '@faker-js/faker';
 
 const ReviewIndex = ({ spot }) => {
   const dispatch = useDispatch();
@@ -45,8 +46,15 @@ const ReviewIndex = ({ spot }) => {
       <div className='reviews-div'>
         {reviews.map((review) => (
           <div className='review-text'>
-            <span className='reviewer'>{review.User.firstName}</span><br />
-            <span className='review-date'>{review.createdAt}</span>
+            <div className='review-and-img'>
+              <div className='profile-img-review-container'>
+                <img key={review.id} alt='profile picture' className='profile-img-review' src={faker.image.avatar()}></img>
+              </div>
+              <div>
+                <span className='reviewer'>{review.User.firstName}</span><br />
+                <span className='review-date'>{review.createdAt}</span>
+              </div>
+            </div>
             <p className='spot-description'>{review.review}</p>
           </div>
         ))}

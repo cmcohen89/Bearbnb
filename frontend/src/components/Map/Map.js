@@ -1,13 +1,12 @@
+import MapContainer from '../Maps';
 import './Map.css';
 
 const Map = ({ spot }) => {
 
-  const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${spot.city},${spot.state}&zoom=13&size=600x400&markers=${spot.city},${spot.state}}&key=AIzaSyDwvmLYxp4CdobfLdQet-7TTiXPc0PEOQA`
-
   return (
     <>
       <h3 className='map-header'>Where you'll be</h3>
-      <img id='map' src={mapUrl}></img>
+      <MapContainer spot={spot} />
       <p className='stat-header-item'>{spot.city}, {spot.state}, {spot.country}</p>
       <p className='spot-description'>
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,

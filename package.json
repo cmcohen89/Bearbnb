@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "buffer-writer": "^2.0.0",
+    "@faker-js/faker": "^7.6.0",
     "bcryptjs": "^2.4.3",
+    "buffer-writer": "^2.0.0",
     "packet-reader": "^1.0.0",
     "pg": "^8.8.0",
     "pg-connection-string": "^2.5.0",
@@ -21,7 +22,6 @@
     "split2": "^4.1.0",
     "xtend": "^4.0.2"
   },
-  "devDependencies": {},
   "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
     "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",

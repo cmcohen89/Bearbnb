@@ -42,7 +42,7 @@ const SpotIndex = () => {
                   {spot.previewImage && <img className='spot-image' src={spot.previewImage} alt={spot.name}></img>}
                 </div>
                 <h3 className='spot-location'>
-                  {spot.city}, {spot.state}
+                  {spot.city.length < 18 ? `${spot.city}, ` : null}{spot.state}
                   <span className="spot-star">
                     <i className="fa-solid fa-star star"></i>
                     {spot.avgRating ? spot.avgRating : "New"}

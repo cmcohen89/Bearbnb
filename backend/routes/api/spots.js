@@ -539,11 +539,35 @@ router.post(
 
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
 
-    if (address.length < 3 || address.split(' ').length < 2) {
+    if (address.length < 7 || address.split(' ').length < 3) {
       const err = new Error('Please enter a valid address');
       err.status = 401;
       err.title = 'Please enter a valid address';
       err.errors = ["Please enter a valid address"];
+      return next(err);
+    }
+
+    if (city.length > 20) {
+      const err = new Error('City cannot be more than 20 characters');
+      err.status = 401;
+      err.title = 'City cannot be more than 20 characters';
+      err.errors = ["City cannot be more than 20 characters"];
+      return next(err);
+    }
+
+    if (state.length > 20) {
+      const err = new Error('State cannot be more than 20 characters');
+      err.status = 401;
+      err.title = 'State cannot be more than 20 characters';
+      err.errors = ["State cannot be more than 20 characters"];
+      return next(err);
+    }
+
+    if (country.length > 20) {
+      const err = new Error('Country cannot be more than 20 characters');
+      err.status = 401;
+      err.title = 'Country cannot be more than 20 characters';
+      err.errors = ["Country cannot be more than 20 characters"];
       return next(err);
     }
 

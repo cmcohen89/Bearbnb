@@ -1,0 +1,25 @@
+.img-modal {
+  border-radius: 10px;
+  margin-bottom: -5px;
+  height: 70vh;
+  margin-top: -25px;
+}
+
+.x-img {
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  background-color: transparent;
+  border: none;
+  font-size: 14pt;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .img-modal {
+    width: 90vw;
+    height: auto;
+  }
+}

@@ -3,6 +3,13 @@
   border-bottom: 1px solid rgba(128, 128, 128, 0.273);
 }
 
+.review-and-img {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 50px;
+}
+
 .reviews-div {
   display: grid;
   grid-template-columns: auto auto;
@@ -13,8 +20,10 @@
   padding: 10px 0px;
 }
 
-.review-description {
-  /* overflow-wrap: break-word; */
+.profile-img-review {
+  height: 40px;
+  border-radius: 100%;
+  margin-right: 10px;
 }
 
 .reviews-header {
