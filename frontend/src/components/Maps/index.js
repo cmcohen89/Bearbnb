@@ -18,8 +18,25 @@ const MapContainer = ({ spot }) => {
     return null;
   }
 
+  // const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${spot.city},${spot.state}&zoom=13&size=600x400&markers=${spot.city},${spot.state}}&key=${key}`
+
   return (
-    <Maps apiKey={key} spot={spot} />
+    // <Maps apiKey={key} spot={spot} />
+    <>
+      <h3 className='map-header'>Where you'll be</h3>
+      <iframe
+        id='map'
+        className='embed-map'
+        title='location-map'
+        src={`https://www.google.com/maps/embed/v1/place?key=${key}&q=${spot.city}+${spot.state}`}>
+      </iframe>
+      <p className='stat-header-item'>{spot.city}, {spot.state}, {spot.country}</p>
+      <p className='spot-description'>
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
+        quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+      </p>
+    </>
   );
 };
 

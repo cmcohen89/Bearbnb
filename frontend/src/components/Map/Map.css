@@ -2,6 +2,11 @@
   border-top: 1px solid rgba(128, 128, 128, 0.273);
 }
 
+#map {
+  width: 600px;
+  height: 400px;
+}
+
 .map-header {
   margin-bottom: 20px;
   font-weight: 500;
