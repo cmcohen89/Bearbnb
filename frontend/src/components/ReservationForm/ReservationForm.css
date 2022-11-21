@@ -165,3 +165,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-weight: 600;
   letter-spacing: -0.5px;
 }
+
+@media (max-width: 1300px) {
+  .reservation-form {
+    width: 250px;
+  }
+
+  .reserve {
+    width: 240px;
+  }
+
+  .check-in-dropdown,
+  .check-out-dropdown {
+    width: 120px;
+  }
+
+  .guests-dropdown {
+    width: 240px;
+  }
+}

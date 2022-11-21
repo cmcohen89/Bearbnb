@@ -194,8 +194,59 @@
   word-break: break-word;
 }
 
+.offerings {
+  display: flex;
+  justify-content: space-between;
+}
 
-@media (max-width: 1300px) {
+.offerings-list {
+  padding: 0;
+}
+
+.offerings-list-item {
+  padding: 9px 0;
+  list-style: none;
+  letter-spacing: -0.5px;
+}
+
+.offerings-right {
+  margin-right: 90px;
+}
+
+.list-icon {
+  margin-right: 18px;
+  font-size: 15pt;
+}
+
+.offerings-button {
+  font-size: 11pt;
+  margin: 20px 0;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #333;
+  cursor: pointer;
+  width: 200px;
+  font-weight: 600;
+}
+
+.things-to-know {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.273);
+  padding-bottom: 20px;
+}
+
+.offerings-list-header {
+  list-style: none;
+  font-weight: 600;
+}
+
+@media (max-width: 1023px) {
+  .single-spot {
+    margin: 0 20%;
+  }
+
   .single-spot-lower {
     display: block;
   }
@@ -243,8 +294,24 @@
     justify-content: center;
   }
 
-  .profile-img {
+   .profile-img {
     display: none;
+  }
+
+  .offerings {
+    display: block;
+  }
+
+  .offerings-right {
+    margin-right: 0px;
+  }
+
+  .things-to-know {
+    text-align: center;
+  }
+
+  .entire {
+    text-align: center;
   }
 }
 
@@ -274,50 +341,8 @@
   }
 }
 
-.offerings {
-  display: flex;
-  justify-content: space-between;
-}
 
-.offerings-list {
-  padding: 0;
-}
 
-.offerings-list-item {
-  padding: 9px 0;
-  list-style: none;
-  letter-spacing: -0.5px;
-}
+@media (max-width: 1300px) {
 
-.offerings-right {
-  margin-right: 90px;
-}
-
-.list-icon {
-  margin-right: 18px;
-  font-size: 15pt;
-}
-
-.offerings-button {
-  font-size: 11pt;
-  margin: 20px 0;
-  padding: 15px;
-  background-color: white;
-  border-radius: 10px;
-  border: 1px solid #333;
-  cursor: pointer;
-  width: 200px;
-  font-weight: 600;
-}
-
-.things-to-know {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.273);
-  padding-bottom: 20px;
-}
-
-.offerings-list-header {
-  list-style: none;
-  font-weight: 600;
 }
