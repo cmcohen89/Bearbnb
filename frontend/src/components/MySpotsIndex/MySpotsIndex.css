@@ -22,6 +22,7 @@
   border: 1px solid rgba(128, 128, 128, 0.347);
   border-radius: 10px;
   max-width: 320px;
+  background-color: rgba(156, 156, 156, 0.132);
 }
 
 .my-spots-title {
