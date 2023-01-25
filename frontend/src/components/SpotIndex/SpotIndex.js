@@ -29,7 +29,7 @@ const SpotIndex = () => {
 
     return (
         <>
-            <SpotTypeBar setShow404Modal={setShow404Modal} />
+            {/* <SpotTypeBar setShow404Modal={setShow404Modal} /> */}
             {show404Modal && <Modal onClose={() => setShow404Modal(false)}>
                 <ComingSoon setShow404Modal={setShow404Modal} />
             </Modal>}

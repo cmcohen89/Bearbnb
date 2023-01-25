@@ -10,6 +10,7 @@ import ComingSoon from '../ComingSoon/ComingSoon';
 import Map from '../Map/Map';
 import ImageModal from '../ImageModal/ImageModal';
 import { faker } from '@faker-js/faker';
+import { getSpotBookings, getUserBookings } from '../../store/bookings';
 
 const SingleSpot = () => {
     const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const SingleSpot = () => {
 
     useEffect(() => {
         dispatch(getSingleSpot(id));
+        dispatch(getSpotBookings(id));
     }, [dispatch, id]);
 
     if (!singleSpot) return null;
