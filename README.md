@@ -1,4 +1,4 @@
-# [Bearbnb](https://cmcohen-bearbnb.herokuapp.com/) 
+# [Bearbnb](https://cmcohen-bearbnb.herokuapp.com/)
 
 ## Table of contents
 * [Intro](#intro)
@@ -34,7 +34,7 @@ Upcoming features include:
 - Create, read, update, and delete functionality for Favorites
 - Bonus: Bookings - 4th feature with full CRUD
 
-## Technologies 
+## Technologies
 <p>
 <!-- languages -->
 <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
@@ -48,7 +48,7 @@ Upcoming features include:
 <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" />
 <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
 <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
-<p/>
+</p>
 
 ## Demo Image
 
